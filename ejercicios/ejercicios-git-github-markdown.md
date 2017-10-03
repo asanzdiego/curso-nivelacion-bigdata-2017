@@ -1,44 +1,12 @@
-% Ejercicios Git, GitHub y Markdown
-% Adolfo Sanz De Diego
-% Octubre 2017
+# Enunciado ejercicios Git, GitHub y Markdown
 
 
 
-# Acerca de
+## Repositorio masteruah (I)
 
+1. Crear un repositorio en vuestro GitHub llamado **masteruah**.
 
-
-## Autor
-
-- **Adolfo Sanz De Diego**
-    - Blog: [asanzdiego.blogspot.com.es](http://asanzdiego.blogspot.com.es/)
-    - Correo: [asanzdiego@gmail.com](mailto:asanzdiego@gmail.com)
-    - GitHub: [github.com/asanzdiego](http://github.com/asanzdiego)
-    - Twitter: [twitter.com/asanzdiego](http://twitter.com/asanzdiego)
-    - LinkedIn: [in/asanzdiego](http://www.linkedin.com/in/asanzdiego)
-    - SlideShare: [slideshare.net/asanzdiego](http://www.slideshare.net/asanzdiego/)
-
-## Licencia
-
-- **Este obra está bajo una licencia:**
-    - [Creative Commons Reconocimiento-CompartirIgual 3.0](http://creativecommons.org/licenses/by-sa/3.0/es/)
-
-## Fuente
-
-- Las slides y sus fuentes las podéis encontrar en:
-    - <https://github.com/asanzdiego/curso-git-github-markdown-2016>
-
-
-
-# Ejercicios 01
-
-
-
-## Repositorio campusciff (I)
-
-1. Crear un repositorio en vuestro GitHub llamado **campusciff**.
-
-## Repositorio campusciff (II)
+## Repositorio masteruah (II)
 
 1. Clonar vuestro repositio en local.
 
@@ -96,9 +64,9 @@ la carpeta sean ignorados por git.
 
 1. Preguntar los nombres de usuario de GitHub de tus compañeros de clase, búscalos, y sigueles.
 
-1. Seguir los repositorios **campusciff** del resto de tus compañeros.
+1. Seguir los repositorios **masteruah** del resto de tus compañeros.
 
-1. Añadir una estrella a los repositorios **campusciff** del resto de tus compañeros.
+1. Añadir una estrella a los repositorios **masteruah** del resto de tus compañeros.
 
 ## Crear una tabla
 
@@ -114,12 +82,12 @@ con la información de varios de tus compañeros de clase:
 ## Colaboradores
 
 1. Poner a [github.com/asanzdiego](http://github.com/asanzdiego)
-como colaborador del repositorio **campusciff**
+como colaborador del repositorio **masteruah**
 
 ## Notas
 
 1. Este ejercicio es continuación del anterior por lo que
-tendréis que seguir trabajando en el repositorio **campusciff**.
+tendréis que seguir trabajando en el repositorio **masteruah**.
 
 1. También tendreís que ir poniendo los **comandos**
 que habéis tenido que utilizar durante todos los ejercicios
@@ -178,11 +146,11 @@ y las **explicaciones y capturas de pantalla** que consideréis **necesarias** a
 
 ## Crear una organización
 
-1. Crear una organización llamada **campusciff-tunombredeusuariodegithub**
+1. Crear una organización llamada **masteruah-tunombredeusuariodegithub**
 
 ## Crear equipos
 
-1. Crear 2 equipos en la organización **campusciff-tunombredeusuariodegithub**,
+1. Crear 2 equipos en la organización **masteruah-tunombredeusuariodegithub**,
 uno llamado **administradores** con más permisos y otro **colaboradores** con menos permisos.
 
 1. Meter a [github.com/asanzdiego](http://github.com/asanzdiego) y a 2 de vuestros
@@ -197,7 +165,7 @@ compañeros de clase en el equipo **colaboradores**.
 
 ## Crear Pull-requests
 
-1. Hacer 2 forks de 2 repositorios **campusciff-tunombredeusuariodegithub.github.io**
+1. Hacer 2 forks de 2 repositorios **masteruah-tunombredeusuariodegithub.github.io**
 de 2 organizaciones de las que no seais ni administradiores ni colaboradores.
 
 1. Crearos una rama en cada fork.

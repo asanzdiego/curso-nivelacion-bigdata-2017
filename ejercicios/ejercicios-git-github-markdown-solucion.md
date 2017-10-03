@@ -1,20 +1,20 @@
-# Ejercicios
+# Solución ejercicios Git, GitHub y Markdown
 
 
 
-## Repositorio campusciff (I)
+## Repositorio masteruah (I)
 
-1. Crear un repositorio en vuestro GitHub llamado **campusciff**.
+1. Crear un repositorio en vuestro GitHub llamado **masteruah**.
 
 
 ![Crear un repositorio](../slides/img/git/github-new-repo.png)
 
-## Repositorio campusciff (II)
+## Repositorio masteruah (II)
 
 1. Clonar vuestro repositio en local.
 
 ~~~
-git clone git@github.com:asanzdiego/campusciff.git
+git clone git@github.com:asanzdiego/masteruah.git
 ~~~
 
 ## README
@@ -234,9 +234,9 @@ git list
 
 1. Preguntar los nombres de usuario de GitHub de tus compañeros de clase, búscalos, y sigueles.
 
-1. Seguir los repositorios **campusciff** del resto de tus compañeros.
+1. Seguir los repositorios **masteruah** del resto de tus compañeros.
 
-1. Añadir una estrella a los repositorios **campusciff** del resto de tus compañeros.
+1. Añadir una estrella a los repositorios **masteruah** del resto de tus compañeros.
 
 ## Crear una tabla
 
@@ -252,15 +252,15 @@ de varios de tus compañeros de clase:
 ## Colaboradores
 
 1. Poner a [github.com/asanzdiego](http://github.com/asanzdiego) como colaborador
-del repositorio **campusciff**
+del repositorio **masteruah**
 
 ## Crear una organización
 
-1. Crear una organización llamada **campusciff-tunombredeusuariodegithub**
+1. Crear una organización llamada **masteruah-tunombredeusuariodegithub**
 
 ## Crear equipos
 
-1. Crear 2 equipos en la organización **campusciff-tunombredeusuariodegithub**,
+1. Crear 2 equipos en la organización **masteruah-tunombredeusuariodegithub**,
 uno llamado **administradores** con más permisos y otro **colaboradores** con menos permisos.
 
 1. Meter a [github.com/asanzdiego](http://github.com/asanzdiego) y a 2 de vuestros
@@ -275,7 +275,7 @@ compañeros de clase en el equipo **colaboradores**.
 
 ## Crear Pull-requests
 
-1. Hacer 2 forks de 2 repositorios **campusciff-tunombredeusuariodegithub.github.io**
+1. Hacer 2 forks de 2 repositorios **masteruah-tunombredeusuariodegithub.github.io**
 de 2 organizaciones de las que no seais ni administradiores ni colaboradores.
 
 1. Crearos una rama en cada fork.
