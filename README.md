@@ -11,7 +11,7 @@
 - [Slides Comandos Linux](https://asanzdiego.github.io/curso-adaptacion-bigdata-2017/recursos/slides/export/comandos-linux-reveal-slides.html)
 - [Chuleta Shell Script](https://asanzdiego.github.io/curso-adaptacion-bigdata-2017/recursos/otros/chuleta-shell-script.pdf)
 - [Slides SQL](https://asanzdiego.github.io/curso-adaptacion-bigdata-2017/recursos/slides/export/sql-reveal-slides.html)
-- [Slides Git, GitHub y Markdown](https://asanzdiego.github.io/curso-adaptacion-bigdata-2017/recursos/slides/export/git-github-mardown-reveal-slides.html)
+- [Slides Git, GitHub y Markdown](https://asanzdiego.github.io/curso-adaptacion-bigdata-2017/recursos/slides/export/git-github-markdown-reveal-slides.html)
 
 ## Enunciados Ejercicios
 
