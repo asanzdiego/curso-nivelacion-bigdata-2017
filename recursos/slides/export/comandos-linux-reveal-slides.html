@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="generator" content="pandoc">
+  <meta name="description" content="Comandos Linux" />
+  <meta name="author" content="Adolfo Sanz De Diego">
+  <title>Comandos Linux</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../lib/reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../lib/reveal.js-menu/menu.css">
+  <link rel="stylesheet" href="../lib/reveal.js/css/theme/league.css" id="theme">
+
+  <!-- For syntax highlighting -->
+  <link rel="stylesheet" href="../lib/reveal.js/lib/css/zenburn.css">
+  
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../lib/reveal.js/css/print/pdf.css' : '../lib/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+
+  <style type="text/css">
+    code{
+      white-space: pre;
+    }
+    .reveal pre code {
+      background: rgba(255, 255, 255, 0.7);
+      color: rgba(0, 0, 0, 0.7);
+    }
+    .reveal section img {
+      margin: 15px 0px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+    strong {
+      color: #777
+    }
+    a:hover {
+      text-decoration: underline !important;
+    }
+    h1.title {
+      font-size: 350% !important;
+    }
+    h1 {
+      font-size: 250% !important;
+    }
+    h2 {
+      font-size: 150% !important;
+    }
+    h3 {
+      font-size: 100% !important;
+    }
+    @media print {
+      #only-print-parent { display: table !important; }
+      #only-print-child { display: table-cell !important; vertical-align: middle;}
+      h1.title { font-size: 400% !important;}
+      h1 { font-size: 300% !important; }
+      h2 { font-size: 200% !important; }
+      h3 { font-size: 150% !important; }
+    }
+  </style>
+  <!--[if lt IE 9]>
+  <script src="../lib/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="only-print-parent">
+    <div id="only-print-child">
+      <h1 class="title">Comandos Linux</h2>
+      <h2 class="author">Adolfo Sanz De Diego</h2>
+      <h3 class="date">Octubre 2017</h3>
+    </div>
+</section>
+
+<section><section id="acerca-de" class="titleslide slide level1"><h1><span class="header-section-number">1</span> Acerca de</h1></section><section id="autor" class="slide level2">
+<h2><span class="header-section-number">1.1</span> Autor</h2>
+<ul>
+<li><strong>Adolfo Sanz De Diego</strong>
+<ul>
+<li>Blog: <a href="http://asanzdiego.blogspot.com.es/">asanzdiego.blogspot.com.es</a></li>
+<li>Correo: <a href="mailto:asanzdiego@gmail.com">asanzdiego@gmail.com</a></li>
+<li>GitHub: <a href="http://github.com/asanzdiego">github.com/asanzdiego</a></li>
+<li>Twitter: <a href="http://twitter.com/asanzdiego">twitter.com/asanzdiego</a></li>
+<li>LinkedIn: <a href="http://www.linkedin.com/in/asanzdiego">in/asanzdiego</a></li>
+<li>SlideShare: <a href="http://www.slideshare.net/asanzdiego/">slideshare.net/asanzdiego</a></li>
+</ul></li>
+</ul>
+</section><section id="licencia" class="slide level2">
+<h2><span class="header-section-number">1.2</span> Licencia</h2>
+<ul>
+<li><strong>Copyright:</strong>
+<ul>
+<li>Antonio Sarasa Cabezuelo &lt;<a href="mailto:antoniosarasa@campusciff.net">antoniosarasa@campusciff.net</a>&gt;</li>
+</ul></li>
+</ul>
+</section><section id="fuente" class="slide level2">
+<h2><span class="header-section-number">1.3</span> Fuente</h2>
+<ul>
+<li>Las slides y sus fuentes las podéis encontrar en:
+<ul>
+<li><a href="https://github.com/asanzdiego/curso-intro-linux-web-sql-2016" class="uri">https://github.com/asanzdiego/curso-intro-linux-web-sql-2016</a></li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="comandos-básicos" class="titleslide slide level1"><h1><span class="header-section-number">2</span> Comandos básicos</h1></section><section id="ayuda-comandos" class="slide level2">
+<h2><span class="header-section-number">2.1</span> Ayuda Comandos</h2>
+<ul>
+<li><p>El comando <strong>man nombrecomando</strong> muestra el manual del comando. Una vez dentro para salir hay que pulsar la tecla q.</p></li>
+<li><p>También podemos probar con <strong>nombrecomando -h</strong> o <strong>nombrecomando --help</strong> o con <strong>info nombrecomando</strong>.</p></li>
+</ul>
+</section><section id="cambio-de-directorio" class="slide level2">
+<h2><span class="header-section-number">2.2</span> Cambio de directorio</h2>
+<ul>
+<li><p>Para cambiar de directorio se usa el comando <strong>cd directorio_destino</strong>.</p></li>
+<li><p>Usamos <strong>cd ..</strong> para ir al directorio superior.</p></li>
+<li><p>Usamos <strong>cd sin argumentos</strong> para volver a la carpeta personal.</p></li>
+</ul>
+</section><section id="situación-actual" class="slide level2">
+<h2><span class="header-section-number">2.3</span> Situación actual</h2>
+<ul>
+<li>El comando <strong>pwd</strong> imprime la ruta del directorio en el que nos encontramos en este momento.</li>
+</ul>
+</section><section id="listado" class="slide level2">
+<h2><span class="header-section-number">2.4</span> Listado</h2>
+<ul>
+<li>El comando <strong>ls</strong> muestra los nombres de los ficheros y subdirectorios contenidos en el directorio en el que se está. Sólo se obtienen los nombres de los ficheros, sin ninguna otra información.</li>
+</ul>
+</section><section id="listas-ocultos" class="slide level2">
+<h2><span class="header-section-number">2.5</span> Listas ocultos</h2>
+<ul>
+<li><p>El comando <strong>ls -a</strong> muestra todos los ficheros incluyendo algunos que están ocultos para el usuario (aquellos que comienzan por un punto).</p></li>
+<li><p>Observar que el fichero punto . indica el directorio actual y el doble punto .. el directorio padre, que contiene al actual.</p></li>
+</ul>
+</section><section id="listado-ordenados" class="slide level2">
+<h2><span class="header-section-number">2.6</span> Listado ordenados</h2>
+<ul>
+<li><strong>ls -c</strong> muestra ordenando por día y hora de creación.</li>
+<li><strong>ls -t</strong> muestra ordenando por día y hora de modificación.</li>
+<li><strong>ls -r</strong> muestra el directorio y lo ordena en orden inverso.</li>
+<li><strong>ls subdir</strong> muestra el contenido del subdirectorio subdir.</li>
+</ul>
+</section><section id="otros-listados" class="slide level2">
+<h2><span class="header-section-number">2.7</span> Otros listados</h2>
+<ul>
+<li><strong>ls --color</strong> muestra el contenido del directorio coloreado: verde para los ejecutables,azul las carpetas, fucsia las imagenes, rojo los comprimidos, ...</li>
+<li><strong>ls -l</strong> muestra toda la información de cada fichero incluyendo: protecciones, tamaño y fecha de creación o del último cambio introducido,...</li>
+</ul>
+</section><section id="combinación-de-opciones" class="slide level2">
+<h2><span class="header-section-number">2.8</span> Combinación de opciones</h2>
+<ul>
+<li>Las opciones anteriores pueden combinarse como por ejemplo <strong>ls -cr</strong> que muestra el directorio ordenando inversamente por fechas.</li>
+</ul>
+</section><section id="filtrado" class="slide level2">
+<h2><span class="header-section-number">2.9</span> Filtrado</h2>
+<ul>
+<li>Muchos comandos admite los caracteres de sustitución:
+<ul>
+<li><strong>* que representa cualquier conjunto o secuencia de caracteres</strong></li>
+<li>y <strong>? que representa cualquier carácter pero sólo uno</strong>.</li>
+</ul></li>
+<li>Por ejemplo <strong>ls *.gif</strong> muestra todos los nombres de ficheros que acaben en .gif y <strong>ls file?</strong> muestra todos los ficheros cuyos nombres empiecen por file y tengan un nombre de cinco caracteres.</li>
+</ul>
+</section><section id="creación-de-subdirectorios" class="slide level2">
+<h2><span class="header-section-number">2.10</span> Creación de subdirectorios</h2>
+<ul>
+<li>El comando <strong>mkdir</strong> permite crear un nuevo subdirectorio. La sintaxis es mkdir subdir1 donde subdir es el nombre del directorio que se va a crear.</li>
+</ul>
+</section><section id="borrado-de-subdirectorios" class="slide level2">
+<h2><span class="header-section-number">2.11</span> Borrado de subdirectorios</h2>
+<ul>
+<li>El comando <strong>rmdir</strong> borra uno o más directorios del sistema siempre que estos subdirectorios estén vacíos. La sintaxis es rmdir subdir1 donde subdir es el nombre del directorio que se va a eliminar.</li>
+</ul>
+</section><section id="copia-de-ficheros" class="slide level2">
+<h2><span class="header-section-number">2.12</span> Copia de ficheros</h2>
+<ul>
+<li>El comando <strong>cp</strong> permite hacer la copia de un fichero. La sintaxis del comando es cp file1 file2 que indica que hace una copia de file1 y le llama file2. Si file2 no existía, lo crea con los mismos atributos de file1, y en caso de existir su contenido es sustituido por el de file1. El fichero file2 estará en el mismo directorio que file1.</li>
+</ul>
+</section><section id="moverrenombrar-ficheros" class="slide level2">
+<h2><span class="header-section-number">2.13</span> Mover/renombrar ficheros</h2>
+<ul>
+<li><p>El comando <strong>mv</strong> permite mover o renoimbrar un fichero. La sintaxis es mv file1 file2 y realiza la misma función que cp pero eliminando el fichero original. Desde la visión del usuario, se cambia el nombre a file1 por file2.</p></li>
+<li><p>Si los nombres que aparecen son de directorios entonces el comando mv namedir1 namedir2 cambia el nombre del subdirectorio namedir1 por namedir2.</p></li>
+</ul>
+</section><section id="enlaces" class="slide level2">
+<h2><span class="header-section-number">2.14</span> Enlaces</h2>
+<ul>
+<li>Un mismo fichero puede estar repetido con más de un nombre y poder acceder a él desde más de un directorio. Esto último se denomina enlaces múltiples a un fichero, y se crean con el comando <strong>ln</strong>: ln file1 file2 Así el fichero file1 tiene dos nombres: file1 y file2.</li>
+</ul>
+</section><section id="borrado-de-ficheros" class="slide level2">
+<h2><span class="header-section-number">2.15</span> Borrado de ficheros</h2>
+<ul>
+<li>El comando <strong>rm</strong> elimina uno o más ficheros de un directorio en el cual tengamos permiso de escritura. La sintaxis es rm file1 file2</li>
+</ul>
+</section><section id="permisos" class="slide level2">
+<h2><span class="header-section-number">2.16</span> Permisos</h2>
+<ul>
+<li><p>Los permisos de cada fichero se pueden ver con el comando ls -l.</p></li>
+<li>Estos permisos son:
+<ul>
+<li><strong>r</strong>: de lectura (o listar en directorios)</li>
+<li><strong>w</strong>: de escritura (o crear y borrar ficheros en directorios)</li>
+<li><strong>x</strong>: de ejecución (o buscar y utilizar ficheros en directorios)</li>
+</ul></li>
+</ul>
+</section><section id="cambiar-permisos" class="slide level2">
+<h2><span class="header-section-number">2.17</span> Cambiar permisos</h2>
+<ul>
+<li>Para cambiar los permisos de un fichero se emplea el comando <strong>chmod [quien] operacion permiso file</strong> donde:
+<ul>
+<li>quien: indica a quien afecta el permiso que se desea cambiar:
+<ul>
+<li><strong>u</strong>: para el usuario propietario del archivo,</li>
+<li><strong>g</strong>: para el grupo del usuario propietario del archivo,</li>
+<li><strong>o</strong>: para los otros usuarios</li>
+<li><strong>a</strong>: para todos los anteriores. (valor por defecto).</li>
+</ul></li>
+<li>oper: indica si el permiso se da usando un + o se quita usando un -.</li>
+</ul></li>
+</ul>
+</section><section id="cambiar-dueño" class="slide level2">
+<h2><span class="header-section-number">2.18</span> Cambiar dueño</h2>
+<ul>
+<li>El comando <strong>chown</strong> se emplea para cambiar de propietario a un determinado conjunto de ficheros: chown newowner file1 file2 ...</li>
+<li>Sólo lo puede emplear el actual propietario de los mismos.</li>
+<li>Los nombres de propietario se encuentran almacenados en el fichero <strong>/etc/passwd</strong>.</li>
+</ul>
+</section><section id="cambio-de-grupo" class="slide level2">
+<h2><span class="header-section-number">2.19</span> Cambio de grupo</h2>
+<ul>
+<li>El comando <strong>chgrp</strong> se emplea para cambiar el grupo al que pertenece un fichero : chgrp newgroup file1 file2...</li>
+<li>Los grupos de usuarios están almacenados en el fichero <strong>/etc/group</strong>.</li>
+</ul>
+</section><section id="visualización-con-cat" class="slide level2">
+<h2><span class="header-section-number">2.20</span> Visualización con cat</h2>
+<ul>
+<li>El comando <strong>cat filename</strong> permite visualizar el contenido de uno o más ficheros de forma no formateada, y copiar uno o más ficheros como apéndice de otro ya existente.</li>
+</ul>
+</section><section id="concatenar-ficheros" class="slide level2">
+<h2><span class="header-section-number">2.21</span> Concatenar ficheros</h2>
+<ul>
+<li><strong>cat file1 file2 &gt;file3</strong>: El contenido de los ficheros file1 y file2 es almacenado en file3.</li>
+<li><strong>cat file1 file2 &gt;&gt;file3</strong>: el contenido de file1 y file2 es añadido al final de file3.</li>
+<li><strong>cat &gt;file1</strong>: Acepta lo que se introduce por el teclado y lo almacena en file1 (se crea file1). Para terminar se emplea <ctrl>d</li>
+</ul>
+</section><section id="visualización-con-more" class="slide level2">
+<h2><span class="header-section-number">2.22</span> Visualización con more</h2>
+<ul>
+<li><p>El comando <strong>more filename</strong> permite visualizar el contenido de un fichero pantalla pantalla.</p></li>
+<li><p>Para pasar de pantalla se utiliza la barra espaciadora o la tecla enter.</p></li>
+<li><p>Para salir se pulsa <ctrl>d o q.</p></li>
+</ul>
+</section><section id="visualización-con-less" class="slide level2">
+<h2><span class="header-section-number">2.23</span> Visualización con less</h2>
+<ul>
+<li><p>El comando <strong>less filename</strong> permite visualizar el contenido de un fichero pantalla pantalla.</p></li>
+<li><p>Para pasar de pantalla se utilizan las flechas arriba y abajo.</p></li>
+<li><p>Para salir se pulsa <ctrl>d o q.</p></li>
+</ul>
+</section><section id="búsqueda-en-ficheros" class="slide level2">
+<h2><span class="header-section-number">2.24</span> Búsqueda en ficheros</h2>
+<ul>
+<li><p>El comando <strong>grep 'conjuntocaracteres' file1 file2 file3</strong> busca una palabra, clave o frase en un conjunto de directorios, indicando en cuáles de ellos la ha encontrado.</p></li>
+<li><p>Se pueden utilizar expresiones regulares de la forma: grep [-opcion] expresión_regular [referencia...]</p></li>
+</ul>
+</section><section id="opciones-grep" class="slide level2">
+<h2><span class="header-section-number">2.25</span> Opciones grep</h2>
+<ul>
+<li><strong>c</strong>: escribe el número de las líneas que satisface la condición.</li>
+<li><strong>i</strong>: no se distinguen mayúsculas y minúsculas.</li>
+<li><strong>l</strong>: escribe los nombres de los ficheros que contienen líneas buscadas.</li>
+<li><strong>n</strong>: cada línea es precedida por su número en el fichero.</li>
+</ul>
+</section><section id="mas-opciones-grep" class="slide level2">
+<h2><span class="header-section-number">2.26</span> Mas opciones grep</h2>
+<ul>
+<li><strong>s</strong>: no se vuelcan los mensajes que indican que un fichero no se puede abrir.</li>
+<li><strong>v</strong>: se muestran sólo las líneas que no satisfacen el criterio de selección.</li>
+</ul>
+</section><section id="ejemplos-grep" class="slide level2">
+<h2><span class="header-section-number">2.27</span> Ejemplos grep</h2>
+<ul>
+<li><strong>grep ‘ˆd’ text</strong> recupera las líneas que comienzan por d.</li>
+<li><strong>grep ‘ˆ[ˆd]’ text</strong> recupera las líneas que no comienzan por d.</li>
+<li><strong>grep -v ‘ˆC’ file1 &gt; file2</strong> quita las líneas de file1 que comienzan por C y lo copia en file2.</li>
+</ul>
+</section><section id="redirecciones" class="slide level2">
+<h2><span class="header-section-number">2.28</span> Redirecciones</h2>
+<ul>
+<li><p>Se puede redirigir la salida de un comando usando los operadores:</p>
+<ul>
+<li>(<strong>&gt;</strong>) redirige la salida estándar hacia el fichero indicado y en caso de no existir se crea.</li>
+<li>(<strong>&lt;</strong>) redirige la entrada estándar desde un determinado fichero</li>
+<li>(<strong>&gt;&gt;</strong>) redirige la salida estándar hacia otro fichero, pero añadiendo dicha salida al final de ese fichero, sin sobreescribir el contenido original.</li>
+</ul></li>
+</ul>
+</section><section id="ejemplos-redirecciones" class="slide level2">
+<h2><span class="header-section-number">2.29</span> Ejemplos Redirecciones:</h2>
+<ul>
+<li><p><strong>date &gt;&gt; archivo</strong> el fichero archivo contendrá información sobre todas las veces que hemos entrado en el sistema.</p></li>
+<li><p><strong>cat file1 file2 &gt; file3</strong> añade al fichero file2 al final de file1 y al conjunto lo llama file3</p></li>
+</ul>
+</section><section id="tuberías" class="slide level2">
+<h2><span class="header-section-number">2.30</span> Tuberías</h2>
+<ul>
+<li><p>Una tubería (|) permite comunicar la salida estándar de un comando con la entrada estándar de otro.</p></li>
+<li><p>Por ejemplo <strong>ls | mail juan</strong> envía a juan una lista de los ficheros del sistema.</p></li>
+<li><p>Con el operador de tubería se pueden empalmar tantos comandos como se desee.</p></li>
+</ul>
+</section><section id="ejecución-segundo-plano" class="slide level2">
+<h2><span class="header-section-number">2.31</span> Ejecución segundo plano</h2>
+<ul>
+<li>El carácter <strong>&amp; al final</strong> permite realizar una ejecución en segundo plano recuperando inmediatamente el control del terminal. Para ello se añade el carácter &amp; al final del comando de ejecución.</li>
+</ul>
+</section><section id="parar-un-proceso" class="slide level2">
+<h2><span class="header-section-number">2.32</span> Parar un proceso</h2>
+<ul>
+<li>Para detener la ejecución de un proceso se puede utilizar el comando <strong>kill númerodeproceso</strong>.</li>
+</ul>
+</section><section id="continuar-en-segundo-plano" class="slide level2">
+<h2><span class="header-section-number">2.33</span> Continuar en segundo plano</h2>
+<ul>
+<li>Cuando se sale del sistema si hay algún proceso ejecutándose en segundo plano se para salvo que se use el comando <strong>nohup nombreprograma</strong>. En este caso todas las salidas del programa se dirigen a un fichero llamado nohup.out.</li>
+</ul>
+</section><section id="cambiar-la-prioridad" class="slide level2">
+<h2><span class="header-section-number">2.34</span> Cambiar la prioridad</h2>
+<ul>
+<li><p>Para darle al programa la prioridad mínima habría que invocarlo con <strong>nice -19 nombreprograma &amp;</strong>.</p></li>
+<li><p>Para darle al programa la prioridad máxima habría que invocarlo con <strong>nice --20 nombreprograma &amp;</strong>.</p></li>
+</ul>
+</section><section id="listado-procesos" class="slide level2">
+<h2><span class="header-section-number">2.35</span> Listado procesos</h2>
+<ul>
+<li>El comando <strong>top</strong> muestra una lista de los procesos que se están ejecutando.</li>
+</ul>
+</section><section id="agrupación-de-ficheros" class="slide level2">
+<h2><span class="header-section-number">2.36</span> Agrupación de ficheros</h2>
+<ul>
+<li>El comando <strong>tar -cvf nombre_archivo.tar fichero1 fichero2 ...</strong> agrupa varios ficheros en uno solo “archivo” tar</li>
+</ul>
+</section><section id="compresión-de-ficheros" class="slide level2">
+<h2><span class="header-section-number">2.37</span> Compresión de ficheros</h2>
+<ul>
+<li>El comando <strong>gzip fichero</strong> comprime fichero (que es borrado) y se crea un fichero con nombre fichero.gz.</li>
+</ul>
+</section><section id="agrupación-y-compresión" class="slide level2">
+<h2><span class="header-section-number">2.38</span> Agrupación y compresión</h2>
+<ul>
+<li>El comando <strong>tar -czfv archivo.tar.gz ficheros</strong> empaqueta y comprime ficheros.</li>
+</ul>
+</section><section id="descomprimir-ficheros" class="slide level2">
+<h2><span class="header-section-number">2.39</span> Descomprimir ficheros</h2>
+<ul>
+<li>El comando <strong>tar -xzvf archivo.tar.gz</strong> descomprime archivo.tar.gz</li>
+</ul>
+</section></section>
+<section><section id="otros-comandos" class="titleslide slide level1"><h1><span class="header-section-number">3</span> Otros comandos</h1></section><section id="espacio-carpetas" class="slide level2">
+<h2><span class="header-section-number">3.1</span> Espacio carpetas</h2>
+<ul>
+<li><p>El comando <strong>du</strong> permite conocer el espacio en bloques ocupado en el disco por un determinado directorio y todos los subdirectorios que cuelgan de él.</p></li>
+<li><p>Para obtener la información en bytes se debe emplear la opción -h: <strong>du -h</strong></p></li>
+</ul>
+</section><section id="espacio-particiones" class="slide level2">
+<h2><span class="header-section-number">3.2</span> Espacio particiones</h2>
+<ul>
+<li><p>El comando <strong>df</strong> informa del espacio usado por las particiones del sistema que se encuentren montadas.</p></li>
+<li><p>Para obtener la información en bytes se debe emplear la opción -h: <strong>df -h</strong></p></li>
+</ul>
+</section><section id="fecha" class="slide level2">
+<h2><span class="header-section-number">3.3</span> Fecha</h2>
+<ul>
+<li>El comando <strong>date</strong> muestra el día y la hora.</li>
+</ul>
+</section><section id="calendario" class="slide level2">
+<h2><span class="header-section-number">3.4</span> Calendario</h2>
+<ul>
+<li>El comando <strong>cal</strong> muestra el calendario. Tiene diversas opciones. Por ejemplo cal 1945 mostraría el calendario del año 1945.</li>
+</ul>
+</section><section id="usuarios-conectados" class="slide level2">
+<h2><span class="header-section-number">3.5</span> Usuarios conectados</h2>
+<ul>
+<li>El comando <strong>who</strong> muestralos usuarios están conectados al ordenador en ese momento, en qué terminal están y desde qué hora.</li>
+</ul>
+</section><section id="quien-soy" class="slide level2">
+<h2><span class="header-section-number">3.6</span> Quien soy</h2>
+<ul>
+<li>El comando <strong>whoami</strong> te indica quien eres.</li>
+</ul>
+</section><section id="tiempo-sin-apagar" class="slide level2">
+<h2><span class="header-section-number">3.7</span> Tiempo sin apagar</h2>
+<ul>
+<li>El comando <strong>uptime</strong> muestra el tiempo que lleva encendido nuestro ordenador.</li>
+</ul>
+</section><section id="nombre-de-la-máquina" class="slide level2">
+<h2><span class="header-section-number">3.8</span> Nombre de la máquina</h2>
+<ul>
+<li>El comando <strong>hostname</strong> muestra el nombre de la máquina.</li>
+</ul>
+</section><section id="hardware" class="slide level2">
+<h2><span class="header-section-number">3.9</span> Hardware</h2>
+<ul>
+<li>El comando <strong>lshw</strong> muestra todas las características del hardware.</li>
+</ul>
+</section><section id="dispositivos-pci" class="slide level2">
+<h2><span class="header-section-number">3.10</span> Dispositivos PCI</h2>
+<ul>
+<li>El comando <strong>lspci</strong> muestra los diferentes dispositivos PCI.</li>
+</ul>
+</section><section id="dispositivos-usb" class="slide level2">
+<h2><span class="header-section-number">3.11</span> Dispositivos USB</h2>
+<ul>
+<li>El comando <strong>lsusb</strong> muestra los dispositivos tengo en los bus USB</li>
+</ul>
+</section><section id="comandos-usados" class="slide level2">
+<h2><span class="header-section-number">3.12</span> Comandos usados</h2>
+<ul>
+<li>El comando <strong>history</strong> muestra los comandos usados por el usuario en orden cronológico.</li>
+</ul>
+</section><section id="permisos-por-defecto" class="slide level2">
+<h2><span class="header-section-number">3.13</span> Permisos por defecto</h2>
+<ul>
+<li>El comando <strong>umask</strong> muestra los permisos con los que el usuario creara sus archivos por defecto</li>
+</ul>
+</section><section id="versión-kernel" class="slide level2">
+<h2><span class="header-section-number">3.14</span> Versión kernel</h2>
+<ul>
+<li>El comando <strong>uname -r</strong> muestra la version del kernel</li>
+</ul>
+</section><section id="cerrar-programas" class="slide level2">
+<h2><span class="header-section-number">3.15</span> Cerrar programas</h2>
+<ul>
+<li>El comando <strong>xkill</strong> permite cerrar un programa bloqueado.</li>
+</ul>
+</section><section id="grupos" class="slide level2">
+<h2><span class="header-section-number">3.16</span> Grupos</h2>
+<ul>
+<li>El comando <strong>groups</strong> muestra los grupos del sistema a los que pertenece un usuario.</li>
+</ul>
+</section><section id="limpiar-terminal" class="slide level2">
+<h2><span class="header-section-number">3.17</span> Limpiar terminal</h2>
+<ul>
+<li>El comando <strong>clear</strong> limpia el terminal.</li>
+</ul>
+</section><section id="primeras-líneas" class="slide level2">
+<h2><span class="header-section-number">3.18</span> Primeras líneas</h2>
+<ul>
+<li>El comando <strong>head</strong> muestras las primeras líneas de un fichero</li>
+</ul>
+</section><section id="ultimas-líneas" class="slide level2">
+<h2><span class="header-section-number">3.19</span> Ultimas líneas</h2>
+<ul>
+<li>El comando <strong>tail</strong> muestras las últimas líneas de un fichero</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="../lib/reveal.js/lib/js/head.min.js"></script>
+  <script src="../lib/reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        pdfMaxPagesPerSlide: 1,
+transition: 'convex',
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1024,
+        height: 576,
+        // Factor of the display size that should remain empty around the content
+        margin: 0.3,
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 0.1,
+        maxScale: 1.9,
+
+        menu: {
+            // Specifies which side of the presentation the menu will
+            // be shown. Use 'left' or 'right'.
+            side: 'left',
+
+            // Add slide numbers to the titles in the slide list.
+            // Use 'true' or format string (same as reveal.js slide numbers)
+            numbers: false,
+
+            // Specifies which slide elements will be used for generating
+            // the slide titles in the menu. The default selects the first
+            // heading element found in the slide, but you can specify any
+            // valid css selector and the text from the first matching
+            // element will be used.
+            // Note: that a section data-menu-title attribute or an element
+            // with a menu-title class will take precedence over this option
+            titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+            // Hide slides from the menu that do not have a title.
+            // Set to 'true' to only list slides with titles.
+            hideMissingTitles: false,
+
+            // Add markers to the slide titles to indicate the
+            // progress through the presentation
+            markers: false,
+
+            // Specify custom panels to be included in the menu, by
+            // providing an array of objects with 'title', 'icon'
+            // properties, and either a 'src' or 'content' property.
+            custom: false,
+
+            // Specifies the themes that will be available in the themes
+            // menu panel. Set to 'false' to hide themes panel.
+            themes: [
+                { name: 'Black', theme: '../lib/reveal.js/css/theme/black.css' },
+                { name: 'White', theme: '../lib/reveal.js/css/theme/white.css' },
+                { name: 'League', theme: '../lib/reveal.js/css/theme/league.css' },
+                { name: 'Sky', theme: '../lib/reveal.js/css/theme/sky.css' },
+                { name: 'Beige', theme: '../lib/reveal.js/css/theme/beige.css' },
+                { name: 'Simple', theme: '../lib/reveal.js/css/theme/simple.css' },
+                { name: 'Serif', theme: '../lib/reveal.js/css/theme/serif.css' },
+                { name: 'Blood', theme: '../lib/reveal.js/css/theme/blood.css' },
+                { name: 'Night', theme: '../lib/reveal.js/css/theme/night.css' },
+                { name: 'Moon', theme: '../lib/reveal.js/css/theme/moon.css' },
+                { name: 'Solarized', theme: '../lib/reveal.js/css/theme/solarized.css' }
+            ],
+
+            // Specifies if the transitions menu panel will be shown.
+            transitions: true,
+
+            // Adds a menu button to the slides to open the menu panel.
+            // Set to 'false' to hide the button.
+            openButton: true,
+
+            // If 'true' allows the slide number in the presentation to
+            // open the menu panel. The reveal.js slideNumber option must
+            // be displayed for this to take effect
+            openSlideNumber: false,
+
+            // If true allows the user to open and navigate the menu using
+            // the keyboard. Standard keyboard interaction with reveal
+            // will be disabled while the menu is open.
+            keyboard: true
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '../lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: '../lib/reveal.js/plugin/notes/notes.js', async: true },
+          //{ src: '../lib/reveal.js/plugin/search/search.js', async: true },
+          { src: '../lib/reveal.js-menu/menu.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

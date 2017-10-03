@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="generator" content="pandoc">
+  <meta name="description" content="VirtualBox" />
+  <meta name="author" content="Adolfo Sanz De Diego">
+  <title>VirtualBox</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../lib/reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../lib/reveal.js-menu/menu.css">
+  <link rel="stylesheet" href="../lib/reveal.js/css/theme/league.css" id="theme">
+
+  <!-- For syntax highlighting -->
+  <link rel="stylesheet" href="../lib/reveal.js/lib/css/zenburn.css">
+  
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../lib/reveal.js/css/print/pdf.css' : '../lib/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+
+  <style type="text/css">
+    code{
+      white-space: pre;
+    }
+    .reveal pre code {
+      background: rgba(255, 255, 255, 0.7);
+      color: rgba(0, 0, 0, 0.7);
+    }
+    .reveal section img {
+      margin: 15px 0px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+    strong {
+      color: #777
+    }
+    a:hover {
+      text-decoration: underline !important;
+    }
+    h1.title {
+      font-size: 350% !important;
+    }
+    h1 {
+      font-size: 250% !important;
+    }
+    h2 {
+      font-size: 150% !important;
+    }
+    h3 {
+      font-size: 100% !important;
+    }
+    @media print {
+      #only-print-parent { display: table !important; }
+      #only-print-child { display: table-cell !important; vertical-align: middle;}
+      h1.title { font-size: 400% !important;}
+      h1 { font-size: 300% !important; }
+      h2 { font-size: 200% !important; }
+      h3 { font-size: 150% !important; }
+    }
+  </style>
+  <!--[if lt IE 9]>
+  <script src="../lib/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="only-print-parent">
+    <div id="only-print-child">
+      <h1 class="title">VirtualBox</h2>
+      <h2 class="author">Adolfo Sanz De Diego</h2>
+      <h3 class="date">Octubre 2017</h3>
+    </div>
+</section>
+
+<section><section id="acerca-de" class="titleslide slide level1"><h1><span class="header-section-number">1</span> Acerca de</h1></section><section id="autor" class="slide level2">
+<h2><span class="header-section-number">1.1</span> Autor</h2>
+<ul>
+<li><strong>Adolfo Sanz De Diego</strong>
+<ul>
+<li>Blog: <a href="http://asanzdiego.blogspot.com.es/">asanzdiego.blogspot.com.es</a></li>
+<li>Correo: <a href="mailto:asanzdiego@gmail.com">asanzdiego@gmail.com</a></li>
+<li>GitHub: <a href="http://github.com/asanzdiego">github.com/asanzdiego</a></li>
+<li>Twitter: <a href="http://twitter.com/asanzdiego">twitter.com/asanzdiego</a></li>
+<li>LinkedIn: <a href="http://www.linkedin.com/in/asanzdiego">in/asanzdiego</a></li>
+<li>SlideShare: <a href="http://www.slideshare.net/asanzdiego/">slideshare.net/asanzdiego</a></li>
+</ul></li>
+</ul>
+</section><section id="licencia" class="slide level2">
+<h2><span class="header-section-number">1.2</span> Licencia</h2>
+<ul>
+<li><strong>Copyright:</strong>
+<ul>
+<li>Antonio Sarasa Cabezuelo &lt;<a href="mailto:antoniosarasa@campusciff.net">antoniosarasa@campusciff.net</a>&gt;</li>
+</ul></li>
+</ul>
+</section><section id="fuente" class="slide level2">
+<h2><span class="header-section-number">1.3</span> Fuente</h2>
+<ul>
+<li>Las slides y sus fuentes las podéis encontrar en:
+<ul>
+<li><a href="https://github.com/asanzdiego/curso-intro-linux-web-sql-2016" class="uri">https://github.com/asanzdiego/curso-intro-linux-web-sql-2016</a></li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="virtualbox" class="titleslide slide level1"><h1><span class="header-section-number">2</span> VirtualBox</h1></section><section id="qué-es" class="slide level2">
+<h2><span class="header-section-number">2.1</span> ¿Qué es?</h2>
+<ul>
+<li><p>Programa de Software Libre.</p></li>
+<li><p>Permite <strong>instalar un Sistema Operativo dentro de otro</strong>.</p></li>
+</ul>
+</section><section id="descarga" class="slide level2">
+<h2><span class="header-section-number">2.2</span> Descarga</h2>
+<ul>
+<li>https://www.virtualbox.org/wiki/Downloads</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-01.png" alt="Descarga de VirtualBox" text-align="center" style="width:50.0%" /><figcaption>Descarga de VirtualBox</figcaption>
+</figure>
+</section><section id="instalación" class="slide level2">
+<h2><span class="header-section-number">2.3</span> Instalación</h2>
+<ul>
+<li><p>Elegir la versión adecuada para el Sistema Operativo que tenemos instalado.</p></li>
+<li><p>Intalar de la forma habitual dependiendo del Sistema Operativo instalado.</p></li>
+</ul>
+</section></section>
+<section><section id="descargar-ubuntu" class="titleslide slide level1"><h1><span class="header-section-number">3</span> Descargar Ubuntu</h1></section><section id="ubuntu" class="slide level2">
+<h2><span class="header-section-number">3.1</span> Ubuntu</h2>
+<ul>
+<li>Ubuntu es una <strong>districución Linux</strong> muy utilizada.</li>
+</ul>
+</section><section id="enlace" class="slide level2">
+<h2><span class="header-section-number">3.2</span> Enlace</h2>
+<ul>
+<li>http://www.ubuntu.com/download/desktop</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/ubuntu-01.png" alt="Enlace de Ubuntu" text-align="center" style="width:50.0%" /><figcaption>Enlace de Ubuntu</figcaption>
+</figure>
+</section><section id="donativo" class="slide level2">
+<h2><span class="header-section-number">3.3</span> Donativo</h2>
+<ul>
+<li>Al pulsar el botón &quot;Download&quot;, nos lleva a una página para realizar una donación, y si no queremos donar y continuar pulsamos en la parte inferior en &quot;<strong>Not now, take me to the download</strong>&quot;.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/ubuntu-02.png" alt="Donativo de Ubuntu" text-align="center" style="width:50.0%" /><figcaption>Donativo de Ubuntu</figcaption>
+</figure>
+</section><section id="descarga-1" class="slide level2">
+<h2><span class="header-section-number">3.4</span> Descarga</h2>
+<ul>
+<li>La descarga coomenzará automáticamente, pero si no lo hiciera pulsamos sobre &quot;<strong>download now</strong>&quot;.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/ubuntu-03.png" alt="Descarga de Ubuntu" text-align="center" style="width:50.0%" /><figcaption>Descarga de Ubuntu</figcaption>
+</figure>
+</section></section>
+<section><section id="crear-máquina-virtual" class="titleslide slide level1"><h1><span class="header-section-number">4</span> Crear Máquina Virtual</h1></section><section id="abrir-virtualbox" class="slide level2">
+<h2><span class="header-section-number">4.1</span> Abrir VirtualBox</h2>
+<ul>
+<li>Abrimos <strong>VirtualBox</strong>:</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-02.png" alt="Abrir VirtualBox" text-align="center" style="width:50.0%" /><figcaption>Abrir VirtualBox</figcaption>
+</figure>
+</section><section id="nueva-máquina-virtual" class="slide level2">
+<h2><span class="header-section-number">4.2</span> Nueva Máquina Virtual</h2>
+<ul>
+<li>Pulsamos sobre &quot;<strong>Nueva</strong>&quot; para añadir una nueva máquina virtual.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-03.png" alt="Nueva Máquina Virtual" text-align="center" style="width:50.0%" /><figcaption>Nueva Máquina Virtual</figcaption>
+</figure>
+</section><section id="nombre-máquina-virtual" class="slide level2">
+<h2><span class="header-section-number">4.3</span> Nombre Máquina Virtual</h2>
+<ul>
+<li>En el asistente insertamos en el nombre &quot;<strong>Ubuntu</strong>&quot;.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-04.png" alt="Nombre Máquina Virtual" text-align="center" style="width:50.0%" /><figcaption>Nombre Máquina Virtual</figcaption>
+</figure>
+</section><section id="memoria-máquina-virtual" class="slide level2">
+<h2><span class="header-section-number">4.4</span> Memoria Máquina Virtual</h2>
+<ul>
+<li>Elegimos la cantidad de <strong>memoria</strong> reservada a Ubuntu:</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-05.png" alt="Memoria Máquina Virtual" text-align="center" style="width:50.0%" /><figcaption>Memoria Máquina Virtual</figcaption>
+</figure>
+</section><section id="crear-disco-virtual" class="slide level2">
+<h2><span class="header-section-number">4.5</span> Crear Disco Virtual</h2>
+<ul>
+<li>Seleecionamos &quot;<strong>Crear disco virtual ahora</strong>&quot;.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-06.png" alt="Crear Disco Virtual" text-align="center" style="width:50.0%" /><figcaption>Crear Disco Virtual</figcaption>
+</figure>
+</section><section id="tipo-disco-virtual" class="slide level2">
+<h2><span class="header-section-number">4.6</span> Tipo Disco Virtual</h2>
+<ul>
+<li>Seleccionamos <strong>VDI(VirtualBox Disk Image)</strong>.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-07.png" alt="Tipo Disco Virtual" text-align="center" style="width:50.0%" /><figcaption>Tipo Disco Virtual</figcaption>
+</figure>
+</section><section id="tipo-almacenamiento" class="slide level2">
+<h2><span class="header-section-number">4.7</span> Tipo Almacenamiento</h2>
+<ul>
+<li>Seleccionamos &quot;<strong>Reservado dinámicamente</strong>&quot;.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-08.png" alt="Tipo Almacenamiento" text-align="center" style="width:50.0%" /><figcaption>Tipo Almacenamiento</figcaption>
+</figure>
+</section><section id="ubicación-y-tamaño" class="slide level2">
+<h2><span class="header-section-number">4.8</span> Ubicación y Tamaño</h2>
+<ul>
+<li>Podemos seleccionar <strong>la ubicación y el tamaño</strong> del disco virtual.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-09.png" alt="Ubicación y Tamaño" text-align="center" style="width:50.0%" /><figcaption>Ubicación y Tamaño</figcaption>
+</figure>
+</section><section id="finalizar" class="slide level2">
+<h2><span class="header-section-number">4.9</span> Finalizar</h2>
+<ul>
+<li>Si todo ha salido bien nos aparecerá la <strong>máquina recién creada</strong> en VirtualBox.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-10.png" alt="Listar Máquina Virtual" text-align="center" style="width:50.0%" /><figcaption>Listar Máquina Virtual</figcaption>
+</figure>
+</section><section id="configurar-máquina-virtual" class="slide level2">
+<h2><span class="header-section-number">4.10</span> Configurar Máquina Virtual</h2>
+</section><section id="abrir-configuración" class="slide level2">
+<h2><span class="header-section-number">4.11</span> Abrir configuración</h2>
+<ul>
+<li>Seleccionamos máquina recién creada y pulsamos en &quot;<strong>Configuración</strong>&quot;.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-11.png" alt="Abrir configuración" text-align="center" style="width:50.0%" /><figcaption>Abrir configuración</figcaption>
+</figure>
+</section><section id="configurar-almacenamiento" class="slide level2">
+<h2><span class="header-section-number">4.12</span> Configurar almacenamiento</h2>
+<ul>
+<li>Pulsamos sobre &quot;<strong>Almacenamiento</strong>&quot;.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-12.png" alt="Configurar almacenamiento" text-align="center" style="width:50.0%" /><figcaption>Configurar almacenamiento</figcaption>
+</figure>
+</section><section id="seleccionar-cd-virtual" class="slide level2">
+<h2><span class="header-section-number">4.13</span> Seleccionar CD Virtual</h2>
+<ul>
+<li>Pulsamos sobre el <strong>icono &quot;CD&quot;</strong> del cuadro &quot;Árbol de almacenamiento&quot; del árbol &quot;Controlador:IDE&quot; que aparece vacío.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-13.png" alt="Seleccionamos CD" text-align="center" style="width:50.0%" /><figcaption>Seleccionamos CD</figcaption>
+</figure>
+</section><section id="buscar-archivo" class="slide level2">
+<h2><span class="header-section-number">4.14</span> Buscar archivo</h2>
+<ul>
+<li>Pulsamos en el <strong>icono &quot;CD&quot;</strong> de la parte de la derecha.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-14.png" alt="Buscar archivo" text-align="center" style="width:50.0%" /><figcaption>Buscar archivo</figcaption>
+</figure>
+</section><section id="seleccionar-iso" class="slide level2">
+<h2><span class="header-section-number">4.15</span> Seleccionar ISO</h2>
+<ul>
+<li>Buscamos el <strong>archivo ISO de Ubuntu</strong> anteriormente descargado.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-15.png" alt="Seleccionar ISO" text-align="center" style="width:50.0%" /><figcaption>Seleccionar ISO</figcaption>
+</figure>
+</section><section id="cerrar-configuración" class="slide level2">
+<h2><span class="header-section-number">4.16</span> Cerrar configuración</h2>
+<ul>
+<li>Si todo ha salido bien nos aparecerá el <strong>ISO en la configuración</strong>.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-16.png" alt="Cerrar configuración" text-align="center" style="width:50.0%" /><figcaption>Cerrar configuración</figcaption>
+</figure>
+</section><section id="finalizar-1" class="slide level2">
+<h2><span class="header-section-number">4.17</span> Finalizar</h2>
+<ul>
+<li>Si todo ha salido bien nos aparecerá la <strong>máquina con la ISO</strong> en VirtualBox.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-17.png" alt="Listar Máquina Virtual" text-align="center" style="width:50.0%" /><figcaption>Listar Máquina Virtual</figcaption>
+</figure>
+</section></section>
+<section><section id="intalar-ubuntu" class="titleslide slide level1"><h1><span class="header-section-number">5</span> Intalar Ubuntu</h1></section><section id="iniciar-máquina-virtual" class="slide level2">
+<h2><span class="header-section-number">5.1</span> Iniciar Máquina Virtual</h2>
+<ul>
+<li>Pulsamos sobre el icono de &quot;<strong>Iniciar</strong>&quot;, y el sistema empieza a cargarse.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/ubuntu-04.png" alt="Inicia Máquina Virtual" text-align="center" style="width:50.0%" /><figcaption>Inicia Máquina Virtual</figcaption>
+</figure>
+</section><section id="seleccionar-idioma" class="slide level2">
+<h2><span class="header-section-number">5.2</span> Seleccionar idioma</h2>
+<ul>
+<li>Seleccionamos &quot;<strong>Español</strong>&quot; y pulsamos en &quot;<strong>Instalar Ubuntu</strong>&quot;.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/ubuntu-05.png" alt="Seleccionar idioma" text-align="center" style="width:50.0%" /><figcaption>Seleccionar idioma</figcaption>
+</figure>
+</section><section id="descagas-opcionales" class="slide level2">
+<h2><span class="header-section-number">5.3</span> Descagas opcionales</h2>
+<ul>
+<li>Podemos seleccionar ciertas <strong>Descargas opcionales</strong>.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/ubuntu-06.png" alt="Descagas opcionales" text-align="center" style="width:50.0%" /><figcaption>Descagas opcionales</figcaption>
+</figure>
+</section><section id="tipo-de-instalación" class="slide level2">
+<h2><span class="header-section-number">5.4</span> Tipo de instalación</h2>
+<ul>
+<li>Seleccionamos &quot;<strong>Borrar disco e instalar Ubuntu</strong>&quot;.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/ubuntu-07.png" alt="Tipo de instalación" text-align="center" style="width:50.0%" /><figcaption>Tipo de instalación</figcaption>
+</figure>
+</section><section id="adevertencia" class="slide level2">
+<h2><span class="header-section-number">5.5</span> Adevertencia</h2>
+<ul>
+<li>Acepamos la advertencia de &quot;<strong>cambios en los discos</strong>&quot;&quot;.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/ubuntu-08.png" alt="Adevertencia" text-align="center" style="width:50.0%" /><figcaption>Adevertencia</figcaption>
+</figure>
+</section><section id="ubicación" class="slide level2">
+<h2><span class="header-section-number">5.6</span> Ubicación</h2>
+<ul>
+<li>Introducimos &quot;<strong>Madrid</strong>&quot; como ubicación.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/ubuntu-09.png" alt="Ubicación" text-align="center" style="width:50.0%" /><figcaption>Ubicación</figcaption>
+</figure>
+</section><section id="teclado" class="slide level2">
+<h2><span class="header-section-number">5.7</span> Teclado</h2>
+<ul>
+<li>Seleccionamos el &quot;<strong>tipo de teclado</strong>&quot; de nuestro ordenador.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/ubuntu-10.png" alt="Teclado" text-align="center" style="width:50.0%" /><figcaption>Teclado</figcaption>
+</figure>
+</section><section id="usuario-y-contraseña" class="slide level2">
+<h2><span class="header-section-number">5.8</span> Usuario y contraseña</h2>
+<ul>
+<li>Introducimos &quot;<strong>Usuario y contraseña</strong>&quot;.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/ubuntu-11.png" alt="Usuario y contraseña" text-align="center" style="width:50.0%" /><figcaption>Usuario y contraseña</figcaption>
+</figure>
+</section><section id="esperar" class="slide level2">
+<h2><span class="header-section-number">5.9</span> Esperar</h2>
+<ul>
+<li>Esperamos a que la instalación termine.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/ubuntu-12.png" alt="Esperar" text-align="center" style="width:50.0%" /><figcaption>Esperar</figcaption>
+</figure>
+</section><section id="reiniciar" class="slide level2">
+<h2><span class="header-section-number">5.10</span> Reiniciar</h2>
+<ul>
+<li>Pulsamos en &quot;<strong>Reiniciar ahora</strong>&quot;</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/ubuntu-13.png" alt="Reiniciar" text-align="center" style="width:50.0%" /><figcaption>Reiniciar</figcaption>
+</figure>
+</section><section id="pulsar-enter" class="slide level2">
+<h2><span class="header-section-number">5.11</span> Pulsar ENTER</h2>
+<ul>
+<li>Pulsamos &quot;<strong>ENTER</strong>&quot; para finalizar.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/ubuntu-14.png" alt="Pulsar ENTER" text-align="center" style="width:50.0%" /><figcaption>Pulsar ENTER</figcaption>
+</figure>
+</section><section id="cargar-ubuntu" class="slide level2">
+<h2><span class="header-section-number">5.12</span> Cargar Ubuntu</h2>
+<ul>
+<li>Después del último paso se <strong>carga Ubuntu</strong>.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/ubuntu-15.png" alt="Cargar Ubuntu" text-align="center" style="width:50.0%" /><figcaption>Cargar Ubuntu</figcaption>
+</figure>
+</section><section id="apagar-ubuntu" class="slide level2">
+<h2><span class="header-section-number">5.13</span> Apagar Ubuntu</h2>
+<ul>
+<li>Pulsamos en el botón situado en la <strong>parte superior derecha</strong>.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/ubuntu-16.png" alt="Apagar Ubuntu" text-align="center" style="width:50.0%" /><figcaption>Apagar Ubuntu</figcaption>
+</figure>
+</section><section id="finalizar-2" class="slide level2">
+<h2><span class="header-section-number">5.14</span> Finalizar</h2>
+<ul>
+<li>Aparece una ventana y pulsamos &quot;<strong>Apagar</strong>&quot;</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/ubuntu-17.png" alt="Finalizar" text-align="center" style="width:50.0%" /><figcaption>Finalizar</figcaption>
+</figure>
+</section><section id="rearancar" class="slide level2">
+<h2><span class="header-section-number">5.15</span> Rearancar</h2>
+<ul>
+<li>La próxima vez que queramos ejecutar el sistema pusaremos en &quot;<strong>Iniciar</strong>&quot;.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-18.png" alt="Listar Máquina Virtual" text-align="center" style="width:50.0%" /><figcaption>Listar Máquina Virtual</figcaption>
+</figure>
+</section></section>
+<section><section id="importar-máquina-virtual" class="titleslide slide level1"><h1><span class="header-section-number">6</span> Importar Máquina Virtual</h1></section><section id="qué-es-eso" class="slide level2">
+<h2><span class="header-section-number">6.1</span> ¿Qué es eso?</h2>
+<ul>
+<li>Podemos <strong>importar máquinas</strong> anteriormente creadas.</li>
+</ul>
+</section><section id="importar-vdi" class="slide level2">
+<h2><span class="header-section-number">6.2</span> Importar VDI</h2>
+<ul>
+<li>Creamos una máquina virtual igual que antes, pero al crear el Disco Virtual seleccionamos el <strong>archivo VDI</strong>.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-18.png" alt="Importar VDI" text-align="center" style="width:50.0%" /><figcaption>Importar VDI</figcaption>
+</figure>
+</section><section id="importar-ovf" class="slide level2">
+<h2><span class="header-section-number">6.3</span> Importar OVF</h2>
+<ul>
+<li>Pulsamos en &quot;<strong>Archivo &gt; Importar servicio virtualizado...</strong>&quot; y seleccionamos el archivo OVF.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-19.png" alt="Importar OVF" text-align="center" style="width:50.0%" /><figcaption>Importar OVF</figcaption>
+</figure>
+</section><section id="exportar-ovf" class="slide level2">
+<h2><span class="header-section-number">6.4</span> Exportar OVF</h2>
+<ul>
+<li>Para ello pulsamos en &quot;<strong>Archivo &gt; Exportar servicio virtualizado...</strong>&quot; y seguimos las instrucciones.</li>
+</ul>
+<figure>
+<img src="../img/virtual-box/virtual-box-19.png" alt="Exportar OVF" text-align="center" style="width:50.0%" /><figcaption>Exportar OVF</figcaption>
+</figure>
+</section></section>
+    </div>
+  </div>
+
+  <script src="../lib/reveal.js/lib/js/head.min.js"></script>
+  <script src="../lib/reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        pdfMaxPagesPerSlide: 1,
+transition: 'convex',
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1024,
+        height: 576,
+        // Factor of the display size that should remain empty around the content
+        margin: 0.3,
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 0.1,
+        maxScale: 1.9,
+
+        menu: {
+            // Specifies which side of the presentation the menu will
+            // be shown. Use 'left' or 'right'.
+            side: 'left',
+
+            // Add slide numbers to the titles in the slide list.
+            // Use 'true' or format string (same as reveal.js slide numbers)
+            numbers: false,
+
+            // Specifies which slide elements will be used for generating
+            // the slide titles in the menu. The default selects the first
+            // heading element found in the slide, but you can specify any
+            // valid css selector and the text from the first matching
+            // element will be used.
+            // Note: that a section data-menu-title attribute or an element
+            // with a menu-title class will take precedence over this option
+            titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+            // Hide slides from the menu that do not have a title.
+            // Set to 'true' to only list slides with titles.
+            hideMissingTitles: false,
+
+            // Add markers to the slide titles to indicate the
+            // progress through the presentation
+            markers: false,
+
+            // Specify custom panels to be included in the menu, by
+            // providing an array of objects with 'title', 'icon'
+            // properties, and either a 'src' or 'content' property.
+            custom: false,
+
+            // Specifies the themes that will be available in the themes
+            // menu panel. Set to 'false' to hide themes panel.
+            themes: [
+                { name: 'Black', theme: '../lib/reveal.js/css/theme/black.css' },
+                { name: 'White', theme: '../lib/reveal.js/css/theme/white.css' },
+                { name: 'League', theme: '../lib/reveal.js/css/theme/league.css' },
+                { name: 'Sky', theme: '../lib/reveal.js/css/theme/sky.css' },
+                { name: 'Beige', theme: '../lib/reveal.js/css/theme/beige.css' },
+                { name: 'Simple', theme: '../lib/reveal.js/css/theme/simple.css' },
+                { name: 'Serif', theme: '../lib/reveal.js/css/theme/serif.css' },
+                { name: 'Blood', theme: '../lib/reveal.js/css/theme/blood.css' },
+                { name: 'Night', theme: '../lib/reveal.js/css/theme/night.css' },
+                { name: 'Moon', theme: '../lib/reveal.js/css/theme/moon.css' },
+                { name: 'Solarized', theme: '../lib/reveal.js/css/theme/solarized.css' }
+            ],
+
+            // Specifies if the transitions menu panel will be shown.
+            transitions: true,
+
+            // Adds a menu button to the slides to open the menu panel.
+            // Set to 'false' to hide the button.
+            openButton: true,
+
+            // If 'true' allows the slide number in the presentation to
+            // open the menu panel. The reveal.js slideNumber option must
+            // be displayed for this to take effect
+            openSlideNumber: false,
+
+            // If true allows the user to open and navigate the menu using
+            // the keyboard. Standard keyboard interaction with reveal
+            // will be disabled while the menu is open.
+            keyboard: true
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '../lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: '../lib/reveal.js/plugin/notes/notes.js', async: true },
+          //{ src: '../lib/reveal.js/plugin/search/search.js', async: true },
+          { src: '../lib/reveal.js-menu/menu.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="description" content="XML" />
+  <meta name="author" content="Adolfo Sanz De Diego" />
+  <title>XML</title>
+  <style type="text/css">code{white-space: pre; background-color: lightgrey;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+</head>
+<body>
+<header>
+<h1 class="title">XML</h1>
+<h2 class="author">Adolfo Sanz De Diego</h2>
+<h3 class="date">Octubre 2017</h3>
+</header>
+<nav id="TOC">
+<ul>
+<li><a href="#acerca-de"><span class="toc-section-number">1</span> Acerca de</a><ul>
+<li><a href="#autor"><span class="toc-section-number">1.1</span> Autor</a></li>
+<li><a href="#licencia"><span class="toc-section-number">1.2</span> Licencia</a></li>
+<li><a href="#fuente"><span class="toc-section-number">1.3</span> Fuente</a></li>
+</ul></li>
+<li><a href="#introducción-a-xml"><span class="toc-section-number">2</span> Introducción a XML</a><ul>
+<li><a href="#qué-es"><span class="toc-section-number">2.1</span> ¿Qué es?</a></li>
+<li><a href="#etiquetas"><span class="toc-section-number">2.2</span> Etiquetas</a></li>
+<li><a href="#ejemplo-xml"><span class="toc-section-number">2.3</span> Ejemplo XML</a></li>
+<li><a href="#ventajas"><span class="toc-section-number">2.4</span> Ventajas</a></li>
+<li><a href="#ejemplo-api"><span class="toc-section-number">2.5</span> Ejemplo API</a></li>
+</ul></li>
+<li><a href="#estructura-básica"><span class="toc-section-number">3</span> Estructura básica</a><ul>
+<li><a href="#prologo"><span class="toc-section-number">3.1</span> Prologo</a></li>
+<li><a href="#elementos"><span class="toc-section-number">3.2</span> Elementos</a></li>
+<li><a href="#elementos-vacíos"><span class="toc-section-number">3.3</span> Elementos vacíos</a></li>
+<li><a href="#elementos-anidados"><span class="toc-section-number">3.4</span> Elementos anidados</a></li>
+<li><a href="#ejemplo-anidado"><span class="toc-section-number">3.5</span> Ejemplo anidado</a></li>
+<li><a href="#atributos"><span class="toc-section-number">3.6</span> Atributos</a></li>
+<li><a href="#mezcla"><span class="toc-section-number">3.7</span> Mezcla</a></li>
+<li><a href="#raíz"><span class="toc-section-number">3.8</span> Raíz</a></li>
+<li><a href="#comentarios"><span class="toc-section-number">3.9</span> Comentarios</a></li>
+<li><a href="#espacio-de-nombres"><span class="toc-section-number">3.10</span> Espacio de nombres</a></li>
+<li><a href="#ejemplos-espacio-de-nombres"><span class="toc-section-number">3.11</span> Ejemplos espacio de nombres</a></li>
+<li><a href="#varios-espacios-de-nombres"><span class="toc-section-number">3.12</span> Varios espacios de nombres</a></li>
+<li><a href="#espacio-de-nombre-predeterminado"><span class="toc-section-number">3.13</span> Espacio de nombre predeterminado</a></li>
+<li><a href="#cdata"><span class="toc-section-number">3.14</span> CDATA</a></li>
+</ul></li>
+<li><a href="#procesamiento-de-xml"><span class="toc-section-number">4</span> Procesamiento de XML</a><ul>
+<li><a href="#ejemplo"><span class="toc-section-number">4.1</span> Ejemplo</a></li>
+<li><a href="#elementtree"><span class="toc-section-number">4.2</span> ElementTree</a></li>
+<li><a href="#abrir-xml"><span class="toc-section-number">4.3</span> Abrir XML</a></li>
+<li><a href="#iterar-xml"><span class="toc-section-number">4.4</span> Iterar XML</a></li>
+<li><a href="#filtrar-xml"><span class="toc-section-number">4.5</span> Filtrar XML</a></li>
+<li><a href="#iterar-desde-raíz"><span class="toc-section-number">4.6</span> Iterar desde raíz</a></li>
+<li><a href="#acceso-indexado"><span class="toc-section-number">4.7</span> Acceso indexado</a></li>
+<li><a href="#buscar"><span class="toc-section-number">4.8</span> Buscar</a></li>
+<li><a href="#ejemplo-findall"><span class="toc-section-number">4.9</span> Ejemplo findAll()</a></li>
+<li><a href="#uso-de-eventos"><span class="toc-section-number">4.10</span> Uso de eventos</a></li>
+<li><a href="#ejemplo-uso-eventos"><span class="toc-section-number">4.11</span> Ejemplo uso eventos</a></li>
+<li><a href="#desde-cadena"><span class="toc-section-number">4.12</span> Desde cadena</a></li>
+<li><a href="#modificar-xml"><span class="toc-section-number">4.13</span> Modificar XML</a></li>
+<li><a href="#explicar-ejemplo-modificar-xml"><span class="toc-section-number">4.14</span> Explicar ejemplo modificar XML</a></li>
+<li><a href="#ejemplo-modificar-xml"><span class="toc-section-number">4.15</span> Ejemplo modificar XML</a></li>
+<li><a href="#eliminar-elementos"><span class="toc-section-number">4.16</span> Eliminar elementos</a></li>
+<li><a href="#ejemplo-eliminar-elementos"><span class="toc-section-number">4.17</span> Ejemplo eliminar elementos</a></li>
+<li><a href="#crear-xml"><span class="toc-section-number">4.18</span> Crear XML</a></li>
+<li><a href="#ejemplo-crear-xml"><span class="toc-section-number">4.19</span> Ejemplo crear XML</a></li>
+<li><a href="#añadir-atributos"><span class="toc-section-number">4.20</span> Añadir atributos</a></li>
+<li><a href="#ejemplo-añadir-atributos"><span class="toc-section-number">4.21</span> Ejemplo añadir atributos</a></li>
+<li><a href="#añadir-hijos"><span class="toc-section-number">4.22</span> Añadir hijos</a></li>
+<li><a href="#ejemplo-añadir-hijos"><span class="toc-section-number">4.23</span> Ejemplo añadir hijos</a></li>
+<li><a href="#ejemplo-añadir-hijos-con-lista"><span class="toc-section-number">4.24</span> Ejemplo añadir hijos con lista</a></li>
+<li><a href="#guardar-xml"><span class="toc-section-number">4.25</span> Guardar XML</a></li>
+<li><a href="#ejemplo-guardar-xml"><span class="toc-section-number">4.26</span> Ejemplo guardar XML</a></li>
+<li><a href="#elementos-vacios"><span class="toc-section-number">4.27</span> Elementos vacios</a></li>
+<li><a href="#ejemplo-elementos-vacios"><span class="toc-section-number">4.28</span> Ejemplo elementos vacios</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="acerca-de"><span class="header-section-number">1</span> Acerca de</h1>
+<h2 id="autor"><span class="header-section-number">1.1</span> Autor</h2>
+<ul>
+<li><strong>Adolfo Sanz De Diego</strong>
+<ul>
+<li>Blog: <a href="http://asanzdiego.blogspot.com.es/">asanzdiego.blogspot.com.es</a></li>
+<li>Correo: <a href="mailto:asanzdiego@gmail.com">asanzdiego@gmail.com</a></li>
+<li>GitHub: <a href="http://github.com/asanzdiego">github.com/asanzdiego</a></li>
+<li>Twitter: <a href="http://twitter.com/asanzdiego">twitter.com/asanzdiego</a></li>
+<li>LinkedIn: <a href="http://www.linkedin.com/in/asanzdiego">in/asanzdiego</a></li>
+<li>SlideShare: <a href="http://www.slideshare.net/asanzdiego/">slideshare.net/asanzdiego</a></li>
+</ul></li>
+</ul>
+<h2 id="licencia"><span class="header-section-number">1.2</span> Licencia</h2>
+<ul>
+<li><strong>Copyright:</strong>
+<ul>
+<li>Antonio Sarasa Cabezuelo &lt;<a href="mailto:antoniosarasa@campusciff.net">antoniosarasa@campusciff.net</a>&gt;</li>
+</ul></li>
+</ul>
+<h2 id="fuente"><span class="header-section-number">1.3</span> Fuente</h2>
+<ul>
+<li>Las slides y sus fuentes las podéis encontrar en:
+<ul>
+<li><a href="https://github.com/asanzdiego/curso-intro-linux-web-sql-2016" class="uri">https://github.com/asanzdiego/curso-intro-linux-web-sql-2016</a></li>
+</ul></li>
+</ul>
+<h1 id="introducción-a-xml"><span class="header-section-number">2</span> Introducción a XML</h1>
+<h2 id="qué-es"><span class="header-section-number">2.1</span> ¿Qué es?</h2>
+<ul>
+<li><p>XML (Extensible Markup Language) es un metalenguaje que <strong>permite definir lenguajes de marcado</strong>.</p></li>
+<li><p>Los lenguajes de marcado permiten describir la estructura de los contenidos de un documento.</p></li>
+</ul>
+<h2 id="etiquetas"><span class="header-section-number">2.2</span> Etiquetas</h2>
+<ul>
+<li><p>Un lenguaje de marcado está formado por un conjunto de etiquetas que se encierran entre <strong>corchetes angulares</strong>, &lt;&gt;, y se usan en pares.</p></li>
+<li><p>Cada par de etiquetas delimita el comienzo y el final de una porción de documento a la que se refiere la etiqueta. Por ejemplo:</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;asignatura&gt;</span>Bases de datos<span class="kw">&lt;/asignatura&gt;</span></code></pre></div>
+<h2 id="ejemplo-xml"><span class="header-section-number">2.3</span> Ejemplo XML</h2>
+<figure>
+<img src="../img/xml/xml-01.png" alt="Ejemplo XML" text-align="center" style="width:50.0%" /><figcaption>Ejemplo XML</figcaption>
+</figure>
+<h2 id="ventajas"><span class="header-section-number">2.4</span> Ventajas</h2>
+<ul>
+<li><p>Permite que la información esté autodocumentada.</p></li>
+<li><p>Formato no rígido pues dispone de la capacidad de reconocer e ignorar nuevas etiquetas.</p></li>
+<li><p>Las etiquetas pueden aparecer varias veces facilitando la representación de atributos multivaluados.</p></li>
+<li><p>Permite el anidamiento de etiquetas.</p></li>
+</ul>
+<h2 id="ejemplo-api"><span class="header-section-number">2.5</span> Ejemplo API</h2>
+<ul>
+<li><p><a href="http://www.thomas-bayer.com/sqlrest/CUSTOMER/" class="uri">http://www.thomas-bayer.com/sqlrest/CUSTOMER/</a></p></li>
+<li><p><a href="http://www.thomas-bayer.com/sqlrest/CUSTOMER/3/" class="uri">http://www.thomas-bayer.com/sqlrest/CUSTOMER/3/</a></p></li>
+</ul>
+<h1 id="estructura-básica"><span class="header-section-number">3</span> Estructura básica</h1>
+<h2 id="prologo"><span class="header-section-number">3.1</span> Prologo</h2>
+<ul>
+<li><p>Consta de dos declaraciones:</p>
+<ul>
+<li>La declaración XML que indica <strong>la versión de XML utilizada y el tipo de codificación de caracteres</strong>.
+<?xml version="1.0" encoding="UTF-8"?></li>
+<li>La declaración de tipo de documento que asocia el documento a <strong>una DTD o XSD</strong> respecto a la cual el documento es conforme.</li>
+</ul></li>
+</ul>
+<h2 id="elementos"><span class="header-section-number">3.2</span> Elementos</h2>
+<ul>
+<li>Es un par de etiquetas de comienzo y final coincidentes que delimita una <strong>porción de información</strong>.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;t</span><span class="er">ítulo</span><span class="kw">&gt;</span>introducción<span class="kw">&lt;/t</span><span class="er">ítulo</span><span class="kw">&gt;</span></code></pre></div>
+<h2 id="elementos-vacíos"><span class="header-section-number">3.3</span> Elementos vacíos</h2>
+<ul>
+<li>Existen elementos vacíos que no contienen contenido.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;Nombre</span><span class="ot"> etiqueta</span><span class="er">/&gt;</span>
+<span class="er">&lt;Nombre</span> <span class="er">etiqueta&gt;&lt;/Nombre</span> <span class="er">etiqueta&gt;</span></code></pre></div>
+<h2 id="elementos-anidados"><span class="header-section-number">3.4</span> Elementos anidados</h2>
+<ul>
+<li><p>Los elementos <strong>se pueden anidar</strong>:</p>
+<ul>
+<li><p>Un texto aparece en el contexto de un elemento si aparece entre la etiqueta de inicio y final de dicho elemento.</p></li>
+<li><p>Las etiquetas se anidan correctamente si toda etiqueta de inicio tiene un única etiqueta de finalización coincidente que está en el contexto del mismo elemento padre.</p></li>
+</ul></li>
+<li><p>Un elemento puede aparecer varias veces en un documento XML.</p></li>
+</ul>
+<h2 id="ejemplo-anidado"><span class="header-section-number">3.5</span> Ejemplo anidado</h2>
+<figure>
+<img src="../img/xml/xml-02.png" alt="Elementos anidados" text-align="center" style="width:50.0%" /><figcaption>Elementos anidados</figcaption>
+</figure>
+<h2 id="atributos"><span class="header-section-number">3.6</span> Atributos</h2>
+<ul>
+<li>Las etiquetas de los elementos pueden incluir 1 o más <strong>atributos que representan propiedades</strong> de los elementos de la forma Nombre atributo=&quot;Valor atributo&quot;</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;cuenta</span><span class="ot"> tipo_cuenta=</span><span class="st">&quot;corriente&quot;</span><span class="kw">&gt;</span></code></pre></div>
+<ul>
+<li>Los atributos pueden aparecer solamente una vez en una etiqueta dada.</li>
+</ul>
+<h2 id="mezcla"><span class="header-section-number">3.7</span> Mezcla</h2>
+<ul>
+<li>El texto en un documento XML puede estar mezclado con los subelementos de otro elemento.</li>
+</ul>
+<figure>
+<img src="../img/xml/xml-03.png" alt="Mezcla texto con subelementos" text-align="center" style="width:50.0%" /><figcaption>Mezcla texto con subelementos</figcaption>
+</figure>
+<h2 id="raíz"><span class="header-section-number">3.8</span> Raíz</h2>
+<ul>
+<li><p>Todo documento XML tiene <strong>un único elemento raíz</strong> que engloba al resto de elementos del documento.</p></li>
+<li><p>En el primer ejemplo el elemento <banco> era la raíz.</p></li>
+</ul>
+<h2 id="comentarios"><span class="header-section-number">3.9</span> Comentarios</h2>
+<ul>
+<li><p>Es un texto que se escribe <strong>entre &lt;!–- y --&gt;</strong></p></li>
+<li><p>La cadena &quot;--&quot; no puede aparecer dentro de un comentario.</p></li>
+<li><p>Los comentarios pueden aparecer en cualquier sitio salvo dentro de declaraciones, etiquetas y dentro de otros comentarios.</p></li>
+</ul>
+<h2 id="espacio-de-nombres"><span class="header-section-number">3.10</span> Espacio de nombres</h2>
+<ul>
+<li><p>Es un mecanismo que permite especificar nombre únicos globalmente para que se usen como marcas de elementos en los documentos XML.</p></li>
+<li><p>Para ello se antepone a la etiqueta o atributo un identificador de recursos universal. En el ejemplo del banco podría ser http:///www.BancoPrincipal.com</p></li>
+<li><p>Para abreviarlo se declaran abreviaturas del espacio de nombres <strong>mediante el atributo xmlns</strong></p></li>
+</ul>
+<h2 id="ejemplos-espacio-de-nombres"><span class="header-section-number">3.11</span> Ejemplos espacio de nombres</h2>
+<figure>
+<img src="../img/xml/xml-04.png" alt="Ejemplo espacio de nombres" text-align="center" style="width:50.0%" /><figcaption>Ejemplo espacio de nombres</figcaption>
+</figure>
+<h2 id="varios-espacios-de-nombres"><span class="header-section-number">3.12</span> Varios espacios de nombres</h2>
+<ul>
+<li>Un documento puede tener más de un espacio de nombres declarado como parte del elemento raíz, de manera que se puede asociar <strong>elementos diferentes con espacios de nombres distintos</strong>.</li>
+</ul>
+<h2 id="espacio-de-nombre-predeterminado"><span class="header-section-number">3.13</span> Espacio de nombre predeterminado</h2>
+<ul>
+<li><p>Se puede definir un <strong>espacio de nombres predeterminado</strong> mediante el uso del atributo xmlns en el elemento raíz.</p></li>
+<li><p>Los elementos sin un prefijo de espacio de nombres explícito pertenecen entonces al espacio de nombres predeterminado.</p></li>
+</ul>
+<h2 id="cdata"><span class="header-section-number">3.14</span> CDATA</h2>
+<ul>
+<li>A veces es necesario <strong>almacenar valores que contienen etiquetas sin que se interpreten como etiquetas XML</strong>, es decir como texto normal. Para ello se usa la construcción:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="er">&lt;</span>![CDATA]<span class="kw">&lt;cuenta&gt;</span>…<span class="kw">&lt;/cuenta&gt;</span>]]&gt;</code></pre></div>
+<h1 id="procesamiento-de-xml"><span class="header-section-number">4</span> Procesamiento de XML</h1>
+<h2 id="ejemplo"><span class="header-section-number">4.1</span> Ejemplo</h2>
+<ul>
+<li>Se va a considerar el siguiente documento XML de ejemplo para ilustrar las diferentes técnicas de procesamiento.</li>
+</ul>
+<figure>
+<img src="../img/xml/xml-05.png" alt="Ejemplo procesamiento" text-align="center" style="width:50.0%" /><figcaption>Ejemplo procesamiento</figcaption>
+</figure>
+<h2 id="elementtree"><span class="header-section-number">4.2</span> ElementTree</h2>
+<ul>
+<li><p>ElementTree es una <strong>librería estándar para procesar y crear documentos XML</strong> que crea un árbol de objetos.</p></li>
+<li><p>El árbol generado esta formado por objetos &quot;elemento&quot; de tipo Element donde cada uno de ellos dispone de un conjunto de atributos: nombre, diccionario de atributos, valor textual y secuencia de elementos hijo.</p></li>
+</ul>
+<h2 id="abrir-xml"><span class="header-section-number">4.3</span> Abrir XML</h2>
+<ul>
+<li>Para procesar un documento basta abrir el documento con el <strong>método open()</strong> como si se tratara de un fichero y usar el método parse de ElementTree.</li>
+</ul>
+<figure>
+<img src="../img/xml/xml-06-bis.png" alt="Código abrir XML" text-align="center" style="width:50.0%" /><figcaption>Código abrir XML</figcaption>
+</figure>
+<h2 id="iterar-xml"><span class="header-section-number">4.4</span> Iterar XML</h2>
+<ul>
+<li>Si se quiere visitar todo el árbol se usa el <strong>método iter()</strong> que crea un generador que itera sobre todos los nodos del árbol.</li>
+</ul>
+<figure>
+<img src="../img/xml/xml-08-bis.png" alt="Código iterar XML" text-align="center" style="width:50.0%" /><figcaption>Código iterar XML</figcaption>
+</figure>
+<h2 id="filtrar-xml"><span class="header-section-number">4.5</span> Filtrar XML</h2>
+<ul>
+<li>Puede que se esté interesado sólo en determinados elementos del árbol, y no en todos. Para ello <strong>se pasa como parámetro del método iter() el nombre del elemento de interés</strong>.</li>
+</ul>
+<figure>
+<img src="../img/xml/xml-10-bis.png" alt="Código filtrar XML" text-align="center" style="width:50.0%" /><figcaption>Código filtrar XML</figcaption>
+</figure>
+<h2 id="iterar-desde-raíz"><span class="header-section-number">4.6</span> Iterar desde raíz</h2>
+<ul>
+<li>Otra posibilidad de iterar sobre los elementos del árbol es <strong>acceder a la raíz del árbol y desde ella iterar</strong> sobre los hijos.</li>
+</ul>
+<figure>
+<img src="../img/xml/xml-12-bis.png" alt="Código iterar XML desde raíz" text-align="center" style="width:50.0%" /><figcaption>Código iterar XML desde raíz</figcaption>
+</figure>
+<h2 id="acceso-indexado"><span class="header-section-number">4.7</span> Acceso indexado</h2>
+<ul>
+<li>También es posible acceder a los elementos <strong>de forma indexada</strong>.</li>
+</ul>
+<figure>
+<img src="../img/xml/xml-14-bis.png" alt="Código acceso indexado" text-align="center" style="width:50.0%" /><figcaption>Código acceso indexado</figcaption>
+</figure>
+<h2 id="buscar"><span class="header-section-number">4.8</span> Buscar</h2>
+<ul>
+<li><strong>find()</strong>: recupera el primer subelemento del elemento actual encajando con la descripción dada</li>
+<li><strong>findall()</strong>: recupera todos los subelementos del elemento actual encajando con la descripción dada</li>
+<li><strong>iterfind()</strong>: recupera todos los elementos encajando con la descripción dada.</li>
+<li><strong>text</strong>: accede al contenido textual de un elemento</li>
+<li><strong>get(atributo)</strong>: accede al atributo dado del elemento.</li>
+</ul>
+<h2 id="ejemplo-findall"><span class="header-section-number">4.9</span> Ejemplo findAll()</h2>
+<ul>
+<li>Se van a encontrar todos los títulos de los libros <strong>usando findall()</strong>.</li>
+</ul>
+<figure>
+<img src="../img/xml/xml-16-bis.png" alt="Código ejemplo findAll()" text-align="center" style="width:50.0%" /><figcaption>Código ejemplo findAll()</figcaption>
+</figure>
+<h2 id="uso-de-eventos"><span class="header-section-number">4.10</span> Uso de eventos</h2>
+<ul>
+<li>Se puede realizar un procesamiento basado en eventos usando el <strong>método iterparse()</strong>:
+<ul>
+<li>Genera <strong>eventos &quot;start&quot;</strong> en las aperturas de elemento y <strong>eventos &quot;end&quot;</strong> en los cierres de elemento.</li>
+<li>Además los datos pueden ser extraídos del documento durante la fase de parseo.</li>
+</ul></li>
+</ul>
+<h2 id="ejemplo-uso-eventos"><span class="header-section-number">4.11</span> Ejemplo uso eventos</h2>
+<ul>
+<li>Ejemplo de parseo dirigido por eventos:</li>
+</ul>
+<figure>
+<img src="../img/xml/xml-18-bis.png" alt="Código ejemplo interfase()" text-align="center" style="width:50.0%" /><figcaption>Código ejemplo interfase()</figcaption>
+</figure>
+<h2 id="desde-cadena"><span class="header-section-number">4.12</span> Desde cadena</h2>
+<ul>
+<li>También es posible procesar cadenas que representan un documento XML usando el <strong>método fromstring()</strong> que toma como argumento la cadena que representa el documento XML.</li>
+</ul>
+<figure>
+<img src="../img/xml/xml-20-bis.png" alt="Código ejemplo fromstring()" text-align="center" style="width:50.0%" /><figcaption>Código ejemplo fromstring()</figcaption>
+</figure>
+<h2 id="modificar-xml"><span class="header-section-number">4.13</span> Modificar XML</h2>
+<ul>
+<li>Se puede modificar un documento XML que ha sido leído:
+<ul>
+<li>A nivel de elemento se puede cambiar el contenido cambiando el <strong>valor de Element.text</strong>, añadir o modificar atributos con el <strong>método Element.set()</strong>, y añadir nuevos hijos con el <strong>método Element.append()</strong>.</li>
+<li>A nivel de documento, se escribe el nuevo documento con el <strong>método ElementTree.write()</strong></li>
+</ul></li>
+</ul>
+<h2 id="explicar-ejemplo-modificar-xml"><span class="header-section-number">4.14</span> Explicar ejemplo modificar XML</h2>
+<ul>
+<li>Se va a modificar el documento XML de ejemplo:
+<ul>
+<li>Se va añadir un nuevo atributo que indica el orden.</li>
+<li>Se va añadir un nuevo elemento que indica la editorial.</li>
+<li>Se va añadir un nuevo atributo que indica si hay ejemplares.</li>
+</ul></li>
+</ul>
+<h2 id="ejemplo-modificar-xml"><span class="header-section-number">4.15</span> Ejemplo modificar XML</h2>
+<figure>
+<img src="../img/xml/xml-22-bis.png" alt="Código ejemplo modificar XML" text-align="center" style="width:50.0%" /><figcaption>Código ejemplo modificar XML</figcaption>
+</figure>
+<h2 id="eliminar-elementos"><span class="header-section-number">4.16</span> Eliminar elementos</h2>
+<ul>
+<li><p>También es posible eliminar elementos con el <strong>método Element.remove()</strong>.</p></li>
+<li><p>Tomando como entrada la salida del ejemplo anterior se van a eliminar todos los elementos de tipo &quot;Libro&quot; que tengan un número de orden mayor que 3.</p></li>
+</ul>
+<h2 id="ejemplo-eliminar-elementos"><span class="header-section-number">4.17</span> Ejemplo eliminar elementos</h2>
+<figure>
+<img src="../img/xml/xml-24-bis.png" alt="Código ejemplo eliminar elementos" text-align="center" style="width:50.0%" /><figcaption>Código ejemplo eliminar elementos</figcaption>
+</figure>
+<h2 id="crear-xml"><span class="header-section-number">4.18</span> Crear XML</h2>
+<ul>
+<li>También es posible la creación de documentos XML desde cero. Para ello se disponen de los siguientes métodos en la clase Element:
+<ul>
+<li><strong>Element()</strong>: Crea un elemento nuevo.</li>
+<li><strong>subElement()</strong>: Añade un nuevo elemento al padre.</li>
+</ul></li>
+</ul>
+<h2 id="ejemplo-crear-xml"><span class="header-section-number">4.19</span> Ejemplo crear XML</h2>
+<ul>
+<li>En el siguiente ejemplo se va a crear un documento XML con información de un libro semejante a los ejemplos anteriores.</li>
+</ul>
+<figure>
+<img src="../img/xml/xml-26-bis.png" alt="Código ejemplo crear XML" text-align="center" style="width:50.0%" /><figcaption>Código ejemplo crear XML</figcaption>
+</figure>
+<h2 id="añadir-atributos"><span class="header-section-number">4.20</span> Añadir atributos</h2>
+<ul>
+<li>Para añadir atributos a un elemento que se está creando basta pasar como argumento del elemento o subelemento un diccionario con los atributos expresados en forma de <strong>parejas clave-valor</strong>.</li>
+</ul>
+<h2 id="ejemplo-añadir-atributos"><span class="header-section-number">4.21</span> Ejemplo añadir atributos</h2>
+<ul>
+<li>Se va a modificar el código anterior para añadir atributos al elemento Libro. En concreto se va añadir el atributo isbn, orden y ejemplares.</li>
+</ul>
+<figure>
+<img src="../img/xml/xml-28-bis.png" alt="Código ejemplo añadir atributos" text-align="center" style="width:50.0%" /><figcaption>Código ejemplo añadir atributos</figcaption>
+</figure>
+<h2 id="añadir-hijos"><span class="header-section-number">4.22</span> Añadir hijos</h2>
+<ul>
+<li><p>Se pueden añadir múltiples hijos a un elemento mediante el <strong>método extend()</strong> que recibe como argumento algo que sea iterable tal como una lista o bien otra instancia de Element.</p></li>
+<li><p>En el caso de una instancia de Element, los hijos del elemento dado se añaden como hijos del nuevo padre. Sin embargo el padre actual no es añadido.</p></li>
+</ul>
+<h2 id="ejemplo-añadir-hijos"><span class="header-section-number">4.23</span> Ejemplo añadir hijos</h2>
+<ul>
+<li>Se va a reconstruir el ejemplo anterior pero usando extend sobre una cadena dada.</li>
+</ul>
+<figure>
+<img src="../img/xml/xml-30.png" alt="Código ejemplo añadir hijos" text-align="center" style="width:50.0%" /><figcaption>Código ejemplo añadir hijos</figcaption>
+</figure>
+<h2 id="ejemplo-añadir-hijos-con-lista"><span class="header-section-number">4.24</span> Ejemplo añadir hijos con lista</h2>
+<ul>
+<li>También se podría haber construido pasando una lista.</li>
+</ul>
+<figure>
+<img src="../img/xml/xml-31.png" alt="Código ejemplo añadir hijos con lista" text-align="center" style="width:50.0%" /><figcaption>Código ejemplo añadir hijos con lista</figcaption>
+</figure>
+<h2 id="guardar-xml"><span class="header-section-number">4.25</span> Guardar XML</h2>
+<ul>
+<li>A veces interesa guardar un documento XML en un archivo. En estos casos se usará el <strong>método write() de ElementTree</strong>.</li>
+</ul>
+<h2 id="ejemplo-guardar-xml"><span class="header-section-number">4.26</span> Ejemplo guardar XML</h2>
+<ul>
+<li>Se va a realizar el mismo ejemplo de antes pero ahora el resultado se almacenará en un archivo.</li>
+</ul>
+<figure>
+<img src="../img/xml/xml-32-bis.png" alt="Código ejemplo guardar XML" text-align="center" style="width:50.0%" /><figcaption>Código ejemplo guardar XML</figcaption>
+</figure>
+<h2 id="elementos-vacios"><span class="header-section-number">4.27</span> Elementos vacios</h2>
+<ul>
+<li>El método write() de ElementTree tiene un segundo argumento que sirve para <strong>controlar que se hace con elementos que son vacíos</strong>. Existen tres posibilidades según el valor de dicho argumento:
+<ul>
+<li><strong>xml</strong>: Genera un elemento vacío con una sola etiqueta</li>
+<li><strong>html</strong>: Genera un elemento vacío con dos etiquetas.</li>
+<li><strong>text</strong>: Imprime solo elementos con contenido, el resto se los salta.</li>
+</ul></li>
+</ul>
+<h2 id="ejemplo-elementos-vacios"><span class="header-section-number">4.28</span> Ejemplo elementos vacios</h2>
+<ul>
+<li>Siguiendo con el ejemplo anterior se va añadir un elemento vacío y se van a probar los tres argumentos.</li>
+</ul>
+<figure>
+<img src="../img/xml/xml-34-bis.png" alt="Código ejemplo elementos vacíos I" text-align="center" style="width:50.0%" /><figcaption>Código ejemplo elementos vacíos I</figcaption>
+</figure>
+<figure>
+<img src="../img/xml/xml-36.png" alt="Código ejemplo elementos vacíos II" text-align="center" style="width:50.0%" /><figcaption>Código ejemplo elementos vacíos II</figcaption>
+</figure>
+<figure>
+<img src="../img/xml/xml-37.png" alt="Código ejemplo elementos vacíos III" text-align="center" style="width:50.0%" /><figcaption>Código ejemplo elementos vacíos III</figcaption>
+</figure>
+</body>
+</html>

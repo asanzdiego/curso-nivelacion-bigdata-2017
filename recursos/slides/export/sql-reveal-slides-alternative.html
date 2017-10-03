@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="generator" content="pandoc">
+  <meta name="description" content="SQL" />
+  <meta name="author" content="Adolfo Sanz De Diego">
+  <title>SQL</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../lib/reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../lib/reveal.js-menu/menu.css">
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="../lib/reveal.js/css/theme/beige.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="../lib/reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../lib/reveal.js/css/print/pdf.css' : '../lib/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+
+  <style type="text/css">
+    body {
+      background: white !important;
+      background-color: white !important;
+    }
+    code{
+      white-space: pre;
+    }
+    .reveal pre code {
+      background: rgba(255, 255, 255, 0.7);
+      color: rgba(0, 0, 0, 0.7);
+    }
+    .reveal section img {
+      margin: 15px 0px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+    strong {
+      color: #777
+    }
+    a:hover {
+      text-decoration: underline !important;
+    }
+    h1.title {
+      font-size: 350% !important;
+    }
+    h1 {
+      font-size: 250% !important;
+    }
+    h2 {
+      font-size: 150% !important;
+    }
+    h3 {
+      font-size: 100% !important;
+    }
+    @media print {
+      #only-print-parent { display: table !important; }
+      #only-print-child { display: table-cell !important; vertical-align: middle;}
+      h1.title { font-size: 400% !important;}
+      h1 { font-size: 300% !important; }
+      h2 { font-size: 200% !important; }
+      h3 { font-size: 150% !important; }
+    }
+  </style>
+  <!--[if lt IE 9]>
+  <script src="../lib/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="only-print-parent">
+    <div id="only-print-child">
+      <h1 class="title">SQL</h2>
+      <h2 class="author">Adolfo Sanz De Diego</h2>
+      <h3 class="date">Octubre 2017</h3>
+    </div>
+</section>
+
+<section><section id="acerca-de" class="titleslide slide level1"><h1><span class="header-section-number">1</span> Acerca de</h1></section><section id="autor" class="slide level2">
+<h2><span class="header-section-number">1.1</span> Autor</h2>
+<ul>
+<li><strong>Adolfo Sanz De Diego</strong>
+<ul>
+<li>Blog: <a href="http://asanzdiego.blogspot.com.es/">asanzdiego.blogspot.com.es</a></li>
+<li>Correo: <a href="mailto:asanzdiego@gmail.com">asanzdiego@gmail.com</a></li>
+<li>GitHub: <a href="http://github.com/asanzdiego">github.com/asanzdiego</a></li>
+<li>Twitter: <a href="http://twitter.com/asanzdiego">twitter.com/asanzdiego</a></li>
+<li>LinkedIn: <a href="http://www.linkedin.com/in/asanzdiego">in/asanzdiego</a></li>
+<li>SlideShare: <a href="http://www.slideshare.net/asanzdiego/">slideshare.net/asanzdiego</a></li>
+</ul></li>
+</ul>
+</section><section id="licencia" class="slide level2">
+<h2><span class="header-section-number">1.2</span> Licencia</h2>
+<ul>
+<li><strong>Copyright:</strong>
+<ul>
+<li>Antonio Sarasa Cabezuelo &lt;<a href="mailto:antoniosarasa@campusciff.net">antoniosarasa@campusciff.net</a>&gt;</li>
+</ul></li>
+</ul>
+</section><section id="fuente" class="slide level2">
+<h2><span class="header-section-number">1.3</span> Fuente</h2>
+<ul>
+<li>Las slides y sus fuentes las podéis encontrar en:
+<ul>
+<li><a href="https://github.com/asanzdiego/curso-intro-linux-web-sql-2016" class="uri">https://github.com/asanzdiego/curso-intro-linux-web-sql-2016</a></li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="mysql" class="titleslide slide level1"><h1><span class="header-section-number">2</span> MySQL</h1></section><section id="qué-es" class="slide level2">
+<h2><span class="header-section-number">2.1</span> ¿Qué es?</h2>
+<ul>
+<li><p><strong>MySQL</strong> es un sistema de gestión de bases de datos relacional.</p></li>
+<li><p>Tiene una Licencia GPL (Software Libre)</p></li>
+</ul>
+</section><section id="instalación" class="slide level2">
+<h2><span class="header-section-number">2.2</span> Instalación</h2>
+<ul>
+<li>En Ubuntu: (acordaros de poner password de root y no olvidarla)</li>
+</ul>
+<pre><code>sudo apt install mysql-server</code></pre>
+</section></section>
+<section><section id="mysqlworkbench" class="titleslide slide level1"><h1><span class="header-section-number">3</span> MySQLWorkbench</h1></section><section id="qué-es-1" class="slide level2">
+<h2><span class="header-section-number">3.1</span> ¿Qué es?</h2>
+<ul>
+<li><p>Es una <strong>interfaz gráfica</strong> para el manejo de MySQL.</p></li>
+<li><p>Tiene una Licencia GPL (Software Libre)</p></li>
+</ul>
+</section><section id="instalación-1" class="slide level2">
+<h2><span class="header-section-number">3.2</span> Instalación</h2>
+<ul>
+<li>En Ubuntu:</li>
+</ul>
+<pre><code>sudo apt install mysql-workbench</code></pre>
+</section></section>
+<section><section id="creación-de-tablas" class="titleslide slide level1"><h1><span class="header-section-number">4</span> Creación de tablas</h1></section><section id="create-table" class="slide level2">
+<h2><span class="header-section-number">4.1</span> CREATE TABLE</h2>
+<ul>
+<li>Para crear una tabla se utiliza la sentencia <strong>CREATE TABLE</strong>:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> nombre_tabla
+( definicion_columna[, definicion_columna...]
+[, restricciones_tabla]);</code></pre></div>
+</section><section id="consideraciones" class="slide level2">
+<h2><span class="header-section-number">4.2</span> Consideraciones</h2>
+<ul>
+<li>La definición de una columna consta del nombre de la columna, un tipo de datos predefinido, un conjunto de definiciones por defecto y restricciones de columna.</li>
+</ul>
+</section><section id="tipos-de-datos" class="slide level2">
+<h2><span class="header-section-number">4.3</span> Tipos de datos</h2>
+<ul>
+<li>Los <strong>principales tipos de datos</strong> predefinidos en SQL que pueden asociarse a una columna son:</li>
+</ul>
+<figure>
+<img src="../img/sql/sql-01.png" alt="Tipos de datos" text-align="center" style="width:50.0%" /><figcaption>Tipos de datos</figcaption>
+</figure>
+</section><section id="valores-por-defecto" class="slide level2">
+<h2><span class="header-section-number">4.4</span> Valores por defecto</h2>
+<ul>
+<li>Se pueden especificar valores por defecto mediante la sentencia:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">DEFAULT</span> (literal|función|NULL)</code></pre></div>
+<pre><code>- Si se elige la **opción NULL**, entonces indica que la</code></pre>
+<p>columna debe admitir valores nulos. - Si se elige la <strong>opción literal</strong>, entonces indica que la columna tomará el valor indicado por el literal. - Si se elige la <strong>opción función</strong>, se indicará alguna de las funciones siguientes.</p>
+</section><section id="funciones" class="slide level2">
+<h2><span class="header-section-number">4.5</span> Funciones</h2>
+<figure>
+<img src="../img/sql/sql-02.png" alt="Funciones" text-align="center" style="width:50.0%" /><figcaption>Funciones</figcaption>
+</figure>
+</section><section id="restricciones-de-columna" class="slide level2">
+<h2><span class="header-section-number">4.6</span> Restricciones de columna</h2>
+<ul>
+<li>Se pueden definir <strong>restricciones sobre las columnas</strong> de la siguiente forma:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CONSTRAINT</span> nombre_restricción [<span class="kw">CHECK</span>(condiciones)]</code></pre></div>
+</section><section id="lista-restricciones-columna" class="slide level2">
+<h2><span class="header-section-number">4.7</span> Lista restricciones columna</h2>
+<figure>
+<img src="../img/sql/sql-03.png" alt="Restricciones columna" text-align="center" style="width:50.0%" /><figcaption>Restricciones columna</figcaption>
+</figure>
+</section><section id="restricciones-tabla" class="slide level2">
+<h2><span class="header-section-number">4.8</span> Restricciones tabla</h2>
+<ul>
+<li>Se pueden especificar <strong>restricciones sobre toda la tabla</strong>:</li>
+</ul>
+<figure>
+<img src="../img/sql/sql-04.png" alt="Restricciones tabla" text-align="center" style="width:50.0%" /><figcaption>Restricciones tabla</figcaption>
+</figure>
+</section><section id="ejemplo-1" class="slide level2">
+<h2><span class="header-section-number">4.9</span> Ejemplo 1</h2>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> sucursal
+(nombre_sucursal <span class="dt">VARCHAR2</span>(<span class="dv">15</span>) <span class="kw">CONSTRAINT</span> suc_PK <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,
+ciudad <span class="dt">CHAR</span>(<span class="dv">20</span>) <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">CONSTRAINT</span> cl_UK <span class="kw">UNIQUE</span>,
+activos <span class="dt">NUMBER</span>(<span class="dv">12</span>,<span class="dv">2</span>) <span class="kw">default</span> <span class="dv">0</span>);</code></pre></div>
+</section><section id="ejemplo-2" class="slide level2">
+<h2><span class="header-section-number">4.10</span> Ejemplo 2</h2>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> cliente
+(dni <span class="dt">VARCHAR2</span>(<span class="dv">9</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,
+nombre_cliente <span class="dt">CHAR</span>(<span class="dv">35</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,
+domicilio <span class="dt">CHAR</span>(<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,
+<span class="kw">CONSTRAINT</span> cl_PK <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (dni));</code></pre></div>
+</section><section id="ejemplo-3" class="slide level2">
+<h2><span class="header-section-number">4.11</span> Ejemplo 3</h2>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> cuenta
+(numero_cuenta <span class="dt">CHAR</span> (<span class="dv">20</span>) <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,
+nombre_sucursal <span class="dt">char</span>(<span class="dv">15</span>)
+<span class="kw">REFERENCES</span> sucursal,
+saldo <span class="dt">NUMBER</span>(<span class="dv">12</span>,<span class="dv">2</span>) <span class="kw">default</span> <span class="dv">100</span>,
+<span class="kw">CONSTRAINT</span> imp_minimo <span class="kw">CHECK</span>(saldo &gt;=<span class="dv">100</span>))</code></pre></div>
+</section><section id="ejemplo-4" class="slide level2">
+<h2><span class="header-section-number">4.12</span> Ejemplo 4</h2>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> impositor
+(dni <span class="dt">CHAR</span>(<span class="dv">9</span>) <span class="kw">CONSTRAINT</span> imp_dni_FK
+<span class="kw">REFERENCES</span> cliente,
+numero_cuenta <span class="dt">CHAR</span>(<span class="dv">20</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,
+<span class="kw">CONSTRAINT</span> imp_PK <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (dni, numero_cuenta),
+<span class="kw">CONSTRAINT</span> imp_ct_FK <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (numero_cuenta) <span class="kw">REFERENCES</span> cuenta)</code></pre></div>
+</section><section id="pk-y-fk" class="slide level2">
+<h2><span class="header-section-number">4.13</span> PK y FK</h2>
+<figure>
+<img src="../img/sql/sql-05.png" alt="PK y FK" text-align="center" style="width:50.0%" /><figcaption>PK y FK</figcaption>
+</figure>
+</section><section id="politicas-de-borrado-i" class="slide level2">
+<h2><span class="header-section-number">4.14</span> Politicas de borrado (I)</h2>
+<ul>
+<li>Cuando se define una clave foránea se puede especificar las políticas de borrado y modificación de filas que tienen una clave primaria referenciada por claves foráneas de la siguiente forma:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">FOREIGN</span> <span class="kw">KEY</span> clave_secundaria <span class="kw">REFERENCES</span> nombre_tabla [(clave_primaria)]
+[<span class="kw">ON</span> <span class="kw">DELETE</span> {<span class="kw">NO</span> ACTION | <span class="kw">CASCADE</span> | <span class="kw">SET</span> <span class="kw">DEFAULT</span> | <span class="kw">SET</span> <span class="kw">NULL</span>}]
+[<span class="kw">ON</span> <span class="kw">UPDATE</span> {<span class="kw">NO</span> ACTION | <span class="kw">CASCADE</span> | <span class="kw">SET</span> <span class="kw">DEFAULT</span> | <span class="kw">SET</span> <span class="kw">NULL</span>}]</code></pre></div>
+</section><section id="politicas-de-borrado-ii" class="slide level2">
+<h2><span class="header-section-number">4.15</span> Politicas de borrado (II)</h2>
+<ul>
+<li><strong>NO ACTION</strong> impide realizar alguna acción sobre un valor de clave primaria si en la tabla referenciada hay una valor de clave foránea relacionado.</li>
+<li><strong>CASCADE</strong> representa la actualización en cascada. Borra o actualiza el registro en la tabla referenciada y en la tabla actual.</li>
+<li><strong>SET NULL</strong> borra o actualiza el registro en la tabla referenciada y establece en NULL la/s columna/s de clave foránea en la tabla actual.</li>
+<li><strong>SET DEFAULT</strong> indica que se ponga el valor especificado por defecto.</li>
+</ul>
+</section><section id="ejemplo-3-actualizado" class="slide level2">
+<h2><span class="header-section-number">4.16</span> Ejemplo 3 actualizado</h2>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> cuenta
+(numero_cuenta <span class="dt">CHAR</span> (<span class="dv">20</span>) <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,
+nombre_sucursal <span class="dt">char</span>(<span class="dv">15</span>)
+<span class="kw">CONSTRAINT</span> ct_FK <span class="kw">REFERENCES</span> sucursal <span class="kw">on</span> <span class="kw">delete</span> <span class="kw">set</span> <span class="kw">null</span>,
+saldo <span class="dt">NUMBER</span>(<span class="dv">12</span>,<span class="dv">2</span>) <span class="kw">default</span> <span class="dv">100</span>,
+<span class="kw">CONSTRAINT</span> imp_minimo <span class="kw">CHECK</span>(saldo &gt;=<span class="dv">100</span>))</code></pre></div>
+</section><section id="ejemplo-4-actualizado" class="slide level2">
+<h2><span class="header-section-number">4.17</span> Ejemplo 4 actualizado</h2>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> impositor
+(dni <span class="dt">CHAR</span>(<span class="dv">9</span>) <span class="kw">CONSTRAINT</span> imp_dni_FK
+<span class="kw">REFERENCES</span> cliente <span class="kw">on</span> <span class="kw">delete</span> <span class="kw">cascade</span>,
+numero_cuenta <span class="dt">CHAR</span>(<span class="dv">20</span>),
+<span class="kw">CONSTRAINT</span> imp_PK <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (dni, numero_cuenta),
+<span class="kw">CONSTRAINT</span> imp_ct_FK <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (numero_cuenta)
+<span class="kw">REFERENCES</span> cuenta <span class="kw">on</span> <span class="kw">delete</span> <span class="kw">cascade</span>)</code></pre></div>
+</section><section id="alter-table" class="slide level2">
+<h2><span class="header-section-number">4.18</span> ALTER TABLE</h2>
+<ul>
+<li>Para modificar una tabla se utiliza <strong>ALTER TABLE</strong>:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">ALTER</span> <span class="kw">TABLE</span> nombre_tabla
+{accion_modificar_columna|accion_modificar_restriccion_tabla};</code></pre></div>
+</section><section id="añadir-columna" class="slide level2">
+<h2><span class="header-section-number">4.19</span> Añadir columna</h2>
+<ul>
+<li><strong>Añadir columna</strong> a una tabla.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">ALTER</span> <span class="kw">TABLE</span> nombre_tabla
+<span class="kw">ADD</span> nombre_columna TIPO [propiedades]</code></pre></div>
+</section><section id="eliminar-columna" class="slide level2">
+<h2><span class="header-section-number">4.20</span> Eliminar columna</h2>
+<ul>
+<li><strong>Eliminar columna</strong> de una tabla.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">ALTER</span> <span class="kw">TABLE</span> nombre_tabla
+<span class="kw">DROP</span> <span class="kw">COLUMN</span> nombre_columna</code></pre></div>
+</section><section id="modificar-columna" class="slide level2">
+<h2><span class="header-section-number">4.21</span> Modificar columna</h2>
+<ul>
+<li><strong>Modificar columna</strong> de una tabla.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">ALTER</span> <span class="kw">TABLE</span> nombre_tabla
+<span class="kw">MODIFY</span> (nombre_columna TIPO [propiedades])</code></pre></div>
+</section><section id="renombrar-columna" class="slide level2">
+<h2><span class="header-section-number">4.22</span> Renombrar columna</h2>
+<ul>
+<li><strong>Renombrar columna</strong> de una tabla.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">ALTER</span> <span class="kw">TABLE</span> nombre_tabla
+<span class="kw">RENAME</span> <span class="kw">COLUMN</span> nombre_columna_1 <span class="kw">TO</span> nombre_columna_2</code></pre></div>
+</section><section id="añadir-restricción" class="slide level2">
+<h2><span class="header-section-number">4.23</span> Añadir restricción</h2>
+<ul>
+<li><strong>Añadir restricciones</strong> a una tabla.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">ALTER</span> <span class="kw">TABLE</span> nombre_tabla
+<span class="kw">ADD</span> <span class="kw">CONSTRAINT</span> nombre_restriccion TIPO (columnas)</code></pre></div>
+</section><section id="eliminar-restricción" class="slide level2">
+<h2><span class="header-section-number">4.24</span> Eliminar restricción</h2>
+<ul>
+<li><strong>Eliminar restricciones</strong> de una tabla.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">ALTER</span> <span class="kw">TABLE</span> nombre_tabla
+<span class="kw">DROP</span> {<span class="kw">PRIMARY</span> KEY|UNIQUE(columnas)|CONSTRAINT nombre_restriccion [<span class="kw">CASCADE</span>]}</code></pre></div>
+<ul>
+<li>La opción CASCADE hace que se eliminen las restricciones de integridad que dependen de la eliminada.</li>
+</ul>
+</section><section id="desactivar-restricciones" class="slide level2">
+<h2><span class="header-section-number">4.25</span> Desactivar restricciones</h2>
+<ul>
+<li><strong>Desactivar restricciones</strong> a una tabla.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">ALTER</span> <span class="kw">TABLE</span> nombre_tabla
+<span class="kw">DISABLE</span> <span class="kw">CONSTRAINT</span> nombre_restriccion [<span class="kw">CASCADE</span>]</code></pre></div>
+</section><section id="activar-restricciones" class="slide level2">
+<h2><span class="header-section-number">4.26</span> Activar restricciones</h2>
+<ul>
+<li><strong>Activar restricciones</strong> a una tabla.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">ALTER</span> <span class="kw">TABLE</span> nombre_tabla
+<span class="kw">ENABLE</span> <span class="kw">CONSTRAINT</span> nombre_restriccion</code></pre></div>
+</section><section id="ejemplo-modificación" class="slide level2">
+<h2><span class="header-section-number">4.27</span> Ejemplo modificación</h2>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">ALTER</span> <span class="kw">TABLE</span> cuenta <span class="kw">ADD</span> comision <span class="dt">NUMBER</span>(<span class="dv">4</span>,<span class="dv">2</span>);
+<span class="kw">ALTER</span> <span class="kw">TABLE</span> cuenta <span class="kw">ADD</span> fecha_apertura <span class="dt">DATE</span>;
+<span class="kw">ALTER</span> <span class="kw">TABLE</span> cuenta <span class="kw">DROP</span> <span class="kw">COLUMN</span> nombre_sucursal;
+<span class="kw">ALTER</span> <span class="kw">TABLE</span> cuenta <span class="kw">MODIFY</span> comision <span class="kw">DEFAULT</span> <span class="fl">1.5</span>;
+<span class="kw">ALTER</span> <span class="kw">TABLE</span> cliente <span class="kw">MODIFY</span> nombre_cliente <span class="kw">NULL</span>;
+<span class="kw">ALTER</span> <span class="kw">TABLE</span> sucursal <span class="kw">ADD</span> <span class="kw">CONSTRAINT</span> cd_UK <span class="kw">UNIQUE</span>(ciudad);</code></pre></div>
+</section><section id="borrado-de-tablas" class="slide level2">
+<h2><span class="header-section-number">4.28</span> Borrado de tablas</h2>
+<ul>
+<li>Para <strong>borrar una tabla</strong> se utiliza la sentencia:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">DROP</span> <span class="kw">TABLE</span> nombre_tabla {RESTRICT|CASCADE}</code></pre></div>
+<ul>
+<li><p><strong>RESTRICT</strong> indica que la tabla no se borrará si está referenciada.</p></li>
+<li><p><strong>CASCADE</strong> indica que todo lo que referencie a la tabla se borrará con ésta.</p></li>
+</ul>
+</section><section id="descripción-de-tabla" class="slide level2">
+<h2><span class="header-section-number">4.29</span> Descripción de tabla</h2>
+<ul>
+<li>Para ver la <strong>descripción de una tabla</strong> se utiliza la sentencia:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql">DESCRIBE nombre_tabla</code></pre></div>
+</section><section id="renombrar-tabla" class="slide level2">
+<h2><span class="header-section-number">4.30</span> Renombrar tabla</h2>
+<ul>
+<li>Para <strong>renombrar una tabla</strong> se utiliza la sentencia:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">RENAME</span> nombre_tabla_1 <span class="kw">TO</span> nombre_tabla_2</code></pre></div>
+</section><section id="borrar-contenido" class="slide level2">
+<h2><span class="header-section-number">4.31</span> Borrar contenido</h2>
+<ul>
+<li>Para <strong>borrar el contenido de una tabla</strong> se utiliza la sentencia:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">TRUNCATE</span> <span class="kw">TABLE</span> nombre_tabla</code></pre></div>
+</section><section id="índices" class="slide level2">
+<h2><span class="header-section-number">4.32</span> Índices</h2>
+<ul>
+<li>Los índices permiten que las bases de datos <strong>aceleren las operaciones de consulta y ordenación</strong> sobre los campos a los que el índice hace referencia.</li>
+</ul>
+</section><section id="indices-implícitos" class="slide level2">
+<h2><span class="header-section-number">4.33</span> Indices implícitos</h2>
+<ul>
+<li>La mayoría de los índices se crean de manera implícita, como consecuencia de las <strong>restricciones PRIMARY KEY y UNIQUE</strong>.</li>
+</ul>
+</section><section id="indices-explícitos" class="slide level2">
+<h2><span class="header-section-number">4.34</span> Indices explícitos</h2>
+<ul>
+<li>Se pueden crear explícitamente para aquellos campos sobre los cuales se realizarán <strong>búsquedas</strong> e instrucciones de <strong>ordenación</strong> frecuente.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> [<span class="kw">unique</span>] <span class="kw">INDEX</span> nombre_indice
+<span class="kw">ON</span> nombre_tabla (col1,...,colk);</code></pre></div>
+</section><section id="ejemplo-índices" class="slide level2">
+<h2><span class="header-section-number">4.35</span> Ejemplo índices</h2>
+<figure>
+<img src="../img/sql/sql-05.png" alt="Ejemplo índices" text-align="center" style="width:50.0%" /><figcaption>Ejemplo índices</figcaption>
+</figure>
+</section></section>
+<section><section id="operaciones-actualización" class="titleslide slide level1"><h1><span class="header-section-number">5</span> Operaciones actualización</h1></section><section id="insert-into" class="slide level2">
+<h2><span class="header-section-number">5.1</span> INSERT INTO</h2>
+<ul>
+<li>Para poder introducir datos en una tabla se usa <strong>INSERT INTO</strong>.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">INSERT</span> <span class="kw">INTO</span> nombre_tabla [(nombres_columnas)]
+{<span class="kw">VALUES</span> ({v1|DEFAULT|NULL}, ...,
+{vn/DEFAULT/NULL})|&lt;consulta&gt;};</code></pre></div>
+</section><section id="consideraciones-1" class="slide level2">
+<h2><span class="header-section-number">5.2</span> Consideraciones</h2>
+<ul>
+<li><p>Los valores v1, v2, ..., vn se deben corresponder con las columnas de la tabla especificada y deben estar en el mismo orden.</p></li>
+<li><p>También es posible especificar el nombre de las columnas de la tabla. En este último caso, los valores se deben disponer de forma coherente con el nuevo orden.</p></li>
+<li><p>Si se quiere especificar que un valor por omisión se usa la palabra reservada DEFAULT, y si se trata de un valor nulo se usa la palabra reservada NULL.</p></li>
+</ul>
+</section><section id="insertar-más-de-una-fila" class="slide level2">
+<h2><span class="header-section-number">5.3</span> Insertar más de una fila</h2>
+<ul>
+<li>Observar que para insertar más de una fila con una sola sentencia, se deben obtener los datos mediante una consulta a otras tablas.</li>
+</ul>
+</section><section id="ejemplo-insert-into-1" class="slide level2">
+<h2><span class="header-section-number">5.4</span> Ejemplo INSERT INTO 1</h2>
+<ul>
+<li>Por ejemplo si se quiere insertar en una tabla clientes que tiene las columnas: nif, nombre_cliente, codigo_cliente, telefono, direccion, ciudad, se podría hacer de dos formas:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">INSERT</span> <span class="kw">INTO</span> clientes
+<span class="kw">VALUES</span>
+(<span class="dv">10</span>, <span class="st">&#39;Mercadona&#39;</span>, <span class="st">&#39;122233444-C&#39;</span>, <span class="st">&#39;Gran vida 8&#39;</span>, <span class="st">&#39;Madrid&#39;</span>, <span class="kw">DEFAULT</span>);</code></pre></div>
+</section><section id="ejemplo-insert-into-2" class="slide level2">
+<h2><span class="header-section-number">5.5</span> Ejemplo INSERT INTO 2</h2>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">INSERT</span> <span class="kw">INTO</span> clientes
+(nif, nombre_cliente, codigo_cliente, telefono, direccion, ciudad)
+<span class="kw">VALUES</span>
+(<span class="st">&#39;122233444-C&#39;</span>, <span class="st">&#39;Mercadona&#39;</span>, <span class="dv">10</span>, <span class="kw">DEFAULT</span>, <span class="st">&#39;Gran vida 8&#39;</span>, <span class="st">&#39;Madrid&#39;</span>);</code></pre></div>
+</section><section id="delete" class="slide level2">
+<h2><span class="header-section-number">5.6</span> DELETE</h2>
+<ul>
+<li>Para <strong>borrar valores de algunas filas</strong> de una tabla se usa la sentencia DELETE:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">DELETE</span> <span class="kw">FROM</span> nombre_tabla [<span class="kw">WHERE</span> condiciones];</code></pre></div>
+</section><section id="consideraciones-2" class="slide level2">
+<h2><span class="header-section-number">5.7</span> Consideraciones</h2>
+<ul>
+<li>Observar que <strong>si no se utiliza la clausula WHERE se borran todas las filas de la tabla</strong>, en cambio si se utiliza WHERE entonces solo se borran aquellas filas que cumplen las condiciones especificadas.</li>
+</ul>
+</section><section id="ejemplo-delete-1" class="slide level2">
+<h2><span class="header-section-number">5.8</span> Ejemplo DELETE 1</h2>
+<ul>
+<li>Por ejemplo si se quieren borrar todas las filas de la tabla proyectos se usaría la sentencia:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">DELETE</span> <span class="kw">FROM</span> proyectos;</code></pre></div>
+</section><section id="ejemplo-delete-2" class="slide level2">
+<h2><span class="header-section-number">5.9</span> Ejemplo DELETE 2</h2>
+<ul>
+<li>Si solo se quieren borrar las filas de la tabla en las que el valor de la columna cliente vale 12, entonces se usaría la sentencia:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">DELETE</span> <span class="kw">FROM</span> proyectos
+<span class="kw">WHERE</span> codigo_cliente = <span class="dv">12</span>;</code></pre></div>
+</section><section id="ejemplo-delete-3" class="slide level2">
+<h2><span class="header-section-number">5.10</span> Ejemplo DELETE 3</h2>
+<ul>
+<li>La clausula WHERE admite consultas anidadas como por ejemplo la consulta que quiere borrar todos los clientes que tengan un préstamo no registrado en la relación préstamo.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">DELETE</span>
+<span class="kw">FROM</span> clientes
+<span class="kw">WHERE</span> clientes.numero_prestamos <span class="kw">NOT</span> <span class="kw">IN</span> (
+  <span class="kw">SELECT</span> numero_prestamos
+  <span class="kw">FROM</span> prestamos);</code></pre></div>
+</section><section id="update" class="slide level2">
+<h2><span class="header-section-number">5.11</span> UPDATE</h2>
+<ul>
+<li>Para modificar los valores de algunas filas de una tabla se usa la sentencia <strong>UPDATE</strong>:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">UPDATE</span> nombre_tabla
+<span class="kw">SET</span> nombre_columna = {expresión|DEFAULT|NULL}
+[, nombre_columna = {expresión|DEFAULT|NULL} ...]
+<span class="kw">WHERE</span> condiciones;</code></pre></div>
+</section><section id="consideraciones-3" class="slide level2">
+<h2><span class="header-section-number">5.12</span> Consideraciones</h2>
+<ul>
+<li><p>La cláusula SET indica qué columna modificar y los valores que puede recibir, y la cláusula WHERE especifica qué filas deben actualizarse.</p></li>
+<li><p>La parte WHERE es opcional y, si no se especifica, se actualizarán todas las tuplas de la tabla.</p></li>
+</ul>
+</section><section id="ejemplo-update-1" class="slide level2">
+<h2><span class="header-section-number">5.13</span> Ejemplo UPDATE 1</h2>
+<ul>
+<li>Por ejemplo si se quiere inicializar el sueldo de todos los empleados del proyecto 2 en 500 euros:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">UPDATE</span> empleados <span class="kw">SET</span> sueldo = <span class="dv">500</span>
+<span class="kw">WHERE</span> numero_proyecto = <span class="dv">2</span>;</code></pre></div>
+</section><section id="ejemplo-update-2" class="slide level2">
+<h2><span class="header-section-number">5.14</span> Ejemplo UPDATE 2</h2>
+<ul>
+<li>La clausula WHERE admite consultas anidadas como por ejemplo la siguiente consulta que quiere modificar todos los prestamos cuya sucursal hay sido cerrada a la sucursal 'Centro'.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">UPDATE</span> prestamos
+<span class="kw">SET</span> sucursal= <span class="st">&#39;Centro&#39;</span>
+<span class="kw">WHERE</span> sucursal <span class="kw">IN</span> (
+  <span class="kw">SELECT</span> sucursal
+  <span class="kw">FROM</span> sucursales_cerradas);</code></pre></div>
+</section></section>
+<section><section id="consultas-básicas" class="titleslide slide level1"><h1><span class="header-section-number">6</span> Consultas básicas</h1></section><section id="select" class="slide level2">
+<h2><span class="header-section-number">6.1</span> SELECT</h2>
+<ul>
+<li>Para hacer consultas sobre una tabla se utiliza <strong>SELECT</strong>:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombre_columna_1 [[<span class="kw">AS</span>] columna_renombrada_1]
+[,nombre_columna_N [[<span class="kw">AS</span>] columna_renombrada_2]...]
+<span class="kw">FROM</span> nombre_tabla [[<span class="kw">AS</span>] tabla_renombrada];</code></pre></div>
+</section><section id="as-renombrar" class="slide level2">
+<h2><span class="header-section-number">6.2</span> AS (renombrar)</h2>
+<ul>
+<li>La palabra clave <strong>AS permite renombrar</strong> las columnas que se quieren seleccionar o las tablas que se quieren consultar. Esta palabra es opcional.</li>
+</ul>
+</section><section id="ejemplo-sencillo" class="slide level2">
+<h2><span class="header-section-number">6.3</span> Ejemplo sencillo</h2>
+<ul>
+<li>Por ejemplo si queremos seleccionar las columnas código, nombre, dirección y ciudad de la tabla clientes usaríamos la sentencia:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> codigo_cliente, nombre_cliente, direccion, ciudad
+<span class="kw">FROM</span> clientes;</code></pre></div>
+</section><section id="ejemplo" class="slide level2">
+<h2><span class="header-section-number">6.4</span> Ejemplo *</h2>
+<ul>
+<li>Se usa el símbolo * si se quieren recuperar todas las columnas de la tabla:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> clientes;</code></pre></div>
+</section><section id="where" class="slide level2">
+<h2><span class="header-section-number">6.5</span> WHERE</h2>
+<ul>
+<li>La clausula <strong>WHERE</strong> permite recuperar sólo aquellas filas que cumplen la condición especificada.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> [DISTINCT|ALL] nombres_columnas
+<span class="kw">FROM</span> nombre_tabla [<span class="kw">WHERE</span> condiciones];</code></pre></div>
+</section><section id="distinct" class="slide level2">
+<h2><span class="header-section-number">6.6</span> DISTINCT</h2>
+<ul>
+<li>La clausula <strong>DISTINCT</strong> permite indicar que nos muestre las filas resultantes sin repeticiones. La opción por defecto es <strong>ALL</strong> que indica que muestre todas las filas.</li>
+</ul>
+</section><section id="ejemplo-distinct" class="slide level2">
+<h2><span class="header-section-number">6.7</span> Ejemplo DISTINCT</h2>
+<ul>
+<li>Por ejemplo si se quieren recuperar los diferentes sueldos de la tabla empleados:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> sueldo <span class="kw">FROM</span> empleados;</code></pre></div>
+</section><section id="condiciones" class="slide level2">
+<h2><span class="header-section-number">6.8</span> Condiciones</h2>
+<ul>
+<li>Para construir las condiciones de la clausula WHERE es necesario usar <strong>operadores de comparación o lógicos</strong>:
+<ul>
+<li>&lt;(menor), &gt;(mayor), =(igual),</li>
+<li>&lt;=(menor o igual), &gt;=(mayor o igual), &lt;&gt;(distinto),</li>
+<li>AND(conjunción de condiciones),</li>
+<li>OR(disyunción de condiciones),</li>
+<li>NOT(negación).</li>
+</ul></li>
+</ul>
+</section><section id="ejemplo-condición" class="slide level2">
+<h2><span class="header-section-number">6.9</span> Ejemplo condición</h2>
+<ul>
+<li>Y si se quieren recuperar los empleados de la tabla empleados cuyo sueldo es mayor de 1000 euros:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> empleados <span class="kw">WHERE</span> sueldo&gt; <span class="dv">1000</span>;</code></pre></div>
+</section><section id="subconsultas" class="slide level2">
+<h2><span class="header-section-number">6.10</span> Subconsultas</h2>
+<ul>
+<li>Una <strong>subconsulta</strong> es una consulta incluida dentro de otra consulta, y que aparece como parte de una cláusula WHERE.</li>
+</ul>
+</section><section id="ejemplo-subconsulta" class="slide level2">
+<h2><span class="header-section-number">6.11</span> Ejemplo subconsulta</h2>
+<ul>
+<li>Por ejemplo se quiere obtener los proyectos de la tabla proyectos que se corresponden con un cliente que tiene como NIF el número &quot;444555-E&quot;:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> *
+<span class="kw">FROM</span> proyectos
+<span class="kw">WHERE</span> codigo_cliente = (
+  <span class="kw">SELECT</span> codigo_cliente
+  <span class="kw">FROM</span> clientes
+  <span class="kw">WHERE</span> nif=<span class="ot">&quot;444555-E&quot;</span>)</code></pre></div>
+</section><section id="predicados" class="slide level2">
+<h2><span class="header-section-number">6.12</span> Predicados</h2>
+<ul>
+<li>En la condición que aparece en la clausula WHERE se pueden utilizar un conjunto de <strong>predicados</strong> predefinidos para construir las condiciones</li>
+</ul>
+</section><section id="between" class="slide level2">
+<h2><span class="header-section-number">6.13</span> BETWEEN</h2>
+<ul>
+<li>Expresa que se quiere encontrar un <strong>valor entre unos límites</strong> concretos:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombres_columnas
+<span class="kw">FROM</span> nombre_tabla
+<span class="kw">WHERE</span> nombre_columna <span class="kw">BETWEEN</span> límite1 <span class="kw">AND</span> límite2;</code></pre></div>
+</section><section id="ejemplo-between" class="slide level2">
+<h2><span class="header-section-number">6.14</span> Ejemplo BETWEEN</h2>
+<ul>
+<li>Por ejemplo se quieren recuperar todos los empleados cuyos sueldos están entre 1000 y 2000 euros:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> codigo_empleado
+<span class="kw">FROM</span> empleados
+<span class="kw">WHERE</span> sueldo <span class="kw">BETWEEN</span> <span class="dv">1000</span> <span class="kw">and</span> <span class="dv">2000</span>;</code></pre></div>
+</section><section id="in" class="slide level2">
+<h2><span class="header-section-number">6.15</span> IN</h2>
+<ul>
+<li>IN. Comprueba si un valor coincide con los <strong>elementos de una lista</strong> (IN) o no coincide(NOT IN):</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombres_columnas
+<span class="kw">FROM</span> nombre_tabla
+<span class="kw">WHERE</span> nombre_columna [<span class="kw">NOT</span>] <span class="kw">IN</span> (valor1, ..., valorN);</code></pre></div>
+</section><section id="ejemplo-in" class="slide level2">
+<h2><span class="header-section-number">6.16</span> Ejemplo IN</h2>
+<ul>
+<li>Por ejemplo se quieren recuperar todos los clientes que viven en Madrid y Zaragoza:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> *
+<span class="kw">FROM</span> clientes
+<span class="kw">WHERE</span> ciudad <span class="kw">IN</span> (<span class="st">&#39;Madrid&#39;</span>, <span class="st">&#39;Zaragoza&#39;</span>);</code></pre></div>
+</section><section id="like" class="slide level2">
+<h2><span class="header-section-number">6.17</span> LIKE</h2>
+<ul>
+<li>Comprueba si una columna de tipo carácter cumple una <strong>condición determinada</strong>.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombres_columnas
+<span class="kw">FROM</span> nombre_tabla
+<span class="kw">WHERE</span> nombre_columna <span class="kw">LIKE</span> condición;</code></pre></div>
+</section><section id="comodines-like" class="slide level2">
+<h2><span class="header-section-number">6.18</span> Comodines LIKE</h2>
+<ul>
+<li>Existen un conjunto de caracteres que actúan como <strong>comodines</strong>:</li>
+<li>El carácter _ para cada representar un carácter individual.</li>
+<li>El carácter % para expresar una secuencia de caracteres incluido la secuencia vacía.</li>
+</ul>
+</section><section id="ejemplo-like-1" class="slide level2">
+<h2><span class="header-section-number">6.19</span> Ejemplo LIKE 1</h2>
+<ul>
+<li>Por ejemplo si se quieren recuperar los clientes cuya ciudad de residencia termina por la letra &quot;d&quot;:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> clientes <span class="kw">WHERE</span> ciudad <span class="kw">LIKE</span> <span class="st">&#39;%d&#39;</span>;</code></pre></div>
+</section><section id="ejemplo-like-2" class="slide level2">
+<h2><span class="header-section-number">6.20</span> Ejemplo LIKE 2</h2>
+<ul>
+<li>Y si se quiere refinar la consulta anterior y recuperar los clientes cuya ciudad de residencia termina por la letra &quot;d&quot; y el nombre de la ciudad tiene 5 letras:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> clientes <span class="kw">WHERE</span> ciudad <span class="kw">LIKE</span> <span class="st">&#39;_ _ _ _ d&#39;</span>;</code></pre></div>
+</section><section id="is-null" class="slide level2">
+<h2><span class="header-section-number">6.21</span> IS NULL</h2>
+<ul>
+<li>Comprueba si un <strong>valor nulo</strong> (IS NULL) o no lo es (IS NOT NULL):</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombres_columnas
+<span class="kw">FROM</span> nombre_tabla
+<span class="kw">WHERE</span> nombre_columna <span class="kw">IS</span> [<span class="kw">NOT</span>] <span class="kw">NULL</span>;</code></pre></div>
+</section><section id="ejemplo-is-null" class="slide level2">
+<h2><span class="header-section-number">6.22</span> Ejemplo IS NULL</h2>
+<ul>
+<li>Por ejemplo se quieren recuperar todos los clientes que no tienen un número de teléfono:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> *
+<span class="kw">FROM</span> clientes
+<span class="kw">WHERE</span> telefono <span class="kw">IS</span> <span class="kw">NULL</span>;</code></pre></div>
+</section><section id="exists" class="slide level2">
+<h2><span class="header-section-number">6.23</span> EXISTS</h2>
+<ul>
+<li>Comprueba si una consulta produce <strong>algún resultado</strong> (EXISTS) o no (NOT EXISTS):</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombres_columnas
+<span class="kw">FROM</span> nombre_tabla
+<span class="kw">WHERE</span> [<span class="kw">NOT</span>] <span class="kw">EXISTS</span> subconsulta;</code></pre></div>
+</section><section id="ejemplo-exists" class="slide level2">
+<h2><span class="header-section-number">6.24</span> Ejemplo EXISTS</h2>
+<ul>
+<li>Por ejemplo se quieren recuperar todos los empleados que están asignados a algún proyecto:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> *
+<span class="kw">FROM</span> empleados
+<span class="kw">WHERE</span> <span class="kw">EXISTS</span> (
+  <span class="kw">SELECT</span> *
+  <span class="kw">FROM</span> proyectos
+  <span class="kw">WHERE</span> codigo_proyectoto = numero_proyecto);</code></pre></div>
+</section><section id="anysomeall" class="slide level2">
+<h2><span class="header-section-number">6.25</span> ANY/SOME/ALL</h2>
+<ul>
+<li>Comprueba si todas (ALL) o algunas(SOME/ANY) de las filas de una columna cumplen las condiciones especificadas:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombres_columnas
+<span class="kw">FROM</span> nombre_tabla
+<span class="kw">WHERE</span> nombre_columna operador_comparación {ALL|ANY|SOME} subconsulta;</code></pre></div>
+</section><section id="ejemplo-all" class="slide level2">
+<h2><span class="header-section-number">6.26</span> Ejemplo ALL</h2>
+<ul>
+<li>Por ejemplo si se quiere recuperar todos los proyectos en los que los sueldos de todos los empleados asignados son menores que el precio del proyecto:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> proyectos
+<span class="kw">WHERE</span> precio &gt; <span class="kw">ALL</span> (
+  <span class="kw">SELECT</span> sueldo
+  <span class="kw">FROM</span> empleados
+  <span class="kw">WHERE</span> codigo_proyecto = numero_proyecto);</code></pre></div>
+</section><section id="ejemplo-some" class="slide level2">
+<h2><span class="header-section-number">6.27</span> Ejemplo SOME</h2>
+<ul>
+<li>Si la condición se relaja, y sólo se pide que la condición sólo ocurra para algunos empleados, entonces sería:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> * <span class="kw">FROM</span> proyectos
+<span class="kw">WHERE</span> precio &gt; <span class="kw">SOME</span> (
+  <span class="kw">SELECT</span> sueldo
+  <span class="kw">FROM</span> empleados
+  <span class="kw">WHERE</span> codigo_proyecto = numero_proyecto);</code></pre></div>
+</section><section id="order-by" class="slide level2">
+<h2><span class="header-section-number">6.28</span> ORDER BY</h2>
+<ul>
+<li>Para ordenar los resultados de una consulta se utiliza la cláusula <strong>ORDER BY</strong>:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombres_columnas
+<span class="kw">FROM</span> nombre_tabla
+[<span class="kw">WHERE</span> condiciones]
+<span class="kw">ORDER</span> <span class="kw">BY</span> nombre_columna_ordenar_1 [<span class="kw">DESC</span>]
+[, nombre_columna_ordenar_2 [<span class="kw">DESC</span>]...];</code></pre></div>
+</section><section id="desc" class="slide level2">
+<h2><span class="header-section-number">6.29</span> DESC</h2>
+<ul>
+<li>Por defecto los resultados se ordenan de manera <strong>ascendente</strong>. Así si queremos realizar una ordenación <strong>descendente</strong> se debe indicar usando la cláusula DESC.</li>
+</ul>
+</section><section id="ejemplo-order-by" class="slide level2">
+<h2><span class="header-section-number">6.30</span> Ejemplo ORDER BY</h2>
+<ul>
+<li>Por ejemplo si queremos ordenar los empleados por orden alfabético ascendente de a cuerdo a su nombre y descendente de acuerdo a su sueldo:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> *
+<span class="kw">FROM</span> empleados
+<span class="kw">ORDER</span> <span class="kw">BY</span> nombre_empl, sueldo <span class="kw">DESC</span>;</code></pre></div>
+</section></section>
+<section><section id="consultas-varias-tablas" class="titleslide slide level1"><h1><span class="header-section-number">7</span> Consultas varias tablas</h1></section><section id="introducción" class="slide level2">
+<h2><span class="header-section-number">7.1</span> Introducción</h2>
+<ul>
+<li>En la cláusula FROM es posible <strong>especificar más de una tabla</strong> cuándo se quieren consultar columnas de tablas diferentes.</li>
+</ul>
+</section><section id="combinación" class="slide level2">
+<h2><span class="header-section-number">7.2</span> Combinación</h2>
+<ul>
+<li>Se <strong>simula una sola tabla</strong> a partir de las tablas especificadas, haciendo coincidir los valores de las columnas relacionadas de las tablas.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombres_columnas
+<span class="kw">FROM</span> nombre_tabla_1 <span class="kw">JOIN</span> nombre_tabla_2
+{<span class="kw">ON</span> condiciones | <span class="kw">USING</span> (nombre_columna [, nombre_columna...])}
+[<span class="kw">WHERE</span> condiciones];</code></pre></div>
+</section><section id="consideraciones-4" class="slide level2">
+<h2><span class="header-section-number">7.3</span> Consideraciones</h2>
+<ul>
+<li><p>La opción ON permite expresar condiciones con cualquiera de los operadores de comparación sobre las columnas especificadas.</p></li>
+<li><p>Es posible utilizar una misma tabla dos veces usando alias diferentes para diferenciarlas.</p></li>
+<li><p>Puede ocurrir que las tablas consideradas tengan columnas con los mismos nombres. En este caso es obligatorio diferenciarlas especificando en cada columna a que tabla pertenecen.</p></li>
+</ul>
+</section><section id="ejemplo-join-1" class="slide level2">
+<h2><span class="header-section-number">7.4</span> Ejemplo JOIN 1</h2>
+<ul>
+<li>Por ejemplo se quiere obtener el nif del cliente y el precio de los proyectos desarrollados para el cliente con código 30.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> p.precio, c.nif
+<span class="kw">FROM</span> clientes c <span class="kw">JOIN</span> proyectos p
+<span class="kw">ON</span> c.codigo_cliente = p.codigo_cliente
+<span class="kw">WHERE</span> c.codigo_cliente = <span class="dv">30</span>;</code></pre></div>
+</section><section id="ejemplo-join-1-alternativo" class="slide level2">
+<h2><span class="header-section-number">7.5</span> Ejemplo JOIN 1 alternativo</h2>
+<ul>
+<li>Alternativamente se podría obtener con la siguiente consulta:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> p.precio, c.nif
+<span class="kw">FROM</span> clientes c, proyectos p
+<span class="kw">WHERE</span> c.codigo_cliente = p.codigo_cliente
+<span class="kw">AND</span> c.codigo_cliente = <span class="dv">30</span>;</code></pre></div>
+</section><section id="ejemplo-join-2" class="slide level2">
+<h2><span class="header-section-number">7.6</span> Ejemplo JOIN 2</h2>
+<ul>
+<li>Por ejemplo si se quieren los códigos de los proyectos que son más caros que el proyecto con código 30:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> p1.codigo_proyecto
+<span class="kw">FROM</span> proyectos p1 <span class="kw">JOIN</span> proyectos p2
+<span class="kw">ON</span> p1.precio &gt; p2.precio
+<span class="kw">WHERE</span> p2.codigo_proyecto = <span class="dv">30</span>;</code></pre></div>
+</section><section id="combinación-natural" class="slide level2">
+<h2><span class="header-section-number">7.7</span> Combinación natural</h2>
+<ul>
+<li>Consiste en una combinación en la que <strong>se eliminan las columnas repetidas</strong>.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombres_columnas
+<span class="kw">FROM</span> nombre_tabla_1 <span class="kw">NATURAL</span> <span class="kw">JOIN</span> nombre_tabla_2
+[<span class="kw">WHERE</span> condiciones];</code></pre></div>
+</section><section id="ejemplo-natural-join" class="slide level2">
+<h2><span class="header-section-number">7.8</span> Ejemplo NATURAL JOIN</h2>
+<ul>
+<li>Por ejemplo si se quiere obtener los empleados cuyo departamento se encuentra situado en Madrid:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> *
+<span class="kw">FROM</span> empleados <span class="kw">NATURAL</span> <span class="kw">JOIN</span> departamentos
+<span class="kw">WHERE</span> ciudad = <span class="st">&#39;Madrid&#39;</span>;</code></pre></div>
+</section><section id="ejemplo-natural-join-alternativo" class="slide level2">
+<h2><span class="header-section-number">7.9</span> Ejemplo NATURAL JOIN alternativo</h2>
+<ul>
+<li>De forma equivalente se podría consultar:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> *
+<span class="kw">FROM</span> empleados <span class="kw">JOIN</span> departamentos
+<span class="kw">USING</span> (nombre_dep, ciudad_departamento)
+<span class="kw">WHERE</span> ciudad = <span class="st">&#39;Madrid&#39;</span>;</code></pre></div>
+</section><section id="combinación-interna" class="slide level2">
+<h2><span class="header-section-number">7.10</span> Combinación interna</h2>
+<ul>
+<li>Sólo se consideran las filas que tienen <strong>valores idénticos en las columnas de las tablas</strong> que compara.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombres_columnas
+<span class="kw">FROM</span> nombre_tabla_1 <span class="kw">INNER</span> <span class="kw">JOIN</span> nombre_tabla_2
+{<span class="kw">ON</span> condiciones || <span class="kw">USING</span> (nombre_columna [,nombre_columna...])}
+[<span class="kw">WHERE</span> condiciones];</code></pre></div>
+</section><section id="combinación-externa" class="slide level2">
+<h2><span class="header-section-number">7.11</span> Combinación externa</h2>
+<ul>
+<li>Se consideran los valores de la tabla derecha, de la izquierda o de ambas tablas.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombres_columnas
+<span class="kw">FROM</span> nombre_tabla_1 [LEFT|RIGHT|FULL] [<span class="kw">OUTER</span>] <span class="kw">JOIN</span> nombre_tabla_2
+{<span class="kw">ON</span> condiciones| [<span class="kw">USING</span> (nombre_columna [,nombre_columna...])}
+[<span class="kw">WHERE</span> condiciones];</code></pre></div>
+</section><section id="más-de-2-tablas" class="slide level2">
+<h2><span class="header-section-number">7.12</span> Más de 2 tablas</h2>
+<ul>
+<li>Para combinar <strong>más de 2 tablas</strong> basta añadirlas en el FROM de la consulta y establecer las relaciones necesarias en el WHERE, o bien combinar las tablas por pares de manera que la resultante es el primer componente del siguiente par.</li>
+</ul>
+</section><section id="ejemplo-más-de-2-tablas" class="slide level2">
+<h2><span class="header-section-number">7.13</span> Ejemplo más de 2 tablas</h2>
+<ul>
+<li>Por ejemplo si se quieren combinar las tablas empleados, proyectos y clientes:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> *
+<span class="kw">FROM</span> empleados e, proyectos p, clientes c
+<span class="kw">WHERE</span> e.numero_proyecto = p.numero_proyecto
+<span class="kw">AND</span> p.codigo_cliente = c.codigo_cliente;</code></pre></div>
+</section><section id="ejemplo-más-de-2-tablas-alternativo" class="slide level2">
+<h2><span class="header-section-number">7.14</span> Ejemplo más de 2 tablas alternativo</h2>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> *
+<span class="kw">FROM</span> (
+  empleados <span class="kw">JOIN</span> proyectos
+  <span class="kw">ON</span> numero_proyecto = codigo_proyecto)
+    <span class="kw">JOIN</span> clientes <span class="kw">ON</span> codigo_cliente = codigo_cliente;</code></pre></div>
+</section><section id="union" class="slide level2">
+<h2><span class="header-section-number">7.15</span> UNION</h2>
+<ul>
+<li>Permite unir los resultados de 2 o más consultas.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombres_columnas <span class="kw">FROM</span> nombre_tabla [<span class="kw">WHERE</span> condiciones]
+<span class="kw">UNION</span> [<span class="kw">ALL</span>]
+<span class="kw">SELECT</span> nombres_columnas <span class="kw">FROM</span> nombre_tabla [<span class="kw">WHERE</span> condiciones];</code></pre></div>
+<ul>
+<li>Observar que la cláusula ALL indica si se quieren obtener todas las filas de la unión (incluidas las repetidas)</li>
+</ul>
+</section><section id="ejemplo-union" class="slide level2">
+<h2><span class="header-section-number">7.16</span> Ejemplo UNION</h2>
+<ul>
+<li>Por ejemplo si se quiere obtener todas las ciudades que aparecen en las tablas de la base de datos:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> ciudad <span class="kw">FROM</span> clientes
+<span class="kw">UNION</span>
+<span class="kw">SELECT</span> ciudad_departamento <span class="kw">FROM</span> departamentos;</code></pre></div>
+</section><section id="intersect" class="slide level2">
+<h2><span class="header-section-number">7.17</span> INTERSECT</h2>
+<ul>
+<li>Permite hacer la <strong>intersección</strong> entre los resultados de 2 o más consultas.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombres_columnas <span class="kw">FROM</span> nombre_tabla [<span class="kw">WHERE</span> condiciones]
+<span class="kw">INTERSECT</span> [<span class="kw">ALL</span>]
+<span class="kw">SELECT</span> nombres_columnas <span class="kw">FROM</span> nombre_tabla [<span class="kw">WHERE</span> condiciones];</code></pre></div>
+<ul>
+<li>La cláusula ALL indica si se quieren obtener todas las filas de la intersección (incluidas las repetidas)</li>
+</ul>
+</section><section id="intersección-con-in" class="slide level2">
+<h2><span class="header-section-number">7.18</span> Intersección con IN</h2>
+<ul>
+<li>La intersección se puede simular usando IN:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombres_columnas
+<span class="kw">FROM</span> nombre_tabla
+<span class="kw">WHERE</span> nombre_columna <span class="kw">IN</span> (
+  <span class="kw">SELECT</span> nombre_columna
+  <span class="kw">FROM</span> nombre_tabla
+  [<span class="kw">WHERE</span> condiciones]);</code></pre></div>
+</section><section id="intersección-con-exists" class="slide level2">
+<h2><span class="header-section-number">7.19</span> Intersección con EXISTS</h2>
+<ul>
+<li>La intersección se puede simular usando EXISTS:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombres_columnas
+<span class="kw">FROM</span> nombre_tabla
+<span class="kw">WHERE</span> <span class="kw">EXISTS</span> (
+  <span class="kw">SELECT</span> *
+  <span class="kw">FROM</span> nombre_tabla
+  <span class="kw">WHERE</span> condiciones);</code></pre></div>
+</section><section id="ejemplo-intersect" class="slide level2">
+<h2><span class="header-section-number">7.20</span> Ejemplo INTERSECT</h2>
+<ul>
+<li>Por ejemplo si se quiere saber las ciudades de los clientes en las que hay departamentos:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> ciudad <span class="kw">FROM</span> clientes
+<span class="kw">INTERSECT</span>
+<span class="kw">SELECT</span> ciudad_departamento <span class="kw">FROM</span> departamentos;</code></pre></div>
+</section><section id="ejemplo-intersección-usando-in" class="slide level2">
+<h2><span class="header-section-number">7.21</span> Ejemplo intersección usando IN</h2>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> c.ciudad
+<span class="kw">FROM</span> clientes c
+<span class="kw">WHERE</span> c.ciudad <span class="kw">IN</span> (
+  <span class="kw">SELECT</span> d.ciudad_departamento
+  <span class="kw">FROM</span> departamentos d);</code></pre></div>
+</section><section id="ejemplo-intersección-usando-exists" class="slide level2">
+<h2><span class="header-section-number">7.22</span> Ejemplo intersección usando EXISTS</h2>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> c.ciudad
+<span class="kw">FROM</span> clientes c
+<span class="kw">WHERE</span> <span class="kw">EXISTS</span> (
+  <span class="kw">SELECT</span> *
+  <span class="kw">FROM</span> departamentos d
+  <span class="kw">WHERE</span> c.ciudad = d.ciudad_departamento);</code></pre></div>
+</section><section id="except" class="slide level2">
+<h2><span class="header-section-number">7.23</span> EXCEPT</h2>
+<ul>
+<li>Permite hacer la <strong>diferencia</strong> entre los resultados de 2 o más consultas.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombres_columnas <span class="kw">FROM</span> nombre_tabla [<span class="kw">WHERE</span> condiciones]
+<span class="kw">EXCEPT</span>
+<span class="kw">SELECT</span> nombres_columnas <span class="kw">FROM</span> nombre_tabla [<span class="kw">WHERE</span> condiciones];</code></pre></div>
+</section><section id="diferencia-con-not-in" class="slide level2">
+<h2><span class="header-section-number">7.24</span> Diferencia con NOT IN</h2>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombres_columnas
+<span class="kw">FROM</span> nombre_tabla
+<span class="kw">WHERE</span> nombre_columna <span class="kw">NOT</span> <span class="kw">IN</span> (
+  <span class="kw">SELECT</span> nombre_columna
+  <span class="kw">FROM</span> nombre_tabla
+  [<span class="kw">WHERE</span> condiciones]);</code></pre></div>
+</section><section id="diferencia-con-not-exists" class="slide level2">
+<h2><span class="header-section-number">7.25</span> Diferencia con NOT EXISTS</h2>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombres_columnas
+<span class="kw">FROM</span> nombre_tabla
+<span class="kw">WHERE</span> <span class="kw">NOT</span> <span class="kw">EXISTS</span> (
+  <span class="kw">SELECT</span> *
+  <span class="kw">FROM</span> nombre_tabla
+  [<span class="kw">WHERE</span> condiciones]);</code></pre></div>
+</section><section id="ejemplo-except" class="slide level2">
+<h2><span class="header-section-number">7.26</span> Ejemplo EXCEPT</h2>
+<ul>
+<li>Por ejemplo si se quiere saber las ciudades de los clientes en las que no hay departamentos:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> ciudad <span class="kw">FROM</span> clientes
+<span class="kw">EXCEPT</span>
+<span class="kw">SELECT</span> ciudad_departamento <span class="kw">FROM</span> departamentos;</code></pre></div>
+</section><section id="ejemplo-diferencia-con-not-in" class="slide level2">
+<h2><span class="header-section-number">7.27</span> Ejemplo diferencia con NOT IN</h2>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> c.ciudad
+<span class="kw">FROM</span> clientes c
+<span class="kw">WHERE</span> c.ciudad <span class="kw">NOT</span> <span class="kw">IN</span> (
+  <span class="kw">SELECT</span> d.ciudad_departamento
+  <span class="kw">FROM</span> departamentos d);</code></pre></div>
+</section><section id="ejemplo-diferencia-con-not-exists" class="slide level2">
+<h2><span class="header-section-number">7.28</span> Ejemplo diferencia con NOT EXISTS</h2>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> c.ciudad
+<span class="kw">FROM</span> clientes c
+<span class="kw">WHERE</span> <span class="kw">NOT</span> <span class="kw">EXISTS</span> (
+  <span class="kw">SELECT</span> *
+  <span class="kw">FROM</span> departamentos d
+  <span class="kw">WHERE</span> c.ciudad = d.ciudad_departamento);</code></pre></div>
+</section></section>
+<section><section id="operaciones-tablas" class="titleslide slide level1"><h1><span class="header-section-number">8</span> Operaciones tablas</h1></section><section id="funciones-de-agregación" class="slide level2">
+<h2><span class="header-section-number">8.1</span> Funciones de Agregación</h2>
+<ul>
+<li>Las funciones de agregación son funciones que permiten realizar <strong>operaciones sobre los datos de una columna</strong>. Algunas funciones son las siguientes:</li>
+</ul>
+<figure>
+<img src="../img/sql/sql-07.png" alt="Funciones de Agregación" text-align="center" style="width:50.0%" /><figcaption>Funciones de Agregación</figcaption>
+</figure>
+</section><section id="count" class="slide level2">
+<h2><span class="header-section-number">8.2</span> COUNT(*)</h2>
+<ul>
+<li>En general, las funciones de agregación se aplican a una columna, excepto COUNT que se aplica a todas las columnas de las tablas seleccionadas. Se indica como <strong>COUNT (*)</strong>.</li>
+</ul>
+</section><section id="count-1" class="slide level2">
+<h2><span class="header-section-number">8.3</span> COUNT</h2>
+<ul>
+<li>Sin embargo si se especifica <strong>COUNT(distinct nombre columna)</strong>, entonces sólo contará los valores que no son nulos ni repetidos, y se especifica <strong>COUNT(columna)</strong>, sólo contaría los valores que no son nulos.</li>
+</ul>
+</section><section id="ejemplo-count" class="slide level2">
+<h2><span class="header-section-number">8.4</span> Ejemplo COUNT</h2>
+<ul>
+<li>Por ejemplo si se quieren contar el número de clientes de la tabla clientes cuya ciudad es &quot;Madrid&quot;:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> <span class="fu">COUNT</span>(*) <span class="kw">AS</span> numero_clientes
+<span class="kw">FROM</span> clientes
+<span class="kw">WHERE</span> ciudad = <span class="st">&#39;Madrid&#39;</span>;</code></pre></div>
+</section><section id="agrupación-de-filas" class="slide level2">
+<h2><span class="header-section-number">8.5</span> Agrupación de filas</h2>
+<ul>
+<li>Al realizar una consulta, las filas se pueden agrupar de la siguiente manera:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> nombres_columnas
+<span class="kw">FROM</span> nombre_tabla [<span class="kw">WHERE</span> condiciones]
+<span class="kw">GROUP</span> <span class="kw">BY</span> nombres_columnas_segun_las_cuales_se_quiere_agrupar
+[<span class="kw">HAVING</span> condiciones_por_grupos]
+[<span class="kw">ORDER</span> <span class="kw">BY</span> nombre_columna_ordenacion [<span class="kw">DESC</span>] [, nombre_columna_ordenacion [<span class="kw">DESC</span>]...]];</code></pre></div>
+</section><section id="group-by" class="slide level2">
+<h2><span class="header-section-number">8.6</span> GROUP BY</h2>
+<ul>
+<li>La cláusula <strong>GROUP BY</strong> permite agrupar las filas según las columnas indicadas, excepto aquellas afectadas por funciones de agregación.</li>
+</ul>
+</section><section id="having" class="slide level2">
+<h2><span class="header-section-number">8.7</span> HAVING</h2>
+<ul>
+<li>La cláusula <strong>HAVING</strong> especifica las condiciones para recuperar grupos de filas.</li>
+</ul>
+</section><section id="ejemplo-agrupación-de-filas-1" class="slide level2">
+<h2><span class="header-section-number">8.8</span> Ejemplo agrupación de filas 1</h2>
+<ul>
+<li>Por ejemplo si se quiere conocer el importe total de los proyectos agrupados por clientes:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> codigo_cliente, <span class="fu">SUM</span>(precio) <span class="kw">AS</span> importe
+<span class="kw">FROM</span> clientes
+<span class="kw">GROUP</span> <span class="kw">BY</span> codigo_cliente;</code></pre></div>
+</section><section id="ejemplo-agrupación-de-filas-2" class="slide level2">
+<h2><span class="header-section-number">8.9</span> Ejemplo agrupación de filas 2</h2>
+<ul>
+<li>Y si solo queremos aquellos clientes con un importe facturado mayor de 10000 euros:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> codigo_cliente
+<span class="kw">FROM</span> clientes
+<span class="kw">GROUP</span> <span class="kw">BY</span> codigo_cliente
+<span class="kw">HAVING</span> <span class="fu">SUM</span>(precio)&gt;<span class="dv">10000</span></code></pre></div>
+</section><section id="vistas" class="slide level2">
+<h2><span class="header-section-number">8.10</span> Vistas</h2>
+<ul>
+<li>Una vista es una <strong>tabla ficticia</strong> que se construye a partir de una consulta a una tabla real:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">VIEW</span> nombre_vista [(lista_columnas)]
+<span class="kw">AS</span> consulta [<span class="kw">WITH</span> <span class="kw">CHECK</span> <span class="kw">OPTION</span>];</code></pre></div>
+</section><section id="borrar-vistas" class="slide level2">
+<h2><span class="header-section-number">8.11</span> Borrar vistas</h2>
+<ul>
+<li>Para <strong>borrar una vista</strong> se utiliza la sentencia:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">DROP</span> <span class="kw">VIEW</span> nombre_vista (RESTRICT|CASCADE);</code></pre></div>
+<ul>
+<li><p>La opción <strong>RESTRICT</strong> indica que la vista no se borrará si está referenciada.</p></li>
+<li><p>La opción <strong>CASCADE</strong> indica que todo lo que referencie a la vista se borrará con ésta.</p></li>
+</ul>
+</section><section id="tabla-clientes" class="slide level2">
+<h2><span class="header-section-number">8.12</span> Tabla clientes</h2>
+<ul>
+<li>Tabla clientes:</li>
+</ul>
+<figure>
+<img src="../img/sql/sql-08.png" alt="Tabla clientes" text-align="center" style="width:50.0%" /><figcaption>Tabla clientes</figcaption>
+</figure>
+</section><section id="tabla-pedidos" class="slide level2">
+<h2><span class="header-section-number">8.13</span> Tabla pedidos</h2>
+<ul>
+<li>Tabla pedidos:</li>
+</ul>
+<figure>
+<img src="../img/sql/sql-09.png" alt="Tabla pedidos" text-align="center" style="width:50.0%" /><figcaption>Tabla pedidos</figcaption>
+</figure>
+</section><section id="ejemplo-vistas" class="slide level2">
+<h2><span class="header-section-number">8.14</span> Ejemplo Vistas</h2>
+<ul>
+<li>Si se quiere crear una vista que indique para cada cliente el número de pedidos que tiene encargados el cliente, se definiría la vista:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">VIEW</span> pedidos_por_cliente (codigo_cliente, num_pedidos) <span class="kw">AS</span>
+  <span class="kw">SELECT</span> c.codigo_cliente, <span class="fu">COUNT</span>(\*)
+  <span class="kw">FROM</span> pedidos p, clientes c
+  <span class="kw">WHERE</span> p.codigo_cliente = c.codigo_cliente
+  <span class="kw">GROUP</span> <span class="kw">BY</span> c.codigo_cliente;</code></pre></div>
+</section><section id="vista-pedidos-por-cliente" class="slide level2">
+<h2><span class="header-section-number">8.15</span> Vista pedidos por cliente</h2>
+<ul>
+<li>Vista pedidos por cliente:</li>
+</ul>
+<figure>
+<img src="../img/sql/sql-10.png" alt="Vista pedidos por cliente" text-align="center" style="width:50.0%" /><figcaption>Vista pedidos por cliente</figcaption>
+</figure>
+</section></section>
+    </div>
+  </div>
+
+  <script src="../lib/reveal.js/lib/js/head.min.js"></script>
+  <script src="../lib/reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        pdfMaxPagesPerSlide: 1,
+transition: 'convex',
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1024,
+        height: 576,
+        // Factor of the display size that should remain empty around the content
+        margin: 0.3,
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 0.1,
+        maxScale: 1.9,
+
+        menu: {
+            // Specifies which side of the presentation the menu will
+            // be shown. Use 'left' or 'right'.
+            side: 'left',
+
+            // Add slide numbers to the titles in the slide list.
+            // Use 'true' or format string (same as reveal.js slide numbers)
+            numbers: false,
+
+            // Specifies which slide elements will be used for generating
+            // the slide titles in the menu. The default selects the first
+            // heading element found in the slide, but you can specify any
+            // valid css selector and the text from the first matching
+            // element will be used.
+            // Note: that a section data-menu-title attribute or an element
+            // with a menu-title class will take precedence over this option
+            titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+            // Hide slides from the menu that do not have a title.
+            // Set to 'true' to only list slides with titles.
+            hideMissingTitles: false,
+
+            // Add markers to the slide titles to indicate the
+            // progress through the presentation
+            markers: false,
+
+            // Specify custom panels to be included in the menu, by
+            // providing an array of objects with 'title', 'icon'
+            // properties, and either a 'src' or 'content' property.
+            custom: false,
+
+            // Specifies the themes that will be available in the themes
+            // menu panel. Set to 'false' to hide themes panel.
+            themes: [
+                { name: 'Black', theme: '../lib/reveal.js/css/theme/black.css' },
+                { name: 'White', theme: '../lib/reveal.js/css/theme/white.css' },
+                { name: 'League', theme: '../lib/reveal.js/css/theme/league.css' },
+                { name: 'Sky', theme: '../lib/reveal.js/css/theme/sky.css' },
+                { name: 'Beige', theme: '../lib/reveal.js/css/theme/beige.css' },
+                { name: 'Simple', theme: '../lib/reveal.js/css/theme/simple.css' },
+                { name: 'Serif', theme: '../lib/reveal.js/css/theme/serif.css' },
+                { name: 'Blood', theme: '../lib/reveal.js/css/theme/blood.css' },
+                { name: 'Night', theme: '../lib/reveal.js/css/theme/night.css' },
+                { name: 'Moon', theme: '../lib/reveal.js/css/theme/moon.css' },
+                { name: 'Solarized', theme: '../lib/reveal.js/css/theme/solarized.css' }
+            ],
+
+            // Specifies if the transitions menu panel will be shown.
+            transitions: true,
+
+            // Adds a menu button to the slides to open the menu panel.
+            // Set to 'false' to hide the button.
+            openButton: true,
+
+            // If 'true' allows the slide number in the presentation to
+            // open the menu panel. The reveal.js slideNumber option must
+            // be displayed for this to take effect
+            openSlideNumber: false,
+
+            // If true allows the user to open and navigate the menu using
+            // the keyboard. Standard keyboard interaction with reveal
+            // will be disabled while the menu is open.
+            keyboard: true
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '../lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: '../lib/reveal.js/plugin/notes/notes.js', async: true },
+          //{ src: '../lib/reveal.js/plugin/search/search.js', async: true },
+          { src: '../lib/reveal.js-menu/menu.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

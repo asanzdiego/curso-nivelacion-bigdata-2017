@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="generator" content="pandoc">
+  <meta name="description" content="Ubuntu" />
+  <meta name="author" content="Adolfo Sanz De Diego">
+  <title>Ubuntu</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../lib/reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../lib/reveal.js-menu/menu.css">
+  <link rel="stylesheet" href="../lib/reveal.js/css/theme/league.css" id="theme">
+
+  <!-- For syntax highlighting -->
+  <link rel="stylesheet" href="../lib/reveal.js/lib/css/zenburn.css">
+  
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../lib/reveal.js/css/print/pdf.css' : '../lib/reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+
+  <style type="text/css">
+    code{
+      white-space: pre;
+    }
+    .reveal pre code {
+      background: rgba(255, 255, 255, 0.7);
+      color: rgba(0, 0, 0, 0.7);
+    }
+    .reveal section img {
+      margin: 15px 0px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+    strong {
+      color: #777
+    }
+    a:hover {
+      text-decoration: underline !important;
+    }
+    h1.title {
+      font-size: 350% !important;
+    }
+    h1 {
+      font-size: 250% !important;
+    }
+    h2 {
+      font-size: 150% !important;
+    }
+    h3 {
+      font-size: 100% !important;
+    }
+    @media print {
+      #only-print-parent { display: table !important; }
+      #only-print-child { display: table-cell !important; vertical-align: middle;}
+      h1.title { font-size: 400% !important;}
+      h1 { font-size: 300% !important; }
+      h2 { font-size: 200% !important; }
+      h3 { font-size: 150% !important; }
+    }
+  </style>
+  <!--[if lt IE 9]>
+  <script src="../lib/reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="only-print-parent">
+    <div id="only-print-child">
+      <h1 class="title">Ubuntu</h2>
+      <h2 class="author">Adolfo Sanz De Diego</h2>
+      <h3 class="date">Octubre 2017</h3>
+    </div>
+</section>
+
+<section><section id="acerca-de" class="titleslide slide level1"><h1><span class="header-section-number">1</span> Acerca de</h1></section><section id="autor" class="slide level2">
+<h2><span class="header-section-number">1.1</span> Autor</h2>
+<ul>
+<li><strong>Adolfo Sanz De Diego</strong>
+<ul>
+<li>Blog: <a href="http://asanzdiego.blogspot.com.es/">asanzdiego.blogspot.com.es</a></li>
+<li>Correo: <a href="mailto:asanzdiego@gmail.com">asanzdiego@gmail.com</a></li>
+<li>GitHub: <a href="http://github.com/asanzdiego">github.com/asanzdiego</a></li>
+<li>Twitter: <a href="http://twitter.com/asanzdiego">twitter.com/asanzdiego</a></li>
+<li>LinkedIn: <a href="http://www.linkedin.com/in/asanzdiego">in/asanzdiego</a></li>
+<li>SlideShare: <a href="http://www.slideshare.net/asanzdiego/">slideshare.net/asanzdiego</a></li>
+</ul></li>
+</ul>
+</section><section id="licencia" class="slide level2">
+<h2><span class="header-section-number">1.2</span> Licencia</h2>
+<ul>
+<li><strong>Copyright:</strong>
+<ul>
+<li>Antonio Sarasa Cabezuelo &lt;<a href="mailto:antoniosarasa@campusciff.net">antoniosarasa@campusciff.net</a>&gt;</li>
+</ul></li>
+</ul>
+</section><section id="fuente" class="slide level2">
+<h2><span class="header-section-number">1.3</span> Fuente</h2>
+<ul>
+<li>Las slides y sus fuentes las podéis encontrar en:
+<ul>
+<li><a href="https://github.com/asanzdiego/curso-intro-linux-web-sql-2016" class="uri">https://github.com/asanzdiego/curso-intro-linux-web-sql-2016</a></li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="introducción" class="titleslide slide level1"><h1><span class="header-section-number">2</span> Introducción</h1></section><section id="qué-es" class="slide level2">
+<h2><span class="header-section-number">2.1</span> ¿Qué es?</h2>
+<ul>
+<li><p>Ubuntu es una distribución de <strong>GNU/Linux</strong>.</p></li>
+<li><p>GNU/Linux es un Sistema Operativo que se distribuye como <strong>Software Libre</strong>.</p></li>
+</ul>
+</section><section id="la-interfaz-superior" class="slide level2">
+<h2><span class="header-section-number">2.2</span> La interfaz superior</h2>
+<ul>
+<li>En la parte superior de la pantalla principal hay unos <strong>iconos</strong> de la red, el sonido, la fecha y el de apagar, reiniciar el equipo junto a otras opciones, como la configuración del sistema.</li>
+</ul>
+<figure>
+<img src="../img/ubuntu/ubuntu-01.png" alt="La interfaz superior" text-align="center" style="width:50.0%" /><figcaption>La interfaz superior</figcaption>
+</figure>
+</section><section id="la-interfaz-izquierda" class="slide level2">
+<h2><span class="header-section-number">2.3</span> La interfaz izquierda</h2>
+<ul>
+<li>En el lateral izquierdo están los iconos de algunas <strong>aplicaciones</strong> que que se instalan por defecto como LibreOffice (suite ofimatica que abre y guarda archivos de Word, Excel y PowerPoint), el navegador Firefox, etc.</li>
+</ul>
+<figure>
+<img src="../img/ubuntu/ubuntu-02.png" alt="La interfaz izquierda" text-align="center" style="width:50.0%" /><figcaption>La interfaz izquierda</figcaption>
+</figure>
+</section></section>
+<section><section id="archivos" class="titleslide slide level1"><h1><span class="header-section-number">3</span> Archivos</h1></section><section id="nautilus" class="slide level2">
+<h2><span class="header-section-number">3.1</span> Nautilus</h2>
+<ul>
+<li>El <strong>navegador de archivos</strong> de Ubuntu se denomina Nautilus (es el equivalente al Explorador de Windows), y se localiza en la barra izquierda debajo del logo de Ubuntu.</li>
+</ul>
+<figure>
+<img src="../img/ubuntu/ubuntu-03.png" alt="Nautilus" text-align="center" style="width:50.0%" /><figcaption>Nautilus</figcaption>
+</figure>
+</section><section id="apariencia" class="slide level2">
+<h2><span class="header-section-number">3.2</span> Apariencia</h2>
+<ul>
+<li>A la <strong>izquierda</strong> están los directorios, los discos duros, extraibles, etc, y a la <strong>derecha</strong> lo que hay dentro de cada uno de ellos.</li>
+</ul>
+<figure>
+<img src="../img/ubuntu/ubuntu-04.png" alt="Modo Iconos" text-align="center" style="width:50.0%" /><figcaption>Modo Iconos</figcaption>
+</figure>
+</section><section id="modos" class="slide level2">
+<h2><span class="header-section-number">3.3</span> Modos</h2>
+<ul>
+<li>Los archivos pueden verse de dos formas (<strong>modo iconos, modo lista</strong>)</li>
+</ul>
+<figure>
+<img src="../img/ubuntu/ubuntu-05.png" alt="Modo Lista" text-align="center" style="width:50.0%" /><figcaption>Modo Lista</figcaption>
+</figure>
+</section><section id="home" class="slide level2">
+<h2><span class="header-section-number">3.4</span> Home</h2>
+<ul>
+<li>Todo usuario tiene asociado una <strong>Carpeta personal</strong> dónde puede crear y borrar carpetas y documentos con entera libertad. Está situado en /home/nombreusuario y tiene asociado el icono de una casa.</li>
+</ul>
+<figure>
+<img src="../img/ubuntu/ubuntu-06.png" alt="Home" text-align="center" style="width:50.0%" /><figcaption>Home</figcaption>
+</figure>
+</section><section id="ruta" class="slide level2">
+<h2><span class="header-section-number">3.5</span> Ruta</h2>
+<ul>
+<li>Para <strong>saber donde estamos</strong> la ventana nos muestra la ruta (después de las flechas Lugar anterior y Siguiente). En la captura siguiente muestra que nos encontramos en /home/imágenes.</li>
+</ul>
+<figure>
+<img src="../img/ubuntu/ubuntu-07.png" alt="Ruta" text-align="center" style="width:50.0%" /><figcaption>Ruta</figcaption>
+</figure>
+</section><section id="el-raiz" class="slide level2">
+<h2><span class="header-section-number">3.6</span> El raiz</h2>
+<ul>
+<li>El sistema de archivos tiene un <strong>directorio principal (/)</strong> dónde se encuentran el resto de carpetas o archivos:</li>
+</ul>
+<figure>
+<img src="../img/ubuntu/ubuntu-08.png" alt="El raiz" text-align="center" style="width:50.0%" /><figcaption>El raiz</figcaption>
+</figure>
+</section><section id="los-discos-duros" class="slide level2">
+<h2><span class="header-section-number">3.7</span> Los discos duros</h2>
+<ul>
+<li><p>En Linux no existen letras (C:,D:) para referirse a las unidades.</p></li>
+<li><p>Los discos duros comienzan con la letra hd o sd si el disco es SATA seguido de una letra (indica el numero de disco duro) y un numero (indica el numero de la partición). Por ejemplo hda1 indica primera partición del primer disco duro.</p></li>
+<li><p>En Linux se trata <strong>todos los elementos como archivos (incluso el hardware)</strong> en los que se puede leer y escribir información.</p></li>
+</ul>
+</section><section id="archivos-ocultos" class="slide level2">
+<h2><span class="header-section-number">3.8</span> Archivos ocultos</h2>
+<ul>
+<li>Los archivos ocultos se caracterizan por llevar <strong>un . (punto) delante</strong> del nombre (para verlos se pulsa Ctrl+H).</li>
+</ul>
+</section><section id="buscar" class="slide level2">
+<h2><span class="header-section-number">3.9</span> Buscar</h2>
+<ul>
+<li>Para buscar algo en el sistema pulsamos sobre el <strong>logo de ubuntu</strong>, y en la cuadro de texto se introduce lo que se busca.</li>
+</ul>
+<figure>
+<img src="../img/ubuntu/ubuntu-09.png" alt="Buscar" text-align="center" style="width:50.0%" /><figcaption>Buscar</figcaption>
+</figure>
+</section></section>
+<section><section id="gestionar-carpetas" class="titleslide slide level1"><h1><span class="header-section-number">4</span> Gestionar carpetas</h1></section><section id="nueva-carpeta" class="slide level2">
+<h2><span class="header-section-number">4.1</span> Nueva carpeta</h2>
+<ul>
+<li>Para crear una carpeta nueva en nuestro directorio, se pulsa <strong>botón derecho</strong> del ratón, y aparece la opción de crear una nueva carpeta.</li>
+</ul>
+<figure>
+<img src="../img/ubuntu/ubuntu-10.png" alt="Nueva carpeta" text-align="center" style="width:50.0%" /><figcaption>Nueva carpeta</figcaption>
+</figure>
+</section><section id="propiedades" class="slide level2">
+<h2><span class="header-section-number">4.2</span> Propiedades</h2>
+<ul>
+<li>Se pueden consultar las propiedades de cada carpeta pulsando sobre <strong>botón derecho</strong> del ratón sobre la carpeta seleccionada.</li>
+</ul>
+<figure>
+<img src="../img/ubuntu/ubuntu-11.png" alt="Propiedades" text-align="center" style="width:50.0%" /><figcaption>Propiedades</figcaption>
+</figure>
+</section></section>
+<section><section id="el-terminal" class="titleslide slide level1"><h1><span class="header-section-number">5</span> El terminal</h1></section><section id="qué-es-1" class="slide level2">
+<h2><span class="header-section-number">5.1</span> ¿Qué es?</h2>
+<ul>
+<li>Es un <strong>intérprete de comandos</strong> que permite interactuar al usuario con el sistema.</li>
+</ul>
+<figure>
+<img src="../img/ubuntu/ubuntu-12.png" alt="El terminal" text-align="center" style="width:50.0%" /><figcaption>El terminal</figcaption>
+</figure>
+</section><section id="arranque" class="slide level2">
+<h2><span class="header-section-number">5.2</span> Arranque</h2>
+<ul>
+<li>Se puede arrancar de diversas formas:
+<ul>
+<li>Ctrl+Alt+T.</li>
+<li>Desde el buscador basta escribir Terminal.</li>
+</ul></li>
+</ul>
+</section><section id="indicador" class="slide level2">
+<h2><span class="header-section-number">5.3</span> Indicador</h2>
+<ul>
+<li>El terminal muestra en pantalla un indicador de línea de ordenes esperando que el usuario introduzca una orden. El indicador finaliza por un caracter <strong>$ en el caso de usuarios normales o # en el caso del superusuario</strong>.</li>
+</ul>
+</section><section id="usuario" class="slide level2">
+<h2><span class="header-section-number">5.4</span> Usuario</h2>
+<ul>
+<li>Al comienzo de la línea de ordenes aparece nuestro <strong>usuario y el nombre del ordenador</strong>.</li>
+</ul>
+<pre><code>usuario@ordenador:~$</code></pre>
+</section><section id="ejecutar" class="slide level2">
+<h2><span class="header-section-number">5.5</span> Ejecutar</h2>
+<ul>
+<li>Cuando escribimos un comando para que se ejecute, hay que pulsar la <strong>tecla Enter</strong>.</li>
+</ul>
+</section><section id="tabulador" class="slide level2">
+<h2><span class="header-section-number">5.6</span> Tabulador</h2>
+<ul>
+<li>Mientras escribimos si pulsamos el tabulador el terminal intenta <strong>autocompletar</strong> lo que escribimos,.</li>
+</ul>
+</section><section id="inicio" class="slide level2">
+<h2><span class="header-section-number">5.7</span> Inicio</h2>
+<ul>
+<li>El terminal siempre esta dentro de una carpeta especifica y puede navegar hasta otras carpetas y puede gestionar los archivos. En este sentido cuando se abre siempre esta en la <strong>carpeta personal del usuario</strong>.</li>
+</ul>
+</section><section id="case-sensitive" class="slide level2">
+<h2><span class="header-section-number">5.8</span> Case sensitive</h2>
+<ul>
+<li>Los comandos hay que teclearlos exactamente. En este sentido las <strong>letras mayúsculas y minúsculas se consideran como diferentes</strong>.</li>
+</ul>
+</section></section>
+<section><section id="principales-carpetas" class="titleslide slide level1"><h1><span class="header-section-number">6</span> Principales carpetas</h1></section><section id="introducción-1" class="slide level2">
+<h2><span class="header-section-number">6.1</span> Introducción</h2>
+<ul>
+<li>Lo siguiente no es muy importante, pero está bien conocerlo, al menos a grandes rasgos.</li>
+</ul>
+</section><section id="bin-y-boot" class="slide level2">
+<h2><span class="header-section-number">6.2</span> /, bin y boot</h2>
+<ul>
+<li><strong>/</strong>: Representa el nivel mas alto dentro de la jerarquía y contiene el resto de carpetas, particiones y otros dispositivos.</li>
+<li><strong>/bin</strong>: Contiene los ejecutables propios de Linux.</li>
+<li><strong>/boot</strong>: Contiene los archivos necesarios para el inicio del sistema.</li>
+</ul>
+</section><section id="dev-y-etc" class="slide level2">
+<h2><span class="header-section-number">6.3</span> dev y etc</h2>
+<ul>
+<li><strong>/dev</strong>: Contiene los dispositivos del sistema que son tratados como un fichero más.</li>
+<li><strong>/etc</strong>: Contiene los ficheros de configuración de los programas instalados y ciertos scripts que se ejecutan en el inicio del sistema. Pueden ser sustituidos por ficheros de configuración propios de cada usuario</li>
+</ul>
+</section><section id="home-y-lib" class="slide level2">
+<h2><span class="header-section-number">6.4</span> home y lib</h2>
+<ul>
+<li><strong>/home</strong>: Directorio que contiene un directorio (carpeta personal) por cada usuario dado de alta en el sistema.</li>
+<li><strong>/lib</strong>: Contiene las bibliotecas o librerías del sistema, así como módulos y controladores (drivers).</li>
+</ul>
+</section><section id="media-y-mnt" class="slide level2">
+<h2><span class="header-section-number">6.5</span> media y mnt</h2>
+<ul>
+<li><strong>/media</strong>: Es el lugar dónde se montan las unidades extraibles como los dispositivos USB, disqueteras, unidades de CD/DVD y en algunas distribuciones las particiones adicionales.</li>
+<li><strong>/mnt</strong>: Es el directorio que se suele usar para montajes temporales de unidades.</li>
+</ul>
+</section><section id="opt-y-proc" class="slide level2">
+<h2><span class="header-section-number">6.6</span> opt y proc</h2>
+<ul>
+<li><strong>/opt</strong>: Es el directorio destinado para guardar paquetes adicionales de aplicaciones.</li>
+<li><strong>/proc</strong>: Contiene informacion para la virtualizacion del sistema de ficheros de Linux.</li>
+</ul>
+</section><section id="root-sbin-y-srv" class="slide level2">
+<h2><span class="header-section-number">6.7</span> root, sbin y srv</h2>
+<ul>
+<li><strong>/root</strong>: Es la carpeta personal del administrador.</li>
+<li><strong>/sbin</strong>: Contiene los ejecutables de administración.</li>
+<li><strong>/srv</strong>: Contiene información del sistema sobre ciertos servicios que ofrece (FTP, HTTP...).</li>
+</ul>
+</section><section id="sys-y-tmp" class="slide level2">
+<h2><span class="header-section-number">6.8</span> sys y tmp</h2>
+<ul>
+<li><strong>/sys</strong>: Contiene información sobre los dispositivos tal y como los ve el kernel Linux.</li>
+<li><strong>/tmp</strong>: Es un directorio donde se almacenan ficheros temporales. Cada vez que se inicia el sistema este directorio se limpia.</li>
+</ul>
+</section><section id="usrbin-usrinclude" class="slide level2">
+<h2><span class="header-section-number">6.9</span> usr/bin, usr/include</h2>
+<ul>
+<li><strong>/usr/bin</strong>: Ejecutables de la mayoría de las aplicaciones de escritorio.</li>
+<li><strong>/usr/include</strong>: Archivos cabecera para C y C++.</li>
+</ul>
+</section><section id="usrlib-y-usrlocal" class="slide level2">
+<h2><span class="header-section-number">6.10</span> usr/lib y usr/local</h2>
+<ul>
+<li><strong>/usr/lib</strong>: Bibliotecas para C y C++.</li>
+<li><strong>/usr/local</strong>: Tiene una jerarquía parecida al directorio /usr.</li>
+</ul>
+</section><section id="usrsbin-usrshare-y-usrsrc" class="slide level2">
+<h2><span class="header-section-number">6.11</span> usr/sbin, usr/share y usr/src</h2>
+<ul>
+<li><strong>/usr/sbin</strong>: Comandos administrativos para el sistema.</li>
+<li>**/usr/share:Archivos compartidos como ficheros de configuración, imágenes, iconos...</li>
+<li><strong>/usr/src</strong>: Contiene el código fuente para el kernel de Linux.</li>
+</ul>
+</section><section id="var" class="slide level2">
+<h2><span class="header-section-number">6.12</span> var</h2>
+<ul>
+<li><strong>/var</strong>: Contiene ficheros del sistema como el buffer de impresión, logs(registros de datos):</li>
+</ul>
+</section><section id="varcache-y-varlib" class="slide level2">
+<h2><span class="header-section-number">6.13</span> var/cache y var/lib</h2>
+<ul>
+<li><strong>/var/cache</strong>: Datos cacheados para las aplicaciones.</li>
+<li><strong>/var/lib</strong>: Información sobre el estado actual de las aplicaciones.</li>
+</ul>
+</section><section id="varlock-y-varlog" class="slide level2">
+<h2><span class="header-section-number">6.14</span> var/lock y var/log</h2>
+<ul>
+<li><strong>/var/lock</strong>: Ficheros que se encargan de que un recurso solo sea usado por una aplicacion determinada que ha pedido su exclusividad, hasta que esta lo libere.</li>
+<li><strong>/var/log</strong>: Guarda los logs (registros de datos) del sistema.</li>
+</ul>
+</section><section id="varmail-varopt-y-varrun" class="slide level2">
+<h2><span class="header-section-number">6.15</span> var/mail, var/opt y var/run</h2>
+<ul>
+<li><strong>/var/mail</strong>: Guarda los correos de los usuarios.</li>
+<li><strong>/var/opt</strong>: Almacena los datos usados por los paquetes almacenados en /opt.</li>
+<li><strong>/var/run</strong>: Almacena informacion sobre el sistema desde que se inicio.</li>
+</ul>
+</section><section id="varspool-y-vartmp" class="slide level2">
+<h2><span class="header-section-number">6.16</span> var/spool y var/tmp</h2>
+<ul>
+<li><strong>/var/spool</strong>: Almacena datos esperando a que sean tratados por algún tipo de proceso.</li>
+<li><strong>/var/tmp</strong>: Almacena ficheros temporales que no se borran al reiniciar el equipo.</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="../lib/reveal.js/lib/js/head.min.js"></script>
+  <script src="../lib/reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        pdfMaxPagesPerSlide: 1,
+transition: 'convex',
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1024,
+        height: 576,
+        // Factor of the display size that should remain empty around the content
+        margin: 0.3,
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 0.1,
+        maxScale: 1.9,
+
+        menu: {
+            // Specifies which side of the presentation the menu will
+            // be shown. Use 'left' or 'right'.
+            side: 'left',
+
+            // Add slide numbers to the titles in the slide list.
+            // Use 'true' or format string (same as reveal.js slide numbers)
+            numbers: false,
+
+            // Specifies which slide elements will be used for generating
+            // the slide titles in the menu. The default selects the first
+            // heading element found in the slide, but you can specify any
+            // valid css selector and the text from the first matching
+            // element will be used.
+            // Note: that a section data-menu-title attribute or an element
+            // with a menu-title class will take precedence over this option
+            titleSelector: 'h1, h2, h3, h4, h5, h6',
+
+            // Hide slides from the menu that do not have a title.
+            // Set to 'true' to only list slides with titles.
+            hideMissingTitles: false,
+
+            // Add markers to the slide titles to indicate the
+            // progress through the presentation
+            markers: false,
+
+            // Specify custom panels to be included in the menu, by
+            // providing an array of objects with 'title', 'icon'
+            // properties, and either a 'src' or 'content' property.
+            custom: false,
+
+            // Specifies the themes that will be available in the themes
+            // menu panel. Set to 'false' to hide themes panel.
+            themes: [
+                { name: 'Black', theme: '../lib/reveal.js/css/theme/black.css' },
+                { name: 'White', theme: '../lib/reveal.js/css/theme/white.css' },
+                { name: 'League', theme: '../lib/reveal.js/css/theme/league.css' },
+                { name: 'Sky', theme: '../lib/reveal.js/css/theme/sky.css' },
+                { name: 'Beige', theme: '../lib/reveal.js/css/theme/beige.css' },
+                { name: 'Simple', theme: '../lib/reveal.js/css/theme/simple.css' },
+                { name: 'Serif', theme: '../lib/reveal.js/css/theme/serif.css' },
+                { name: 'Blood', theme: '../lib/reveal.js/css/theme/blood.css' },
+                { name: 'Night', theme: '../lib/reveal.js/css/theme/night.css' },
+                { name: 'Moon', theme: '../lib/reveal.js/css/theme/moon.css' },
+                { name: 'Solarized', theme: '../lib/reveal.js/css/theme/solarized.css' }
+            ],
+
+            // Specifies if the transitions menu panel will be shown.
+            transitions: true,
+
+            // Adds a menu button to the slides to open the menu panel.
+            // Set to 'false' to hide the button.
+            openButton: true,
+
+            // If 'true' allows the slide number in the presentation to
+            // open the menu panel. The reveal.js slideNumber option must
+            // be displayed for this to take effect
+            openSlideNumber: false,
+
+            // If true allows the user to open and navigate the menu using
+            // the keyboard. Standard keyboard interaction with reveal
+            // will be disabled while the menu is open.
+            keyboard: true
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '../lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: '../lib/reveal.js/plugin/notes/notes.js', async: true },
+          //{ src: '../lib/reveal.js/plugin/search/search.js', async: true },
+          { src: '../lib/reveal.js-menu/menu.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
