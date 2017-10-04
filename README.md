@@ -1,4 +1,4 @@
-# Módulo de Adaptacion Big Data 2017
+# Máster en Business Analytics y Data Science (Módulo Nivelación)
 
 - [Syllabus](https://asanzdiego.github.io/curso-adaptacion-bigdata-2017/recursos/docs/Syllabus_ModuloNivelacion.pdf)
 
