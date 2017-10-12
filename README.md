@@ -36,7 +36,7 @@
 ## Ejercicios adicionales
 
 - [Curso de Codeacademy "Learn the Command Line"](https://www.codecademy.com/learn/learn-the-command-line)
-- [Curso de Codeacademy "Learn SQL](https://www.codecademy.com/learn/learn-sql)
+- [Curso de Codeacademy "Learn SQL"](https://www.codecademy.com/learn/learn-sql)
 - [Curso de Codeacademy "SQL: Table Transformation"](https://www.codecademy.com/learn/sql-table-transformation)
 - [Curso de Codeacademy "Learn Git"](https://www.codecademy.com/learn/learn-git)
 
