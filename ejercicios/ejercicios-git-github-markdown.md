@@ -2,11 +2,9 @@
 
 
 
-## Repositorio masteruah (I)
+## Repositorio masteruah
 
 1. Crear un repositorio en vuestro GitHub llamado **masteruah**.
-
-## Repositorio masteruah (II)
 
 1. Clonar vuestro repositio en local.
 
@@ -29,13 +27,11 @@ y hacer un coomit inicial con el mensaje **commit inicial**.
 
 1. Subir los cambios al repositorio remoto.
 
-## Ignorar archivos (I)
+## Ignorar archivos
 
 1. Crear en el repositorio local un fichero llamado **privado.txt**.
 
 1. Crear en el repositorio local una carpeta llamada **privada**.
-
-## Ignorar archivos (II)
 
 1. Realizar los cambios oportunos para que tanto el archivo como
 la carpeta sean ignorados por git.
@@ -113,15 +109,11 @@ y las **explicaciones y capturas de pantalla** que consideréis **necesarias** a
 
 1. Hacer un merge de la rama **v0.2** en la rama **master**.
 
-## Merge con conflicto (I)
+## Merge con conflicto
 
 1. En la rama **master** poner **Hola** en el fichero **1.txt** y hacer commit.
 
-## Merge con conflicto (II)
-
 1. Posicionarse en la rama **v0.2** y poner **Adios** en el fichero "1.txt" y hacer commit.
-
-## Merge con conflicto (III)
 
 1. Posicionarse de nuevo en la rama **master** y hacer un merge con la rama **v0.2**
 
