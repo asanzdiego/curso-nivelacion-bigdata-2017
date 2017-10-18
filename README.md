@@ -15,6 +15,11 @@
 - [Slides SQL](https://asanzdiego.github.io/curso-nivelacion-bigdata-2017/recursos/slides/export/sql-reveal-slides.html)
 - [Slides Git, GitHub y Markdown](https://asanzdiego.github.io/curso-nivelacion-bigdata-2017/recursos/slides/export/git-github-markdown-reveal-slides.html)
 
+## Recursos adicionales
+
+- [Manual de Bash](https://ubuntulife.files.wordpress.com/2009/02/bash.pdf)
+- [Manual de AWK](http://congresos.nnb.unam.mx/TIB2014/sites/default/files/TIB2014/manual_awk.pdf)
+
 ## Enunciados Ejercicios
 
 - [Enunciados Ejercicios XML y JSON](https://asanzdiego.github.io/curso-nivelacion-bigdata-2017/ejercicios/ejercicios-xml-json.pdf)
@@ -42,4 +47,4 @@
 
 ## Test de autoevaluación
 
-Próximamente...
+- Estarán disponibles en el Aula Virtual.
