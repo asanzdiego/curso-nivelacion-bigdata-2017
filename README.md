@@ -19,6 +19,7 @@
 
 - [Manual de Bash](https://ubuntulife.files.wordpress.com/2009/02/bash.pdf)
 - [Manual de AWK](http://congresos.nnb.unam.mx/TIB2014/sites/default/files/TIB2014/manual_awk.pdf)
+- [Inner Join VS Outer Join](https://es.stackoverflow.com/questions/36/cu%C3%A1l-es-la-diferencia-entre-un-inner-y-un-outer-join)
 
 ## Enunciados Ejercicios
 
