@@ -57,7 +57,7 @@
 - Minitutorial de GIT:
     - <https://try.github.io/>
 
-- Tutorial de GIT de codecademy;
+- Tutorial de GIT de codecademy:
     - <https://www.codecademy.com/learn/learn-git>
 
 - How GitHub Uses GitHub to Build GitHub:
@@ -753,7 +753,7 @@ Encabezado de segundo nivel
 - Texto tachado con ~~dos virgulillas~~.
 ~~~
 
-## tablas
+## Tablas
 
 | Header | Header | Right  |
 | ------ | ------ | -----: |
