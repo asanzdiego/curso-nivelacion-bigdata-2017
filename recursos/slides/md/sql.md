@@ -149,16 +149,18 @@ CONSTRAINT nombre_restricción [CHECK(condiciones)]
 
 ~~~{.sql}
 CREATE TABLE sucursal
-(nombre_sucursal VARCHAR2(15) CONSTRAINT suc_PK PRIMARY KEY,
-ciudad CHAR(20) NOT NULL CONSTRAINT cl_UK UNIQUE,
-activos NUMBER(12,2) default 0);
+(nombre_sucursal VARCHAR(15),
+ciudad CHAR(20) NOT NULL,
+activos DECIMAL(12,2) default 0,
+CONSTRAINT suc_PK PRIMARY KEY (nombre_sucursal),
+CONSTRAINT cl_UK UNIQUE (ciudad));
 ~~~
 
 ## Ejemplo 2
 
 ~~~{.sql}
 CREATE TABLE cliente
-(dni VARCHAR2(9) NOT NULL,
+(dni VARCHAR(9) NOT NULL,
 nombre_cliente CHAR(35) NOT NULL,
 domicilio CHAR(50) NOT NULL,
 CONSTRAINT cl_PK PRIMARY KEY (dni));
@@ -169,9 +171,8 @@ CONSTRAINT cl_PK PRIMARY KEY (dni));
 ~~~{.sql}
 CREATE TABLE cuenta
 (numero_cuenta CHAR (20) PRIMARY KEY,
-nombre_sucursal char(15)
-REFERENCES sucursal,
-saldo NUMBER(12,2) default 100,
+nombre_sucursal char(15) REFERENCES sucursal,
+saldo DECIMAL(12,2) default 100,
 CONSTRAINT imp_minimo CHECK(saldo >=100))
 ~~~
 
@@ -179,11 +180,9 @@ CONSTRAINT imp_minimo CHECK(saldo >=100))
 
 ~~~{.sql}
 CREATE TABLE impositor
-(dni CHAR(9) CONSTRAINT imp_dni_FK
-REFERENCES cliente,
-numero_cuenta CHAR(20) NOT NULL,
-CONSTRAINT imp_PK PRIMARY KEY (dni, numero_cuenta),
-CONSTRAINT imp_ct_FK FOREIGN KEY (numero_cuenta) REFERENCES cuenta)
+(dni VARCHAR(9) REFERENCES cliente,
+numero_cuenta CHAR(20) NOT NULL REFERENCES cuenta,
+CONSTRAINT imp_PK PRIMARY KEY (dni, numero_cuenta))
 ~~~
 
 ## PK y FK
@@ -222,9 +221,8 @@ por defecto.
 ~~~{.sql}
 CREATE TABLE cuenta
 (numero_cuenta CHAR (20) PRIMARY KEY,
-nombre_sucursal char(15)
-CONSTRAINT ct_FK REFERENCES sucursal on delete set null,
-saldo NUMBER(12,2) default 100,
+nombre_sucursal char(15) REFERENCES sucursal on delete set null,
+saldo DECIMAL(12,2) default 100,
 CONSTRAINT imp_minimo CHECK(saldo >=100))
 ~~~
 
@@ -232,12 +230,9 @@ CONSTRAINT imp_minimo CHECK(saldo >=100))
 
 ~~~{.sql}
 CREATE TABLE impositor
-(dni CHAR(9) CONSTRAINT imp_dni_FK
-REFERENCES cliente on delete cascade,
-numero_cuenta CHAR(20),
-CONSTRAINT imp_PK PRIMARY KEY (dni, numero_cuenta),
-CONSTRAINT imp_ct_FK FOREIGN KEY (numero_cuenta)
-REFERENCES cuenta on delete cascade)
+(dni CHAR(9) REFERENCES cliente on delete cascade,
+numero_cuenta CHAR(20) REFERENCES cuenta on delete cascade,
+CONSTRAINT imp_PK PRIMARY KEY (dni, numero_cuenta))
 ~~~
 
 ## ALTER TABLE
@@ -327,11 +322,11 @@ ENABLE CONSTRAINT nombre_restriccion
 ## Ejemplo modificación
 
 ~~~{.sql}
-ALTER TABLE cuenta ADD comision NUMBER(4,2);
+ALTER TABLE cuenta ADD comision DECIMAL(4,2);
 ALTER TABLE cuenta ADD fecha_apertura DATE;
 ALTER TABLE cuenta DROP COLUMN nombre_sucursal;
-ALTER TABLE cuenta MODIFY comision DEFAULT 1.5;
-ALTER TABLE cliente MODIFY nombre_cliente NULL;
+ALTER TABLE cuenta ALTER COLUMN comision SET DEFAULT 1.5;
+ALTER TABLE cliente CHANGE COLUMN nombre_cliente nombre_cliente CHAR(35) NULL;
 ALTER TABLE sucursal ADD CONSTRAINT cd_UK UNIQUE(ciudad);
 ~~~
 

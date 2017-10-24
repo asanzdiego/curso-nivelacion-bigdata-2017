@@ -57,7 +57,7 @@
 - Minitutorial de GIT:
     - <https://try.github.io/>
 
-- Tutorial de GIT de codecademy:
+- Tutorial de GIT de Codecademy:
     - <https://www.codecademy.com/learn/learn-git>
 
 - How GitHub Uses GitHub to Build GitHub:

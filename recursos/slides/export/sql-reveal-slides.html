@@ -231,13 +231,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </section><section id="ejemplo-1" class="slide level2">
 <h2><span class="header-section-number">4.9</span> Ejemplo 1</h2>
 <div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> sucursal
-(nombre_sucursal <span class="dt">VARCHAR2</span>(<span class="dv">15</span>) <span class="kw">CONSTRAINT</span> suc_PK <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,
-ciudad <span class="dt">CHAR</span>(<span class="dv">20</span>) <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">CONSTRAINT</span> cl_UK <span class="kw">UNIQUE</span>,
-activos <span class="dt">NUMBER</span>(<span class="dv">12</span>,<span class="dv">2</span>) <span class="kw">default</span> <span class="dv">0</span>);</code></pre></div>
+(nombre_sucursal <span class="dt">VARCHAR</span>(<span class="dv">15</span>),
+ciudad <span class="dt">CHAR</span>(<span class="dv">20</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,
+activos <span class="dt">DECIMAL</span>(<span class="dv">12</span>,<span class="dv">2</span>) <span class="kw">default</span> <span class="dv">0</span>,
+<span class="kw">CONSTRAINT</span> suc_PK <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (nombre_sucursal),
+<span class="kw">CONSTRAINT</span> cl_UK <span class="kw">UNIQUE</span> (ciudad));</code></pre></div>
 </section><section id="ejemplo-2" class="slide level2">
 <h2><span class="header-section-number">4.10</span> Ejemplo 2</h2>
 <div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> cliente
-(dni <span class="dt">VARCHAR2</span>(<span class="dv">9</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,
+(dni <span class="dt">VARCHAR</span>(<span class="dv">9</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,
 nombre_cliente <span class="dt">CHAR</span>(<span class="dv">35</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,
 domicilio <span class="dt">CHAR</span>(<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,
 <span class="kw">CONSTRAINT</span> cl_PK <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (dni));</code></pre></div>
@@ -245,18 +247,15 @@ domicilio <span class="dt">CHAR</span>(<span class="dv">50</span>) <span class="
 <h2><span class="header-section-number">4.11</span> Ejemplo 3</h2>
 <div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> cuenta
 (numero_cuenta <span class="dt">CHAR</span> (<span class="dv">20</span>) <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,
-nombre_sucursal <span class="dt">char</span>(<span class="dv">15</span>)
-<span class="kw">REFERENCES</span> sucursal,
-saldo <span class="dt">NUMBER</span>(<span class="dv">12</span>,<span class="dv">2</span>) <span class="kw">default</span> <span class="dv">100</span>,
+nombre_sucursal <span class="dt">char</span>(<span class="dv">15</span>) <span class="kw">REFERENCES</span> sucursal,
+saldo <span class="dt">DECIMAL</span>(<span class="dv">12</span>,<span class="dv">2</span>) <span class="kw">default</span> <span class="dv">100</span>,
 <span class="kw">CONSTRAINT</span> imp_minimo <span class="kw">CHECK</span>(saldo &gt;=<span class="dv">100</span>))</code></pre></div>
 </section><section id="ejemplo-4" class="slide level2">
 <h2><span class="header-section-number">4.12</span> Ejemplo 4</h2>
 <div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> impositor
-(dni <span class="dt">CHAR</span>(<span class="dv">9</span>) <span class="kw">CONSTRAINT</span> imp_dni_FK
-<span class="kw">REFERENCES</span> cliente,
-numero_cuenta <span class="dt">CHAR</span>(<span class="dv">20</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,
-<span class="kw">CONSTRAINT</span> imp_PK <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (dni, numero_cuenta),
-<span class="kw">CONSTRAINT</span> imp_ct_FK <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (numero_cuenta) <span class="kw">REFERENCES</span> cuenta)</code></pre></div>
+(dni <span class="dt">VARCHAR</span>(<span class="dv">9</span>) <span class="kw">REFERENCES</span> cliente,
+numero_cuenta <span class="dt">CHAR</span>(<span class="dv">20</span>) <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">REFERENCES</span> cuenta,
+<span class="kw">CONSTRAINT</span> imp_PK <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (dni, numero_cuenta))</code></pre></div>
 </section><section id="pk-y-fk" class="slide level2">
 <h2><span class="header-section-number">4.13</span> PK y FK</h2>
 <figure>
@@ -282,19 +281,15 @@ numero_cuenta <span class="dt">CHAR</span>(<span class="dv">20</span>) <span cla
 <h2><span class="header-section-number">4.16</span> Ejemplo 3 actualizado</h2>
 <div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> cuenta
 (numero_cuenta <span class="dt">CHAR</span> (<span class="dv">20</span>) <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,
-nombre_sucursal <span class="dt">char</span>(<span class="dv">15</span>)
-<span class="kw">CONSTRAINT</span> ct_FK <span class="kw">REFERENCES</span> sucursal <span class="kw">on</span> <span class="kw">delete</span> <span class="kw">set</span> <span class="kw">null</span>,
-saldo <span class="dt">NUMBER</span>(<span class="dv">12</span>,<span class="dv">2</span>) <span class="kw">default</span> <span class="dv">100</span>,
+nombre_sucursal <span class="dt">char</span>(<span class="dv">15</span>) <span class="kw">REFERENCES</span> sucursal <span class="kw">on</span> <span class="kw">delete</span> <span class="kw">set</span> <span class="kw">null</span>,
+saldo <span class="dt">DECIMAL</span>(<span class="dv">12</span>,<span class="dv">2</span>) <span class="kw">default</span> <span class="dv">100</span>,
 <span class="kw">CONSTRAINT</span> imp_minimo <span class="kw">CHECK</span>(saldo &gt;=<span class="dv">100</span>))</code></pre></div>
 </section><section id="ejemplo-4-actualizado" class="slide level2">
 <h2><span class="header-section-number">4.17</span> Ejemplo 4 actualizado</h2>
 <div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> impositor
-(dni <span class="dt">CHAR</span>(<span class="dv">9</span>) <span class="kw">CONSTRAINT</span> imp_dni_FK
-<span class="kw">REFERENCES</span> cliente <span class="kw">on</span> <span class="kw">delete</span> <span class="kw">cascade</span>,
-numero_cuenta <span class="dt">CHAR</span>(<span class="dv">20</span>),
-<span class="kw">CONSTRAINT</span> imp_PK <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (dni, numero_cuenta),
-<span class="kw">CONSTRAINT</span> imp_ct_FK <span class="kw">FOREIGN</span> <span class="kw">KEY</span> (numero_cuenta)
-<span class="kw">REFERENCES</span> cuenta <span class="kw">on</span> <span class="kw">delete</span> <span class="kw">cascade</span>)</code></pre></div>
+(dni <span class="dt">CHAR</span>(<span class="dv">9</span>) <span class="kw">REFERENCES</span> cliente <span class="kw">on</span> <span class="kw">delete</span> <span class="kw">cascade</span>,
+numero_cuenta <span class="dt">CHAR</span>(<span class="dv">20</span>) <span class="kw">REFERENCES</span> cuenta <span class="kw">on</span> <span class="kw">delete</span> <span class="kw">cascade</span>,
+<span class="kw">CONSTRAINT</span> imp_PK <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (dni, numero_cuenta))</code></pre></div>
 </section><section id="alter-table" class="slide level2">
 <h2><span class="header-section-number">4.18</span> ALTER TABLE</h2>
 <ul>
@@ -363,11 +358,11 @@ numero_cuenta <span class="dt">CHAR</span>(<span class="dv">20</span>),
 <span class="kw">ENABLE</span> <span class="kw">CONSTRAINT</span> nombre_restriccion</code></pre></div>
 </section><section id="ejemplo-modificación" class="slide level2">
 <h2><span class="header-section-number">4.27</span> Ejemplo modificación</h2>
-<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">ALTER</span> <span class="kw">TABLE</span> cuenta <span class="kw">ADD</span> comision <span class="dt">NUMBER</span>(<span class="dv">4</span>,<span class="dv">2</span>);
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">ALTER</span> <span class="kw">TABLE</span> cuenta <span class="kw">ADD</span> comision <span class="dt">DECIMAL</span>(<span class="dv">4</span>,<span class="dv">2</span>);
 <span class="kw">ALTER</span> <span class="kw">TABLE</span> cuenta <span class="kw">ADD</span> fecha_apertura <span class="dt">DATE</span>;
 <span class="kw">ALTER</span> <span class="kw">TABLE</span> cuenta <span class="kw">DROP</span> <span class="kw">COLUMN</span> nombre_sucursal;
-<span class="kw">ALTER</span> <span class="kw">TABLE</span> cuenta <span class="kw">MODIFY</span> comision <span class="kw">DEFAULT</span> <span class="fl">1.5</span>;
-<span class="kw">ALTER</span> <span class="kw">TABLE</span> cliente <span class="kw">MODIFY</span> nombre_cliente <span class="kw">NULL</span>;
+<span class="kw">ALTER</span> <span class="kw">TABLE</span> cuenta <span class="kw">ALTER</span> <span class="kw">COLUMN</span> comision <span class="kw">SET</span> <span class="kw">DEFAULT</span> <span class="fl">1.5</span>;
+<span class="kw">ALTER</span> <span class="kw">TABLE</span> cliente <span class="kw">CHANGE</span> <span class="kw">COLUMN</span> nombre_cliente nombre_cliente <span class="dt">CHAR</span>(<span class="dv">35</span>) <span class="kw">NULL</span>;
 <span class="kw">ALTER</span> <span class="kw">TABLE</span> sucursal <span class="kw">ADD</span> <span class="kw">CONSTRAINT</span> cd_UK <span class="kw">UNIQUE</span>(ciudad);</code></pre></div>
 </section><section id="borrado-de-tablas" class="slide level2">
 <h2><span class="header-section-number">4.28</span> Borrado de tablas</h2>
